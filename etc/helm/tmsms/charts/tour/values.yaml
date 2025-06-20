@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/tour"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

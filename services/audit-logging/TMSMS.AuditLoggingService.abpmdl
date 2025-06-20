@@ -1,0 +1,39 @@
+{
+  "packages": {
+    "TMSMS.AuditLoggingService": {
+      "path": "TMSMS.AuditLoggingService/TMSMS.AuditLoggingService.abppkg"
+    },
+    "TMSMS.AuditLoggingService.Contracts": {
+      "path": "TMSMS.AuditLoggingService.Contracts/TMSMS.AuditLoggingService.Contracts.abppkg"
+    },
+    "TMSMS.AuditLoggingService.Tests": {
+      "path": "TMSMS.AuditLoggingService.Tests/TMSMS.AuditLoggingService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

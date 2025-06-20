@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
+data:
+  dynamic-env.json: |-
+    {
+        "production": "true",
+        "application": {
+            "baseUrl": "{{ include "tmsms.hosts.angular" . }}",
+            "name": "TMSMS",
+            "logoUrl": ""
+        },
+        "oAuthConfig": {
+            "issuer": "{{ include "tmsms.hosts.authserver" . }}",
+            "redirectUri": "{{ include "tmsms.hosts.angular" . }}",
+            "requireHttps": "true",
+            "clientId": "Angular",
+            "responseType": "code",
+            "scope": "offline_access openid profile roles email phone AuthServer IdentityService AdministrationService SaasService AuditLoggingService GdprService ChatService FileManagementService LanguageService",
+            "strictDiscoveryDocumentValidation": false,
+            "skipIssuerCheck": true
+        },
+        "apis": {
+            "default": {
+                "url": "{{ include "tmsms.hosts.webgateway" . }}",
+                "rootNamespace": "TMSMS"
+            }
+        }
+    }

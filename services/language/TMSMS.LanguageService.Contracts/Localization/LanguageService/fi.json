@@ -1,0 +1,10 @@
+{
+  "culture": "fi",
+  "texts": {
+    "Welcome": "Tervetuloa",
+    "LongWelcomeMessage": "Tervetuloa sovellukseen. Tämä on ABP-kehykseen perustuva käynnistysprojekti. Lisätietoja on osoitteessa",
+    "Menu:Home": "Koti",
+    "Login": "Kirjaudu sisään",
+    "Menu:Dashboard": "Kojelauta"
+  }
+}

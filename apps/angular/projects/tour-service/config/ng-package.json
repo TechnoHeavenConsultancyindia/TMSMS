@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-entrypoint.schema.json",
+  "dest": "../../dist/tour-service/config",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}

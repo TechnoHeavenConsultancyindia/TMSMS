@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "TMSMS.WebGateway": {
+      "path": "TMSMS.WebGateway/TMSMS.WebGateway.abppkg"
+    }
+  }
+}

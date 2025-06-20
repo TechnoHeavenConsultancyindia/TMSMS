@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/agent"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

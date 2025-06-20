@@ -1,0 +1,59 @@
+{
+  "packages": {
+    "TMSMS.IdentityService": {
+      "path": "TMSMS.IdentityService/TMSMS.IdentityService.abppkg"
+    },
+    "TMSMS.IdentityService.Contracts": {
+      "path": "TMSMS.IdentityService.Contracts/TMSMS.IdentityService.Contracts.abppkg"
+    },
+    "TMSMS.IdentityService.Tests": {
+      "path": "TMSMS.IdentityService.Tests/TMSMS.IdentityService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

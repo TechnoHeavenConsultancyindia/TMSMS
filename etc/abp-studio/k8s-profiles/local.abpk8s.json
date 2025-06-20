@@ -1,0 +1,15 @@
+{
+  "config": {
+    "context": "docker-desktop",
+    "namespace": "tmsms-local"
+  },
+  "metadata": {
+    "dotnetEnvironment": "Staging"
+  },
+  "services": {
+    "tmsms-local-identity": {
+    },
+    "tmsms-local-web": {
+    }
+  }
+}

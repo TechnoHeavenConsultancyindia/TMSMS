@@ -1,0 +1,62 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@abp/*":["node_modules/@abp/*"],
+      "@volo/*": [
+        "node_modules/@volo/*"
+      ],
+      "agent-service": [
+        "projects/agent-service/src/public-api.ts"
+      ],
+      "agent-service/config": [
+        "projects/agent-service/config/src/public-api.ts"
+      ],
+      "common-service": [
+        "projects/common-service/src/public-api.ts"
+      ],
+      "common-service/config": [
+        "projects/common-service/config/src/public-api.ts"
+      ],
+      "restaurant-service": [
+        "projects/restaurant-service/src/public-api.ts"
+      ],
+      "restaurant-service/config": [
+        "projects/restaurant-service/config/src/public-api.ts"
+      ],
+      "tour-service": [
+        "projects/tour-service/src/public-api.ts"
+      ],
+      "tour-service/config": [
+        "projects/tour-service/config/src/public-api.ts"
+      ],
+      "transfer-service": [
+        "projects/transfer-service/src/public-api.ts"
+      ],
+      "transfer-service/config": [
+        "projects/transfer-service/config/src/public-api.ts"
+      ],
+      "visa-service": [
+        "projects/visa-service/src/public-api.ts"
+      ],
+      "visa-service/config": [
+        "projects/visa-service/config/src/public-api.ts"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  }
+}

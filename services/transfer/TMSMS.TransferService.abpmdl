@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "TMSMS.TransferService": {
+      "path": "TMSMS.TransferService/TMSMS.TransferService.abppkg"
+    },
+    "TMSMS.TransferService.Tests": {
+      "path": "TMSMS.TransferService.Tests/TMSMS.TransferService.Tests.abppkg"
+    },
+    "TMSMS.TransferService.Contracts": {
+      "path": "TMSMS.TransferService.Contracts/TMSMS.TransferService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

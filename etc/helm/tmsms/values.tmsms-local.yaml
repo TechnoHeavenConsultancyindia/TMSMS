@@ -1,0 +1,28 @@
+global:
+  hosts:
+    authserver: "[RELEASE_NAME]-authserver"
+    webgateway: "[RELEASE_NAME]-webgateway"
+    kibana: "[RELEASE_NAME]-kibana"
+    grafana: "[RELEASE_NAME]-grafana"
+    angular: "[RELEASE_NAME]-angular"
+  connectionStrings:
+    agent: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_AgentService; TrustServerCertificate=true; Connect Timeout=240;"
+    restaurant: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_RestaurantService; TrustServerCertificate=true; Connect Timeout=240;"
+    visa: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_VisaService; TrustServerCertificate=true; Connect Timeout=240;"
+    transfer: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_TransferService; TrustServerCertificate=true; Connect Timeout=240;"
+    common: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_CommonService; TrustServerCertificate=true; Connect Timeout=240;"
+    tour: "Server=[RELEASE_NAME]-sqlserver; User Id=sa; Password=myPassw@rd; Database=TMSMS_TourService; TrustServerCertificate=true; Connect Timeout=240;"
+    administration: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_Administration; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    blobStoring: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_BlobStoring; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    identity: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_Identity; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    saas: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_SaasService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    auditLogging: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_AuditLoggingService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    gdpr: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_GdprService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    filemanagement: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_FileManagementService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    language: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_LanguageService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+    chat: "Server=[RELEASE_NAME]-sqlserver,1433; Database=TMSMS_ChatService; User Id=sa; Password=myPassw@rd; TrustServerCertificate=true; Connect Timeout=240;"
+  dotnetEnvironment: "Staging"
+  enablePII: "true"
+  stringEncryptionDefaultPassPhrase: "XlR6sa4t8IJ4SojB"
+  abpStudioClient:
+    isLinkEnabled: "true"

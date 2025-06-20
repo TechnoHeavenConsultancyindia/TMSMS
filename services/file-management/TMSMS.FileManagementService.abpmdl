@@ -1,0 +1,43 @@
+{
+  "packages": {
+    "TMSMS.FileManagementService": {
+      "path": "TMSMS.FileManagementService/TMSMS.FileManagementService.abppkg"
+    },
+    "TMSMS.FileManagementService.Contracts": {
+      "path": "TMSMS.FileManagementService.Contracts/TMSMS.FileManagementService.Contracts.abppkg"
+    },
+    "TMSMS.FileManagementService.Tests": {
+      "path": "TMSMS.FileManagementService.Tests/TMSMS.FileManagementService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.FileManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

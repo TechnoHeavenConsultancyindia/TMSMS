@@ -1,0 +1,4 @@
+image:
+  repository: "tmsms/angular"
+  tag: "latest"
+  pullPolicy: IfNotPresent

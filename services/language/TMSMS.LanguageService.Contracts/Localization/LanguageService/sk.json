@@ -1,0 +1,10 @@
+{
+  "culture": "sk",
+  "texts": {
+    "Welcome": "Vitajte",
+    "LongWelcomeMessage": "Vitajte v aplikácii. Toto je štartovací projekt založený na ABP frameworku. Viac informácií nájdete na stránke",
+    "Menu:Home": "Domov",
+    "Login": "Prihlásenie",
+    "Menu:Dashboard": "Dashboard"
+  }
+}

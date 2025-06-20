@@ -1,0 +1,107 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-{{ .Chart.Name }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Release.Name }}-{{ .Chart.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Release.Name }}-{{ .Chart.Name }}"
+    spec:
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+        name: "{{ .Release.Name }}-{{ .Chart.Name }}"
+        ports:
+        - name: "http"
+          containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /health-status
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 3
+        env:
+        - name: "DOTNET_ENVIRONMENT"
+          value: "{{ .Values.global.dotnetEnvironment }}"
+        - name: "ConnectionStrings__IdentityService"
+          value: "{{ .Values.global.connectionStrings.identity | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AdministrationService"
+          value: "{{ .Values.global.connectionStrings.administration | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AbpBlobStoring"
+          value: "{{ .Values.global.connectionStrings.blobStoring | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AuditLoggingService"
+          value: "{{ .Values.global.connectionStrings.auditLogging | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__SaasService"
+          value: "{{ .Values.global.connectionStrings.saas | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__LanguageService"
+          value: "{{ .Values.global.connectionStrings.language | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "App__CorsOrigins"
+          value: "{{ include "tmsms.hosts.webgateway" . }}"
+        - name: App__EnablePII
+          value: "{{ .Values.global.enablePII }}"
+        - name: "App__HealthUiCheckUrl"
+          value: "http://{{ .Release.Name }}-identity/health-status"
+        - name: "App__InitialAdminEmailAddress"
+          value: "{{ .Values.initialAdminEmailAddress }}"
+        - name: "App__InitialAdminPassword"
+          value: "{{ .Values.initialAdminPassword }}"
+        - name: "Swagger__IsEnabled"
+          value: "{{ .Values.swagger.isEnabled }}"
+        - name: "AuthServer__Authority"
+          value: "{{ include "tmsms.hosts.authserver" . }}"
+        - name: "AuthServer__MetaAddress"
+          value: "http://{{ .Release.Name }}-authserver"
+        - name: "Redis__Configuration"
+          value: "{{ .Release.Name }}-redis"
+        - name: "RabbitMQ__Connections__Default__HostName"
+          value: "{{ .Release.Name }}-rabbitmq"
+        - name: "ElasticSearch__IsLoggingEnabled"
+          value: "{{ .Values.global.elasticSearch.isLoggingEnabled }}"
+        - name: "ElasticSearch__Url"
+          value: "http://{{ .Release.Name }}-elasticsearch:{{ .Values.global.elasticSearch.port }}"
+        - name: "StringEncryption__DefaultPassPhrase"
+          value: "{{ .Values.global.stringEncryptionDefaultPassPhrase }}"
+        - name: "OpenIddict__Applications__Angular__RootUrl"
+          value: "{{ include "tmsms.hosts.angular" . }}"
+        - name: "OpenIddict__Applications__WebGateway__RootUrl"
+          value: "{{ include "tmsms.hosts.webgateway" . }}"
+        - name: "OpenIddict__Resources__AgentService__RootUrl"
+          value: "http://{{ .Release.Name }}-agent"
+        - name: "OpenIddict__Resources__RestaurantService__RootUrl"
+          value: "http://{{ .Release.Name }}-restaurant"
+        - name: "OpenIddict__Resources__VisaService__RootUrl"
+          value: "http://{{ .Release.Name }}-visa"
+        - name: "OpenIddict__Resources__TransferService__RootUrl"
+          value: "http://{{ .Release.Name }}-transfer"
+        - name: "OpenIddict__Resources__CommonService__RootUrl"
+          value: "http://{{ .Release.Name }}-common"
+        - name: "OpenIddict__Resources__TourService__RootUrl"
+          value: "http://{{ .Release.Name }}-tour"
+        - name: "OpenIddict__Resources__AuthServer__RootUrl"
+          value: "http://{{ .Release.Name }}-authserver"
+        - name: "OpenIddict__Resources__AdministrationService__RootUrl"
+          value: "http://{{ .Release.Name }}-administration"
+        - name: "OpenIddict__Resources__IdentityService__RootUrl"
+          value: "http://{{ .Release.Name }}-identity"
+        - name: "OpenIddict__Resources__SaasService__RootUrl"
+          value: "http://{{ .Release.Name }}-saas"
+        - name: "OpenIddict__Resources__AuditLoggingService__RootUrl"
+          value: "http://{{ .Release.Name }}-auditlogging"
+        - name: "OpenIddict__Resources__GdprService__RootUrl"
+          value: "http://{{ .Release.Name }}-gdpr"
+        - name: "OpenIddict__Resources__FileManagementService__RootUrl"
+          value: "http://{{ .Release.Name }}-fileManagement"
+        - name: "OpenIddict__Resources__LanguageService__RootUrl"
+          value: "http://{{ .Release.Name }}-language"
+        - name: "OpenIddict__Resources__ChatService__RootUrl"
+          value: "http://{{ .Release.Name }}-chat"
+        - name: "AbpStudioClient__StudioUrl"
+          value: "{{ .Values.global.abpStudioClient.studioUrl }}"
+        - name: "AbpStudioClient__IsLinkEnabled"
+          value: "{{ .Values.global.abpStudioClient.isLinkEnabled }}"

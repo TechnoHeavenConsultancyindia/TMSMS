@@ -1,0 +1,55 @@
+{
+  "packages": {
+    "TMSMS.AdministrationService": {
+      "path": "TMSMS.AdministrationService/TMSMS.AdministrationService.abppkg"
+    },
+    "TMSMS.AdministrationService.Contracts": {
+      "path": "TMSMS.AdministrationService.Contracts/TMSMS.AdministrationService.Contracts.abppkg"
+    },
+    "TMSMS.AdministrationService.Tests": {
+      "path": "TMSMS.AdministrationService.Tests/TMSMS.AdministrationService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.TextTemplateManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

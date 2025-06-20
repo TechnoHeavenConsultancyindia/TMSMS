@@ -1,0 +1,467 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false,
+    "schematicCollections": ["@angular-eslint/schematics"]
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "t-mSMS": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/t-mSMS",
+      "sourceRoot": "projects/t-mSMS/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/t-mSMS",
+            "index": "projects/t-mSMS/src/index.html",
+            "main": "projects/t-mSMS/src/main.ts",
+            "polyfills": "projects/t-mSMS/src/polyfills.ts",
+            "tsConfig": "projects/t-mSMS/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "@ant-design/colors",
+              "chart.js",
+              "js-sha256",
+              "@uppy/xhr-upload",
+              "@uppy/dashboard",
+              "@uppy/core"
+            ],
+            "assets": [
+              "projects/t-mSMS/src/favicon.ico",
+              "projects/t-mSMS/src/assets",
+              {
+                "glob": "web.config",
+                "input": ".",
+                "output": "."
+              }
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@swimlane/ngx-datatable/index.css",
+                "inject": true,
+                "bundleName": "ngx-datatable-index"
+              },
+              {
+                "input": "node_modules/@swimlane/ngx-datatable/assets/icons.css",
+                "inject": true,
+                "bundleName": "ngx-datatable-icons"
+              },
+              {
+                "input": "node_modules/@swimlane/ngx-datatable/themes/material.css",
+                "inject": true,
+                "bundleName": "ngx-datatable-material"
+              },
+              {
+                "input": "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+                "inject": true,
+                "bundleName": "fontawesome-all.min"
+              },
+              {
+                "input": "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
+                "inject": true,
+                "bundleName": "fontawesome-v4-shims.min"
+              },
+              {
+                "input": "node_modules/ng-zorro-antd/tree/style/index.min.css",
+                "inject": false,
+                "bundleName": "ng-zorro-antd-tree"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/font-bundle.css",
+                "inject": false,
+                "bundleName": "font-bundle"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/font-bundle.rtl.css",
+                "inject": false,
+                "bundleName": "font-bundle.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/dark.css",
+                "inject": false,
+                "bundleName": "dark"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/light.css",
+                "inject": false,
+                "bundleName": "light"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/dim.css",
+                "inject": false,
+                "bundleName": "dim"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-dim.css",
+                "inject": false,
+                "bundleName": "bootstrap-dim"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-dark.css",
+                "inject": false,
+                "bundleName": "bootstrap-dark"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-light.css",
+                "inject": false,
+                "bundleName": "bootstrap-light"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/ng-bundle.css",
+                "inject": false,
+                "bundleName": "ng-bundle"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/side-menu/layout-bundle.css",
+                "inject": false,
+                "bundleName": "layout-bundle"
+              },
+              {
+                "input": "node_modules/@volosoft/abp.ng.theme.lepton-x/assets/css/abp-bundle.css",
+                "inject": false,
+                "bundleName": "abp-bundle"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/dark.rtl.css",
+                "inject": false,
+                "bundleName": "dark.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/light.rtl.css",
+                "inject": false,
+                "bundleName": "light.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/dim.rtl.css",
+                "inject": false,
+                "bundleName": "dim.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-dim.rtl.css",
+                "inject": false,
+                "bundleName": "bootstrap-dim.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-dark.rtl.css",
+                "inject": false,
+                "bundleName": "bootstrap-dark.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/bootstrap-light.rtl.css",
+                "inject": false,
+                "bundleName": "bootstrap-light.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/ng-bundle.rtl.css",
+                "inject": false,
+                "bundleName": "ng-bundle.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/ngx-lepton-x/assets/css/side-menu/layout-bundle.rtl.css",
+                "inject": false,
+                "bundleName": "layout-bundle.rtl"
+              },
+              {
+                "input": "node_modules/@volosoft/abp.ng.theme.lepton-x/assets/css/abp-bundle.rtl.css",
+                "inject": false,
+                "bundleName": "abp-bundle.rtl"
+              },            
+              {
+                "input": "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+                "inject": true,
+                "bundleName": "bootstrap-icons"
+              },
+              "projects/t-mSMS/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "2.5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "100kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/t-mSMS/src/environments/environment.ts",
+                  "with": "projects/t-mSMS/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+		  "options": {
+		    "host": "172.10.1.181",
+		    "port": 4200
+		  },
+          "configurations": {
+            "production": {
+              "buildTarget": "t-mSMS:build:production"
+            },
+            "development": {
+              "buildTarget": "t-mSMS:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "t-mSMS:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/t-mSMS/src/test.ts",
+            "polyfills": "projects/t-mSMS/src/polyfills.ts",
+            "tsConfig": "projects/t-mSMS/tsconfig.spec.json",
+            "karmaConfig": "projects/t-mSMS/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/t-mSMS/src/favicon.ico",
+              "projects/t-mSMS/src/assets"
+            ],
+            "styles": ["projects/t-mSMS/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/t-mSMS/**/*.ts",
+              "projects/t-mSMS/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "tour-service": {
+      "projectType": "library",
+      "root": "projects/tour-service",
+      "sourceRoot": "projects/tour-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tour-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tour-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tour-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tour-service/src/test.ts",
+            "tsConfig": "projects/tour-service/tsconfig.spec.json",
+            "karmaConfig": "projects/tour-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "common-service": {
+      "projectType": "library",
+      "root": "projects/common-service",
+      "sourceRoot": "projects/common-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/common-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/common-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/common-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/common-service/src/test.ts",
+            "tsConfig": "projects/common-service/tsconfig.spec.json",
+            "karmaConfig": "projects/common-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "transfer-service": {
+      "projectType": "library",
+      "root": "projects/transfer-service",
+      "sourceRoot": "projects/transfer-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/transfer-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/transfer-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/transfer-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/transfer-service/src/test.ts",
+            "tsConfig": "projects/transfer-service/tsconfig.spec.json",
+            "karmaConfig": "projects/transfer-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "visa-service": {
+      "projectType": "library",
+      "root": "projects/visa-service",
+      "sourceRoot": "projects/visa-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/visa-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/visa-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/visa-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/visa-service/src/test.ts",
+            "tsConfig": "projects/visa-service/tsconfig.spec.json",
+            "karmaConfig": "projects/visa-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "restaurant-service": {
+      "projectType": "library",
+      "root": "projects/restaurant-service",
+      "sourceRoot": "projects/restaurant-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/restaurant-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/restaurant-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/restaurant-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/restaurant-service/src/test.ts",
+            "tsConfig": "projects/restaurant-service/tsconfig.spec.json",
+            "karmaConfig": "projects/restaurant-service/karma.conf.js"
+          }
+        }
+      }
+    },
+    "agent-service": {
+      "projectType": "library",
+      "root": "projects/agent-service",
+      "sourceRoot": "projects/agent-service/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/agent-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/agent-service/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/agent-service/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/agent-service/src/test.ts",
+            "tsConfig": "projects/agent-service/tsconfig.spec.json",
+            "karmaConfig": "projects/agent-service/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
+  }
+}

@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/filemanagement"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

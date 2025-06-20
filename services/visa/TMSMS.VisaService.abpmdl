@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "TMSMS.VisaService": {
+      "path": "TMSMS.VisaService/TMSMS.VisaService.abppkg"
+    },
+    "TMSMS.VisaService.Tests": {
+      "path": "TMSMS.VisaService.Tests/TMSMS.VisaService.Tests.abppkg"
+    },
+    "TMSMS.VisaService.Contracts": {
+      "path": "TMSMS.VisaService.Contracts/TMSMS.VisaService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

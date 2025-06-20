@@ -1,0 +1,10 @@
+{
+  "culture": "it",
+  "texts": {
+    "Welcome": "Benvenuto",
+    "LongWelcomeMessage": "Benvenuto nell'applicazione. Questo è un progetto di avvio basato sul framework ABP. Per maggiori informazioni visita",
+    "Menu:Home": "Home",
+    "Login": "Login",
+    "Menu:Dashboard": "Pannello di controllo"
+  }
+}

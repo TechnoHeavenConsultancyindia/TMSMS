@@ -1,0 +1,469 @@
+{
+  "id": "cc10b35e-9c81-4418-9ae2-461e444fbec2",
+  "template": "microservice",
+  "versions": {
+    "LeptonX": "4.2.0",
+    "AbpFramework": "9.2.0",
+    "AbpCommercial": "9.2.0",
+    "AbpStudio": "1.0.1",
+    "TargetDotnetFramework": "net9.0"
+  },
+  "folders": {
+    "items": {
+      "services": {},
+      "apps": {},
+      "gateways": {}
+    }
+  },
+  "runProfiles": {
+    "Default": {
+      "path": "etc/abp-studio/run-profiles/Default.abprun.json"
+    }
+  },
+  "modules": {
+    "TMSMS.AdministrationService": {
+      "path": "services/administration/TMSMS.AdministrationService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.IdentityService": {
+      "path": "services/identity/TMSMS.IdentityService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.SaasService": {
+      "path": "services/saas/TMSMS.SaasService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.ChatService": {
+      "path": "services/chat/TMSMS.ChatService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.AuditLoggingService": {
+      "path": "services/audit-logging/TMSMS.AuditLoggingService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.GdprService": {
+      "path": "services/gdpr/TMSMS.GdprService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.FileManagementService": {
+      "path": "services/file-management/TMSMS.FileManagementService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.LanguageService": {
+      "path": "services/language/TMSMS.LanguageService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.AuthServer": {
+      "path": "apps/auth-server/TMSMS.AuthServer.abpmdl",
+      "folder": "apps"
+    },
+    "TMSMS.WebGateway": {
+      "path": "gateways/web/TMSMS.WebGateway.abpmdl",
+      "folder": "gateways"
+    },
+    "TMSMS.TourService": {
+      "path": "services/tour/TMSMS.TourService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.CommonService": {
+      "path": "services/common/TMSMS.CommonService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.TransferService": {
+      "path": "services/transfer/TMSMS.TransferService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.VisaService": {
+      "path": "services/visa/TMSMS.VisaService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.RestaurantService": {
+      "path": "services/restaurant/TMSMS.RestaurantService.abpmdl",
+      "folder": "services"
+    },
+    "TMSMS.AgentService": {
+      "path": "services/agent/TMSMS.AgentService.abpmdl",
+      "folder": "services"
+    }
+  },
+  "k8sProfiles": {
+    "local": {
+      "path": "etc/abp-studio/k8s-profiles/local.abpk8s.json"
+    }
+  },
+  "commands": {
+    "helmBuildDotnetImage": {
+      "triggerTargets": [
+        "HELM_CHARTS_ROOT",
+        "HELM_MAIN_CHART",
+        "HELM_SUB_CHART"
+      ],
+      "executionTargets": [
+        "HELM_MAIN_CHART",
+        "HELM_SUB_CHART"
+      ],
+      "displayName": "Build Docker Image(s)",
+      "workingDirectory": "etc/helm",
+      "terminalCommand": "./build-image.ps1 -ProjectPath {{metadata.projectPath}} -ImageName {{metadata.imageName}} -ProjectType {{metadata.projectType}}",
+      "condition": "{{metadata.projectPath != null && metadata.imageName != null && metadata.projectType != null}}"
+    },
+    "helmInstallChart": {
+      "triggerTargets": [
+        "HELM_CHARTS_ROOT",
+        "HELM_MAIN_CHART"
+      ],
+      "executionTargets": [
+        "HELM_MAIN_CHART"
+      ],
+      "displayName": "Install Chart(s)",
+      "workingDirectory": "etc/helm",
+      "terminalCommand": "./install.ps1 -ChartName {{chart.name}} -Namespace {{profile.namespace}} -ReleaseName {{chart.name}}-{{profile.name}} -DotnetEnvironment {{metadata.dotnetEnvironment}} {{~if metadata.k8ssuffix}} -User {{metadata.k8ssuffix}}{{end}}",
+      "requireConfirmation": "true",
+      "confirmationText": "Are you sure to install the chart(s) for the profile {{ profile.name }}?"
+    },
+    "helmUninstallChart": {
+      "triggerTargets": [
+        "HELM_CHARTS_ROOT",
+        "HELM_MAIN_CHART"
+      ],
+      "executionTargets": [
+        "HELM_MAIN_CHART"
+      ],
+      "displayName": "Uninstall Chart(s)",
+      "workingDirectory": "etc/helm",
+      "terminalCommand": "./uninstall.ps1 -Namespace {{profile.namespace}} -ReleaseName {{chart.name}}-{{profile.name}} {{~if metadata.k8ssuffix}} -User {{metadata.k8ssuffix}}{{end}}",
+      "requireConfirmation": "true",
+      "confirmationText": "Are you sure to uninstall the chart(s) for the profile {{profile.name}}?"
+    },
+    "kubernetesRedeploy": {
+      "triggerTargets": [
+        "KUBERNETES_SERVICE"
+      ],
+      "executionTargets": [
+        "KUBERNETES_SERVICE"
+      ],
+      "displayName": "Redeploy",
+      "workingDirectory": "etc/helm",
+      "terminalCommand": "./build-image.ps1 -ProjectPath {{chart.metadata.projectPath}} -ImageName {{chart.metadata.imageName}} -ProjectType {{chart.metadata.projectType}} &&& ./install.ps1 -ChartName {{mainChart.name}} -Namespace {{profile.namespace}} -ReleaseName {{mainChart.name}}-{{profile.name}} -DotnetEnvironment {{mainChart.metadata.dotnetEnvironment}} {{~if metadata.k8ssuffix}} -User {{metadata.k8ssuffix}}{{end}}",
+      "requireConfirmation": "true",
+      "confirmationText": "Are you sure to redeploy the related chart '{{chart.name}}' for the service '{{name}}'?",
+      "condition": "{{chart != null && chart.metadata.projectPath != null && chart.metadata.imageName != null && chart.metadata.projectType != null}}"
+    },
+    "createTlsSecret": {
+      "triggerTargets": [
+        "HELM_CHARTS_ROOT"
+      ],
+      "executionTargets": [
+        "HELM_CHARTS_ROOT"
+      ],
+      "displayName": "Create Self-Signed TLS secret",
+      "workingDirectory": "etc/helm",
+      "terminalCommand": "./create-tls-secrets.ps1 -Namespace {{profile.namespace}} {{~if metadata.k8ssuffix}} -User {{metadata.k8ssuffix}}{{end}}"
+    }
+  },
+  "helm": {
+    "charts": {
+      "tmsms": {
+        "name": "tmsms",
+        "path": "etc/helm/tmsms",
+        "charts": {
+          "administration": {
+            "name": "administration",
+            "path": "etc/helm/tmsms/charts/administration",
+            "metadata": {
+              "projectPath": "../../services/administration/TMSMS.AdministrationService/TMSMS.AdministrationService.csproj",
+              "imageName": "tmsms/administration",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-administration$"
+            ]
+          },
+          "agent": {
+            "name": "agent",
+            "path": "etc/helm/tmsms/charts/agent",
+            "metadata": {
+              "projectPath": "../../services/agent/TMSMS.AgentService/TMSMS.AgentService.csproj",
+              "imageName": "tmsms/agent",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-agent$"
+            ]
+          },
+          "angular": {
+            "name": "angular",
+            "path": "etc/helm/tmsms/charts/angular",
+            "metadata": {
+              "projectPath": "../../apps/angular",
+              "imageName": "tmsms/angular",
+              "projectType": "angular"
+            },
+            "services": [
+              ".*-angular$"
+            ]
+          },
+          "auditlogging": {
+            "name": "auditlogging",
+            "path": "etc/helm/tmsms/charts/auditlogging",
+            "metadata": {
+              "projectPath": "../../services/audit-logging/TMSMS.AuditLoggingService/TMSMS.AuditLoggingService.csproj",
+              "imageName": "tmsms/auditlogging",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-auditlogging$"
+            ]
+          },
+          "authserver": {
+            "name": "authserver",
+            "path": "etc/helm/tmsms/charts/authserver",
+            "metadata": {
+              "projectPath": "../../apps/auth-server/TMSMS.AuthServer/TMSMS.AuthServer.csproj",
+              "imageName": "tmsms/authserver",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-authserver$"
+            ]
+          },
+          "chat": {
+            "name": "chat",
+            "path": "etc/helm/tmsms/charts/chat",
+            "metadata": {
+              "projectPath": "../../services/chat/TMSMS.ChatService/TMSMS.ChatService.csproj",
+              "imageName": "tmsms/chat",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-chat$"
+            ]
+          },
+          "common": {
+            "name": "common",
+            "path": "etc/helm/tmsms/charts/common",
+            "metadata": {
+              "projectPath": "../../services/common/TMSMS.CommonService/TMSMS.CommonService.csproj",
+              "imageName": "tmsms/common",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-common$"
+            ]
+          },
+          "elasticsearch": {
+            "name": "elasticsearch",
+            "path": "etc/helm/tmsms/charts/elasticsearch",
+            "metadata": {}
+          },
+          "filemanagement": {
+            "name": "filemanagement",
+            "path": "etc/helm/tmsms/charts/filemanagement",
+            "metadata": {
+              "projectPath": "../../services/file-management/TMSMS.FileManagementService/TMSMS.FileManagementService.csproj",
+              "imageName": "tmsms/filemanagement",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-filemanagement"
+            ]
+          },
+          "gdpr": {
+            "name": "gdpr",
+            "path": "etc/helm/tmsms/charts/gdpr",
+            "metadata": {
+              "projectPath": "../../services/gdpr/TMSMS.GdprService/TMSMS.GdprService.csproj",
+              "imageName": "tmsms/gdpr",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-gdpr$"
+            ]
+          },
+          "grafana": {
+            "name": "grafana",
+            "path": "etc/helm/tmsms/charts/grafana",
+            "metadata": {},
+            "services": [
+              ".*-grafana$"
+            ]
+          },
+          "identity": {
+            "name": "identity",
+            "path": "etc/helm/tmsms/charts/identity",
+            "metadata": {
+              "projectPath": "../../services/identity/TMSMS.IdentityService/TMSMS.IdentityService.csproj",
+              "imageName": "tmsms/identity",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-identity$"
+            ]
+          },
+          "kibana": {
+            "name": "kibana",
+            "path": "etc/helm/tmsms/charts/kibana",
+            "metadata": {},
+            "services": [
+              ".*-kibana$"
+            ]
+          },
+          "language": {
+            "name": "language",
+            "path": "etc/helm/tmsms/charts/language",
+            "metadata": {
+              "projectPath": "../../services/language/TMSMS.LanguageService/TMSMS.LanguageService.csproj",
+              "imageName": "tmsms/language",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-language"
+            ]
+          },
+          "prometheus": {
+            "name": "prometheus",
+            "path": "etc/helm/tmsms/charts/prometheus",
+            "metadata": {}
+          },
+          "rabbitmq": {
+            "name": "rabbitmq",
+            "path": "etc/helm/tmsms/charts/rabbitmq"
+          },
+          "redis": {
+            "name": "redis",
+            "path": "etc/helm/tmsms/charts/redis"
+          },
+          "restaurant": {
+            "name": "restaurant",
+            "path": "etc/helm/tmsms/charts/restaurant",
+            "metadata": {
+              "projectPath": "../../services/restaurant/TMSMS.RestaurantService/TMSMS.RestaurantService.csproj",
+              "imageName": "tmsms/restaurant",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-restaurant$"
+            ]
+          },
+          "saas": {
+            "name": "saas",
+            "path": "etc/helm/tmsms/charts/saas",
+            "metadata": {
+              "projectPath": "../../services/saas/TMSMS.SaasService/TMSMS.SaasService.csproj",
+              "imageName": "tmsms/saas",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-saas$"
+            ]
+          },
+          "sqlserver": {
+            "name": "sqlserver",
+            "path": "etc/helm/tmsms/charts/sqlserver"
+          },
+          "tour": {
+            "name": "tour",
+            "path": "etc/helm/tmsms/charts/tour",
+            "metadata": {
+              "projectPath": "../../services/tour/TMSMS.TourService/TMSMS.TourService.csproj",
+              "imageName": "tmsms/tour",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-tour$"
+            ]
+          },
+          "transfer": {
+            "name": "transfer",
+            "path": "etc/helm/tmsms/charts/transfer",
+            "metadata": {
+              "projectPath": "../../services/transfer/TMSMS.TransferService/TMSMS.TransferService.csproj",
+              "imageName": "tmsms/transfer",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-transfer$"
+            ]
+          },
+          "visa": {
+            "name": "visa",
+            "path": "etc/helm/tmsms/charts/visa",
+            "metadata": {
+              "projectPath": "../../services/visa/TMSMS.VisaService/TMSMS.VisaService.csproj",
+              "imageName": "tmsms/visa",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-visa$"
+            ]
+          },
+          "webgateway": {
+            "name": "webgateway",
+            "path": "etc/helm/tmsms/charts/webgateway",
+            "metadata": {
+              "projectPath": "../../gateways/web/TMSMS.WebGateway/TMSMS.WebGateway.csproj",
+              "imageName": "tmsms/webgateway",
+              "projectType": "dotnet"
+            },
+            "services": [
+              ".*-webgateway$"
+            ]
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "options": {
+    "httpRequests": {
+      "ignoredUrls": []
+    }
+  },
+  "creatingStudioConfiguration": {
+    "template": "microservice",
+    "createdAbpStudioVersion": "1.0.1",
+    "uiFramework": "angular",
+    "runInstallLibs": "true",
+    "useLocalReferences": "false",
+    "multiTenancy": "true",
+    "includeTests": "true",
+    "dynamicLocalization": "true",
+    "kubernetesConfiguration": "true",
+    "grafanaDashboard": "true",
+    "databaseProvider": "ef",
+    "databaseManagementSystem": "sqlserver",
+    "theme": "leptonx",
+    "themeStyle": "system",
+    "themeMenuPlacement": "side",
+    "mobileFramework": "none",
+    "progressiveWebApp": "",
+    "runProgressiveWebAppSupport": "",
+    "publicWebsite": "false",
+    "optionalModules": "GDPR FileManagement TextTemplateManagement AuditLogging Chat OpenIddictAdmin",
+    "socialLogin": "true",
+    "selectedLanguages": [
+      "English",
+      "English (United Kingdom)",
+      "简体中文",
+      "Español",
+      "العربية",
+      "हिन्दी",
+      "Português (Brasil)",
+      "Français",
+      "Русский",
+      "Deutsch (Deuthschland)",
+      "Türkçe",
+      "Italiano",
+      "Čeština",
+      "Magyar",
+      "Română (România)",
+      "Svenska",
+      "Suomi",
+      "Slovenčina",
+      "Íslenska",
+      "繁體中文"
+    ],
+    "defaultLanguage": "English",
+    "createCommand": "abp new TMSMS -t microservice --ui-framework angular --database-provider ef --database-management-system sqlserver --theme leptonx --skip-migrator  --without-cms-kit --dont-run-bundling -no-language-management -chat -file-management"
+  }
+}

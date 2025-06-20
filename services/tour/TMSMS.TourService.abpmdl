@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "TMSMS.TourService": {
+      "path": "TMSMS.TourService/TMSMS.TourService.abppkg"
+    },
+    "TMSMS.TourService.Tests": {
+      "path": "TMSMS.TourService.Tests/TMSMS.TourService.Tests.abppkg"
+    },
+    "TMSMS.TourService.Contracts": {
+      "path": "TMSMS.TourService.Contracts/TMSMS.TourService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

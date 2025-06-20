@@ -1,0 +1,43 @@
+{
+  "packages": {
+    "TMSMS.GdprService": {
+      "path": "TMSMS.GdprService/TMSMS.GdprService.abppkg"
+    },
+    "TMSMS.GdprService.Contracts": {
+      "path": "TMSMS.GdprService.Contracts/TMSMS.GdprService.Contracts.abppkg"
+    },
+    "TMSMS.GdprService.Tests": {
+      "path": "TMSMS.GdprService.Tests/TMSMS.GdprService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

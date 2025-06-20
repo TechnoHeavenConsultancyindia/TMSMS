@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "TMSMS.CommonService": {
+      "path": "TMSMS.CommonService/TMSMS.CommonService.abppkg"
+    },
+    "TMSMS.CommonService.Tests": {
+      "path": "TMSMS.CommonService.Tests/TMSMS.CommonService.Tests.abppkg"
+    },
+    "TMSMS.CommonService.Contracts": {
+      "path": "TMSMS.CommonService.Contracts/TMSMS.CommonService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

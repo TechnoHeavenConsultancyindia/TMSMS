@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSMS.LanguageService.Contracts", "TMSMS.LanguageService.Contracts\TMSMS.LanguageService.Contracts.csproj", "{C05A93ED-26B3-4598-974C-10CA9A938574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSMS.LanguageService.Tests", "TMSMS.LanguageService.Tests\TMSMS.LanguageService.Tests.csproj", "{DFF6063B-DF79-497C-B920-5D8932C03B43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSMS.LanguageService", "TMSMS.LanguageService\TMSMS.LanguageService.csproj", "{AA17ED44-7855-4B0F-976B-5B4B328DEC02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C05A93ED-26B3-4598-974C-10CA9A938574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05A93ED-26B3-4598-974C-10CA9A938574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05A93ED-26B3-4598-974C-10CA9A938574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05A93ED-26B3-4598-974C-10CA9A938574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF6063B-DF79-497C-B920-5D8932C03B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF6063B-DF79-497C-B920-5D8932C03B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF6063B-DF79-497C-B920-5D8932C03B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF6063B-DF79-497C-B920-5D8932C03B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA17ED44-7855-4B0F-976B-5B4B328DEC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA17ED44-7855-4B0F-976B-5B4B328DEC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA17ED44-7855-4B0F-976B-5B4B328DEC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA17ED44-7855-4B0F-976B-5B4B328DEC02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "TMSMS.RestaurantService": {
+      "path": "TMSMS.RestaurantService/TMSMS.RestaurantService.abppkg"
+    },
+    "TMSMS.RestaurantService.Tests": {
+      "path": "TMSMS.RestaurantService.Tests/TMSMS.RestaurantService.Tests.abppkg"
+    },
+    "TMSMS.RestaurantService.Contracts": {
+      "path": "TMSMS.RestaurantService.Contracts/TMSMS.RestaurantService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

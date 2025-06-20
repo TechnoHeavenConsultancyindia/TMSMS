@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/restaurant"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

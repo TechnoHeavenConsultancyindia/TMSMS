@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/gdpr"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

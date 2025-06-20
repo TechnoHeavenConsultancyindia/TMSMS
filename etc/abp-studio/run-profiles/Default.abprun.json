@@ -1,0 +1,220 @@
+{
+  "folders": {
+    "items": {
+      "services": {
+        "execution": {
+          "order": 2
+        }
+      },
+      "apps": {
+        "execution": {
+          "order": 0
+        }
+      },
+      "gateways": {
+        "execution": {
+          "order": 1
+        }
+      }
+    }
+  },
+  "applications": {
+    "TMSMS.AuthServer": {
+      "type": "dotnet-project",
+      "path": "../../../apps/auth-server/TMSMS.AuthServer/TMSMS.AuthServer.csproj",
+      "launchUrl": "http://localhost:44323",
+      "kubernetesService": ".*-authserver$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "apps",
+      "execution": {
+        "order": 3
+      }
+    },
+    "TMSMS.SaasService": {
+      "type": "dotnet-project",
+      "path": "../../../services/saas/TMSMS.SaasService/TMSMS.SaasService.csproj",
+      "launchUrl": "http://localhost:44371",
+      "folder": "services",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "kubernetesService": ".*-saas$",
+      "execution": {
+        "order": 4
+      }
+    },
+    "TMSMS.AuditLoggingService": {
+      "type": "dotnet-project",
+      "path": "../../../services/audit-logging/TMSMS.AuditLoggingService/TMSMS.AuditLoggingService.csproj",
+      "launchUrl": "http://localhost:44314",
+      "folder": "services",
+      "kubernetesService": ".*-auditlogging$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 0
+      }
+    },
+    "TMSMS.GdprService": {
+      "type": "dotnet-project",
+      "path": "../../../services/gdpr/TMSMS.GdprService/TMSMS.GdprService.csproj",
+      "launchUrl": "http://localhost:44313",
+      "folder": "services",
+      "kubernetesService": ".*-gdpr$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 1
+      }
+    },
+    "TMSMS.FileManagementService": {
+      "type": "dotnet-project",
+      "path": "../../../services/file-management/TMSMS.FileManagementService/TMSMS.FileManagementService.csproj",
+      "launchUrl": "http://localhost:44361",
+      "folder": "services",
+      "kubernetesService": ".*-filemanagement",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 2
+      }
+    },
+    "TMSMS.LanguageService": {
+      "type": "dotnet-project",
+      "path": "../../../services/language/TMSMS.LanguageService/TMSMS.LanguageService.csproj",
+      "launchUrl": "http://localhost:44306",
+      "folder": "services",
+      "kubernetesService": ".*-language",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 3
+      }
+    },
+    "TMSMS.ChatService": {
+      "type": "dotnet-project",
+      "path": "../../../services/chat/TMSMS.ChatService/TMSMS.ChatService.csproj",
+      "launchUrl": "http://localhost:44354",
+      "folder": "services",
+      "kubernetesService": ".*-chat$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 3
+      }
+    },
+    "TMSMS.WebGateway": {
+      "type": "dotnet-project",
+      "path": "../../../gateways/web/TMSMS.WebGateway/TMSMS.WebGateway.csproj",
+      "launchUrl": "http://localhost:44331",
+      "kubernetesService": ".*-webgateway$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "gateways",
+      "execution": {
+        "order": 2
+      }
+    },
+    "TMSMS.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../apps/angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$",
+      "folder": "apps",
+      "execution": {
+        "order": 2
+      }
+    },
+    "TMSMS.AdministrationService": {
+      "type": "dotnet-project",
+      "path": "../../../services/administration/TMSMS.AdministrationService/TMSMS.AdministrationService.csproj",
+      "launchUrl": "http://localhost:44321",
+      "kubernetesService": ".*-administration$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "execution": {
+        "order": 6
+      }
+    },
+    "TMSMS.IdentityService": {
+      "type": "dotnet-project",
+      "path": "../../../services/identity/TMSMS.IdentityService/TMSMS.IdentityService.csproj",
+      "launchUrl": "http://localhost:44309",
+      "kubernetesService": ".*-identity$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "execution": {
+        "order": 5
+      }
+    },
+    "TMSMS.TourService": {
+      "type": "dotnet-project",
+      "path": "../../../services/tour/TMSMS.TourService/TMSMS.TourService.csproj",
+      "launchUrl": "http://localhost:44316",
+      "kubernetesService": ".*-tour$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    },
+    "TMSMS.CommonService": {
+      "type": "dotnet-project",
+      "path": "../../../services/common/TMSMS.CommonService/TMSMS.CommonService.csproj",
+      "launchUrl": "http://localhost:44397",
+      "kubernetesService": ".*-common$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    },
+    "TMSMS.TransferService": {
+      "type": "dotnet-project",
+      "path": "../../../services/transfer/TMSMS.TransferService/TMSMS.TransferService.csproj",
+      "launchUrl": "http://localhost:44370",
+      "kubernetesService": ".*-transfer$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    },
+    "TMSMS.VisaService": {
+      "type": "dotnet-project",
+      "path": "../../../services/visa/TMSMS.VisaService/TMSMS.VisaService.csproj",
+      "launchUrl": "http://localhost:44398",
+      "kubernetesService": ".*-visa$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    },
+    "TMSMS.RestaurantService": {
+      "type": "dotnet-project",
+      "path": "../../../services/restaurant/TMSMS.RestaurantService/TMSMS.RestaurantService.csproj",
+      "launchUrl": "http://localhost:44392",
+      "kubernetesService": ".*-restaurant$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    },
+    "TMSMS.AgentService": {
+      "type": "dotnet-project",
+      "path": "../../../services/agent/TMSMS.AgentService/TMSMS.AgentService.csproj",
+      "launchUrl": "http://localhost:44312",
+      "kubernetesService": ".*-agent$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services"
+    }
+  },
+  "containers": {
+    "serviceName": "TMSMS-Containers",
+    "files": {
+      "../../docker/containers/elasticsearch.yml": {},
+      "../../docker/containers/grafana.yml": {},
+      "../../docker/containers/kibana.yml": {},
+      "../../docker/containers/sqldata.yml": {},
+      "../../docker/containers/prometheus.yml": {},
+      "../../docker/containers/rabbitmq.yml": {},
+      "../../docker/containers/redis.yml": {}
+    }
+  }
+}

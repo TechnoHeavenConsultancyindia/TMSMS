@@ -1,0 +1,15 @@
+networks:
+  tmsms:
+    external: true
+
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.47.2
+    volumes:
+      - ./prometheus/storage:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - tmsms
+    ports:
+      - "9090:9090"

@@ -1,0 +1,10 @@
+{
+  "culture": "hu",
+  "texts": {
+    "Welcome": "Üdvözöljük",
+    "LongWelcomeMessage": "Üdvözöljük az alkalmazásban. Ez egy ABP keretrendszeren alapuló startup projekt. További információért látogasson el az oldalra",
+    "Menu:Home": "Kezdőlap",
+    "Login": "Belépés",
+    "Menu:Dashboard": "Irányítópult"
+  }
+}

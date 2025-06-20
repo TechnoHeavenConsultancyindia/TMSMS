@@ -1,0 +1,11 @@
+{
+  "name": "@tour-service/tour-service",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@abp/ng.core": "~9.2.0",
+    "@abp/ng.theme.shared": "~9.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  }
+}

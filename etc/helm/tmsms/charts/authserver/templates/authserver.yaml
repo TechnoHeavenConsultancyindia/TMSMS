@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-{{ .Chart.Name }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Release.Name }}-{{ .Chart.Name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Release.Name }}-{{ .Chart.Name }}"
+    spec:
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+        name: "{{ .Release.Name }}-{{ .Chart.Name }}"
+        ports:
+        - name: "http"
+          containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /health-status
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 3
+        env:
+        - name: "DOTNET_ENVIRONMENT"
+          value: "{{ .Values.global.dotnetEnvironment }}"
+        - name: "ConnectionStrings__IdentityService"
+          value: "{{ .Values.global.connectionStrings.identity | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AdministrationService"
+          value: "{{ .Values.global.connectionStrings.administration | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AbpBlobStoring"
+          value: "{{ .Values.global.connectionStrings.blobStoring | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__AuditLoggingService"
+          value: "{{ .Values.global.connectionStrings.auditLogging | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__SaasService"
+          value: "{{ .Values.global.connectionStrings.saas | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "ConnectionStrings__LanguageService"
+          value: "{{ .Values.global.connectionStrings.language | replace "[RELEASE_NAME]" .Release.Name }}"
+        - name: "App__SelfUrl"
+          value: "{{ include "tmsms.hosts.authserver" . }}"
+        - name: "App__CorsOrigins"
+          value: "{{ include "tmsms.hosts.webgateway" . }},{{ include "tmsms.hosts.angular" . }},http://{{ .Release.Name }}-saas,http://{{ .Release.Name }}-auditlogging,http://{{ .Release.Name }}-gdpr,http://{{ .Release.Name }}-fileManagement,http://{{ .Release.Name }}-language,http://{{ .Release.Name }}-chat,http://{{ .Release.Name }}-administration,http://{{ .Release.Name }}-identity,http://{{ .Release.Name }}-tour,http://{{ .Release.Name }}-common,http://{{ .Release.Name }}-transfer,http://{{ .Release.Name }}-visa,http://{{ .Release.Name }}-restaurant,http://{{ .Release.Name }}-agent"
+        - name: App__EnablePII
+          value: "{{ .Values.global.enablePII }}"
+        - name: "App__HealthUiCheckUrl"
+          value: "http://{{ .Release.Name }}-authserver/health-status"
+        - name: App__RedirectAllowedUrls
+          value: "{{ include "tmsms.hosts.angular" . }}"
+        - name: "AuthServer__Authority"
+          value: "{{ include "tmsms.hosts.authserver" . }}"
+        - name: "Redis__Configuration"
+          value: "{{ .Release.Name }}-redis"
+        - name: "RabbitMQ__Connections__Default__HostName"
+          value: "{{ .Release.Name }}-rabbitmq"
+        - name: "ElasticSearch__IsLoggingEnabled"
+          value: "{{ .Values.global.elasticSearch.isLoggingEnabled }}"
+        - name: "ElasticSearch__Url"
+          value: "http://{{ .Release.Name }}-elasticsearch:{{ .Values.global.elasticSearch.port }}"
+        - name: "StringEncryption__DefaultPassPhrase"
+          value: "{{ .Values.global.stringEncryptionDefaultPassPhrase }}"
+        - name: "AbpStudioClient__StudioUrl"
+          value: "{{ .Values.global.abpStudioClient.studioUrl }}"
+        - name: "AbpStudioClient__IsLinkEnabled"
+          value: "{{ .Values.global.abpStudioClient.isLinkEnabled }}"

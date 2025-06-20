@@ -1,0 +1,4 @@
+image:
+  repository: "tmsms/authserver"
+  tag: "latest"
+  pullPolicy: IfNotPresent

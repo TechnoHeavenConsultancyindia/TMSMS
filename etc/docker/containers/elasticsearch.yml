@@ -1,0 +1,22 @@
+volumes:
+  tmsms_elasticdata:
+networks:
+  tmsms:
+    external: true
+
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.4
+    volumes:
+      - tmsms_elasticdata:/usr/share/elasticsearch/data
+    networks:
+      - tmsms
+    environment:
+      - xpack.watcher.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    ports:
+      - "9200:9200"

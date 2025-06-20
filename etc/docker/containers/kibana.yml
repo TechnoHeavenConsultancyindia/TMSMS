@@ -1,0 +1,14 @@
+networks:
+  tmsms:
+    external: true
+
+services:
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:8.10.4
+    networks:
+      - tmsms
+    environment:
+      - ELASTICSEARCH_URL=http://host.docker.internal:9200
+    ports:
+      - "5601:5601"

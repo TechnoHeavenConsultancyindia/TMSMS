@@ -1,0 +1,6 @@
+image:
+  repository: "tmsms/auditlogging"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+swagger:
+  isEnabled: "true"

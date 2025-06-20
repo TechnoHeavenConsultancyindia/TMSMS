@@ -1,0 +1,22 @@
+volumes:
+  tmsms_sqldata:
+networks:
+  tmsms:
+    external: true
+
+services:
+  sql-server:
+    container_name: sql-server
+    image: mcr.microsoft.com/azure-sql-edge:1.0.7
+    volumes:
+      - tmsms_sqldata:/var/opt/mssql
+      - tmsms_sqldata:/var/opt/mssql-extensibility
+      - tmsms_sqldata:/var/opt/mssql-extensibility/log
+      - tmsms_sqldata:/var/opt/mssql-extensibility/data
+    networks:
+      - tmsms
+    ports:
+      - "1434:1433"
+    environment:
+      SA_PASSWORD: "myPassw@rd"
+      ACCEPT_EULA: "Y"

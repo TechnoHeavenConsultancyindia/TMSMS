@@ -1,0 +1,31 @@
+{
+  "packages": {
+    "TMSMS.LanguageService": {
+      "path": "TMSMS.LanguageService/TMSMS.LanguageService.abppkg"
+    },
+    "TMSMS.LanguageService.Contracts": {
+      "path": "TMSMS.LanguageService.Contracts/TMSMS.LanguageService.Contracts.abppkg"
+    },
+    "TMSMS.LanguageService.Tests": {
+      "path": "TMSMS.LanguageService.Tests/TMSMS.LanguageService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.2.0",
+      "isInstalled": true
+    }
+  }
+}

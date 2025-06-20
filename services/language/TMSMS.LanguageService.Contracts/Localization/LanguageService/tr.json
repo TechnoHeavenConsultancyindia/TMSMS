@@ -1,0 +1,10 @@
+{
+  "culture": "tr",
+  "texts": {
+    "Welcome": "Hoşgeldiniz",
+    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için ziyaret edebilirsiniz",
+    "Menu:Home": "Ana Sayfa",
+    "Login": "Giriş",
+    "Menu:Dashboard": "Genel görünüm"
+  }
+}
