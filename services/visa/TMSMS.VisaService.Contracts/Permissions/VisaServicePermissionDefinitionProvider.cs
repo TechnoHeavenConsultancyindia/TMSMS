@@ -8,7 +8,12 @@ public class VisaServicePermissionDefinitionProvider : PermissionDefinitionProvi
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        //var myGroup = context.AddGroup(VisaServicePermissions.GroupName);
+        var myGroup = context.AddGroup(VisaServicePermissions.GroupName);
+
+        var visaTermCategoryPermission = myGroup.AddPermission(VisaServicePermissions.VisaTermCategories.Default, L("Permission:VisaTermCategories"));
+        visaTermCategoryPermission.AddChild(VisaServicePermissions.VisaTermCategories.Create, L("Permission:Create"));
+        visaTermCategoryPermission.AddChild(VisaServicePermissions.VisaTermCategories.Edit, L("Permission:Edit"));
+        visaTermCategoryPermission.AddChild(VisaServicePermissions.VisaTermCategories.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

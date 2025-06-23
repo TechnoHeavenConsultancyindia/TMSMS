@@ -1,3 +1,4 @@
+using TMSMS.VisaService.VisaServices;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -79,7 +80,7 @@ public class TMSMSVisaServiceModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var env = context.Services.GetHostingEnvironment();
-        
+
         var redis = CreateRedisConnection(configuration);
 
         ConfigurePII(configuration);
@@ -99,7 +100,7 @@ public class TMSMSVisaServiceModule : AbpModule
         ConfigureAutoControllers();
         ConfigureDynamicClaims(context);
         ConfigureHealthChecks(context);
-        
+
         context.Services.TransformAbpClaims();
     }
 
@@ -130,7 +131,7 @@ public class TMSMSVisaServiceModule : AbpModule
             app.UseSwagger();
             app.UseAbpSwaggerUI(options => { ConfigureSwaggerUI(options, configuration); });
         }
-        
+
         app.UseAbpSerilogEnrichers();
         app.UseAuditing();
         app.UseUnitOfWork();
@@ -140,7 +141,7 @@ public class TMSMSVisaServiceModule : AbpModule
             endpoints.MapMetrics();
         });
     }
-    
+
     public override async Task OnPreApplicationInitializationAsync(ApplicationInitializationContext context)
     {
         using var scope = context.ServiceProvider.CreateScope();
@@ -148,7 +149,7 @@ public class TMSMSVisaServiceModule : AbpModule
             .GetRequiredService<VisaServiceRuntimeDatabaseMigrator>()
             .CheckAndApplyDatabaseMigrationsAsync();
     }
-    
+
     private ConnectionMultiplexer CreateRedisConnection(IConfiguration configuration)
     {
         return ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
@@ -158,7 +159,7 @@ public class TMSMSVisaServiceModule : AbpModule
     {
         context.Services.AddVisaServiceHealthChecks();
     }
-    
+
     private void ConfigurePII(IConfiguration configuration)
     {
         if (configuration.GetValue<bool>(configuration["App:EnablePII"] ?? "false"))
@@ -168,7 +169,6 @@ public class TMSMSVisaServiceModule : AbpModule
         }
     }
 
-
     private void ConfigureMultiTenancy()
     {
         Configure<AbpMultiTenancyOptions>(options =>
@@ -176,7 +176,7 @@ public class TMSMSVisaServiceModule : AbpModule
             options.IsEnabled = true;
         });
     }
-    
+
     private void ConfigureJwtBearer(ServiceConfigurationContext context, IConfiguration configuration)
     {
         context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -235,7 +235,7 @@ public class TMSMSVisaServiceModule : AbpModule
                 },
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "VisaService API", Version = "v1"});
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "VisaService API", Version = "v1" });
                     options.DocInclusionPredicate((_, _) => true);
                     options.CustomSchemaIds(type => type.FullName);
                 });
@@ -252,7 +252,7 @@ public class TMSMSVisaServiceModule : AbpModule
                 database.MappedConnections.Add(AbpFeatureManagementDbProperties.ConnectionStringName);
                 database.MappedConnections.Add(AbpSettingManagementDbProperties.ConnectionStringName);
             });
-            
+
             options.Databases.Configure("AuditLoggingService", database =>
             {
                 database.MappedConnections.Add(AbpAuditLoggingDbProperties.ConnectionStringName);
@@ -262,7 +262,7 @@ public class TMSMSVisaServiceModule : AbpModule
             {
                 database.MappedConnections.Add(SaasDbProperties.ConnectionStringName);
             });
-            
+
             options.Databases.Configure("LanguageService", database =>
             {
                 database.MappedConnections.Add(LanguageManagementDbProperties.ConnectionStringName);
@@ -272,6 +272,8 @@ public class TMSMSVisaServiceModule : AbpModule
         context.Services.AddAbpDbContext<VisaServiceDbContext>(options =>
         {
             options.AddDefaultRepositories();
+            options.AddRepository<VisaTermCategory, VisaServices.EfCoreVisaTermCategoryRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
@@ -281,7 +283,7 @@ public class TMSMSVisaServiceModule : AbpModule
                 /* Sets default DBMS for this service */
                 opts.UseSqlServer();
             });
-            
+
             options.Configure<VisaServiceDbContext>(c =>
             {
                 c.UseSqlServer(b =>
@@ -291,7 +293,7 @@ public class TMSMSVisaServiceModule : AbpModule
             });
         });
     }
-    
+
     private void ConfigureDistributedCache(IConfiguration configuration)
     {
         Configure<AbpDistributedCacheOptions>(options =>
@@ -299,7 +301,7 @@ public class TMSMSVisaServiceModule : AbpModule
             options.KeyPrefix = configuration["AbpDistributedCache:KeyPrefix"] ?? "";
         });
     }
-    
+
     private void ConfigureDataProtection(ServiceConfigurationContext context, IConfiguration configuration, IConnectionMultiplexer redis)
     {
         context.Services
@@ -330,7 +332,7 @@ public class TMSMSVisaServiceModule : AbpModule
             });
         });
     }
-    
+
     private void ConfigureIntegrationServices()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -338,7 +340,7 @@ public class TMSMSVisaServiceModule : AbpModule
             options.ExposeIntegrationServices = true;
         });
     }
-    
+
     private void ConfigureAntiForgery(IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
@@ -355,7 +357,7 @@ public class TMSMSVisaServiceModule : AbpModule
             });
         }
     }
-    
+
     private void ConfigureObjectMapper(ServiceConfigurationContext context)
     {
         context.Services.AddAutoMapperObjectMapper<TMSMSVisaServiceModule>();
@@ -365,7 +367,7 @@ public class TMSMSVisaServiceModule : AbpModule
             options.AddMaps<TMSMSVisaServiceModule>(validate: true);
         });
     }
-    
+
     private void ConfigureAutoControllers()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -379,14 +381,14 @@ public class TMSMSVisaServiceModule : AbpModule
                 });
         });
     }
-    
+
     private static void ConfigureSwaggerUI(SwaggerUIOptions options, IConfiguration configuration)
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "VisaService API");
         options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
         options.OAuthScopes("VisaService");
     }
-    
+
     private static bool IsSwaggerEnabled(IConfiguration configuration)
     {
         return bool.Parse(configuration["Swagger:IsEnabled"] ?? "true");
