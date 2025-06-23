@@ -34,6 +34,11 @@
     "MinName": "Min Name",
     "MinDescription": "Min Description",
     "MaxName": "Max Name",
-    "MaxDescription": "Max Description"
+    "MaxDescription": "Max Description",
+    "Permission:RestaurantTags": "Restaurant Tags",
+    "RestaurantTags": "Restaurant Tags",
+    "NewRestaurantTag": "New Restaurant Tag",
+    "RestaurantTag": "Restaurant Tag",
+    "Menu:RestaurantTags": "Restaurant Tags"
   }
 }

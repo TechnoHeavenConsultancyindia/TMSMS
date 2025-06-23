@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterOutletComponent } from '@abp/ng.core';
 import { Routes, RouterModule } from '@angular/router';
+import { loadRestaurantTagModuleAsChild } from './restaurant-services/restaurant-tag/restaurant-tag.module';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
         m => m.RestaurantTypeModule,
       ),
   },
+  { path: 'restaurant-tags', loadChildren: loadRestaurantTagModuleAsChild },
 ];
 
 @NgModule({

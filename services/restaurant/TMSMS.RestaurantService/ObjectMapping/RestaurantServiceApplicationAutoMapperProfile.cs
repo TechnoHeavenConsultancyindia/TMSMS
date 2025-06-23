@@ -16,5 +16,8 @@ public class RestaurantServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<RestaurantType, RestaurantTypeDto>();
         CreateMap<RestaurantType, RestaurantTypeExcelDto>();
+
+        CreateMap<RestaurantTag, RestaurantTagDto>();
+        CreateMap<RestaurantTag, RestaurantTagExcelDto>();
     }
 }

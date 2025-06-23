@@ -13,6 +13,7 @@ public class RestaurantServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<RestaurantTag> RestaurantTags { get; set; } = null!;
     public DbSet<RestaurantType> RestaurantTypes { get; set; } = null!;
     public const string DbTablePrefix = "";
     public const string DbSchema = null;
@@ -41,6 +42,14 @@ public class RestaurantServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantType.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(RestaurantType.Name)).IsRequired().HasMaxLength(RestaurantTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(RestaurantType.Description)).HasMaxLength(RestaurantTypeConsts.DescriptionMaxLength);
+                });
+        builder.Entity<RestaurantTag>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "RestaurantTags", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantTag.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(RestaurantTag.Name)).IsRequired().HasMaxLength(RestaurantTagConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(RestaurantTag.Description)).HasMaxLength(RestaurantTagConsts.DescriptionMaxLength);
                 });
     }
 }

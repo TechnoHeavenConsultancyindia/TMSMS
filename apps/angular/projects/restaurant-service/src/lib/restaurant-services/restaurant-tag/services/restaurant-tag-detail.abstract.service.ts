@@ -4,14 +4,14 @@ import { ListService, TrackByService } from '@abp/ng.core';
 
 import { finalize, tap } from 'rxjs/operators';
 
-import type { RestaurantTypeDto } from '../../../proxy/restaurant-service/restaurant-services/models';
-import { RestaurantTypeService } from '../../../proxy/restaurant-service/restaurant-services/restaurant-type.service';
+import type { RestaurantTagDto } from '../../../proxy/restaurant-service/restaurant-services/models';
+import { RestaurantTagService } from '../../../proxy/restaurant-service/restaurant-services/restaurant-tag.service';
 
-export abstract class AbstractRestaurantTypeDetailViewService {
+export abstract class AbstractRestaurantTagDetailViewService {
   protected readonly fb = inject(FormBuilder);
   protected readonly track = inject(TrackByService);
 
-  public readonly proxyService = inject(RestaurantTypeService);
+  public readonly proxyService = inject(RestaurantTagService);
   public readonly list = inject(ListService);
 
   isBusy = false;
@@ -53,7 +53,7 @@ export abstract class AbstractRestaurantTypeDetailViewService {
     this.showForm();
   }
 
-  update(record: RestaurantTypeDto) {
+  update(record: RestaurantTagDto) {
     this.selected = record;
     this.showForm();
   }

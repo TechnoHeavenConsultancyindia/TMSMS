@@ -16,13 +16,13 @@
       </button>
 
       <button
-        *abpPermission="'RestaurantService.RestaurantTypes.Create'"
+        *abpPermission="'RestaurantService.RestaurantTags.Create'"
         class="btn btn-primary btn-sm"
         type="button"
         (click)="create()"
       >
         <i class="fa fa-plus me-1" aria-hidden="true"></i>
-        {{ 'RestaurantService::NewRestaurantType' | abpLocalization }}
+        {{ 'RestaurantService::NewRestaurantTag' | abpLocalization }}
       </button>
       <!--<suite-custom-code-block-2>-->
       <!--</suite-custom-code-block-2>-->
@@ -119,7 +119,7 @@
           </button>
 
           <button
-            *abpPermission="'RestaurantService.RestaurantTypes.Delete'"
+            *abpPermission="'RestaurantService.RestaurantTags.Delete'"
             class="btn btn-danger btn-sm mx-1"
             (click)="service.bulkDelete()"
           >
@@ -206,7 +206,7 @@
                 <div ngbDropdownMenu>
                   <button
                     ngbDropdownItem
-                    *abpPermission="'RestaurantService.RestaurantTypes.Edit'"
+                    *abpPermission="'RestaurantService.RestaurantTags.Edit'"
                     (click)="update(row)"
                   >
                     {{ 'AbpUi::Edit' | abpLocalization }}
@@ -214,7 +214,7 @@
 
                   <button
                     ngbDropdownItem
-                    *abpPermission="'RestaurantService.RestaurantTypes.Delete'"
+                    *abpPermission="'RestaurantService.RestaurantTags.Delete'"
                     (click)="delete(row)"
                   >
                     {{ 'AbpUi::Delete' | abpLocalization }}
@@ -247,6 +247,6 @@
 
 @defer (when serviceDetail.isVisible) {
   @if (serviceDetail.isVisible) {
-    <lib-restaurant-type-detail-modal />
+    <lib-restaurant-tag-detail-modal />
   }
 }

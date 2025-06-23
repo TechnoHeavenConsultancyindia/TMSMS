@@ -2,23 +2,23 @@ import { Directive, OnInit, inject } from '@angular/core';
 
 import { ListService, PermissionService, TrackByService } from '@abp/ng.core';
 
-import type { RestaurantTypeDto } from '../../../proxy/restaurant-service/restaurant-services/models';
-import { RestaurantTypeViewService } from '../services/restaurant-type.service';
-import { RestaurantTypeDetailViewService } from '../services/restaurant-type-detail.service';
+import type { RestaurantTagDto } from '../../../proxy/restaurant-service/restaurant-services/models';
+import { RestaurantTagViewService } from '../services/restaurant-tag.service';
+import { RestaurantTagDetailViewService } from '../services/restaurant-tag-detail.service';
 
 export const ChildTabDependencies = [];
 
 export const ChildComponentDependencies = [];
 
 @Directive()
-export abstract class AbstractRestaurantTypeComponent implements OnInit {
+export abstract class AbstractRestaurantTagComponent implements OnInit {
   public readonly list = inject(ListService);
   public readonly track = inject(TrackByService);
-  public readonly service = inject(RestaurantTypeViewService);
-  public readonly serviceDetail = inject(RestaurantTypeDetailViewService);
+  public readonly service = inject(RestaurantTagViewService);
+  public readonly serviceDetail = inject(RestaurantTagDetailViewService);
   public readonly permissionService = inject(PermissionService);
 
-  protected title = 'RestaurantService::RestaurantType';
+  protected title = 'RestaurantService::RestaurantTag';
   protected isActionButtonVisible: boolean | null = null;
 
   ngOnInit() {
@@ -39,11 +39,11 @@ export abstract class AbstractRestaurantTypeComponent implements OnInit {
     this.serviceDetail.showForm();
   }
 
-  update(record: RestaurantTypeDto) {
+  update(record: RestaurantTagDto) {
     this.serviceDetail.update(record);
   }
 
-  delete(record: RestaurantTypeDto) {
+  delete(record: RestaurantTagDto) {
     this.service.delete(record);
   }
 
@@ -57,10 +57,10 @@ export abstract class AbstractRestaurantTypeComponent implements OnInit {
     }
 
     const canEdit = this.permissionService.getGrantedPolicy(
-      'RestaurantService.RestaurantTypes.Edit',
+      'RestaurantService.RestaurantTags.Edit',
     );
     const canDelete = this.permissionService.getGrantedPolicy(
-      'RestaurantService.RestaurantTypes.Delete',
+      'RestaurantService.RestaurantTags.Delete',
     );
     this.isActionButtonVisible = canEdit || canDelete;
   }

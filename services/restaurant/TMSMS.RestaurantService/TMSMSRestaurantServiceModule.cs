@@ -274,6 +274,8 @@ public class TMSMSRestaurantServiceModule : AbpModule
             options.AddDefaultRepositories();
             options.AddRepository<RestaurantType, RestaurantServices.EfCoreRestaurantTypeRepository>();
 
+            options.AddRepository<RestaurantTag, RestaurantServices.EfCoreRestaurantTagRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

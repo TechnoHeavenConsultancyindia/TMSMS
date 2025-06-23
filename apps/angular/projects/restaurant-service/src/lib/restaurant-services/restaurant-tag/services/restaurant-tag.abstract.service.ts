@@ -4,30 +4,30 @@ import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 import { ABP, AbpWindowService, ListService, PagedResultDto } from '@abp/ng.core';
 import { filter, switchMap, finalize } from 'rxjs/operators';
 import type {
-  GetRestaurantTypesInput,
-  RestaurantTypeDto,
+  GetRestaurantTagsInput,
+  RestaurantTagDto,
 } from '../../../proxy/restaurant-service/restaurant-services/models';
-import { RestaurantTypeService } from '../../../proxy/restaurant-service/restaurant-services/restaurant-type.service';
+import { RestaurantTagService } from '../../../proxy/restaurant-service/restaurant-services/restaurant-tag.service';
 
-export abstract class AbstractRestaurantTypeViewService {
-  protected readonly proxyService = inject(RestaurantTypeService);
+export abstract class AbstractRestaurantTagViewService {
+  protected readonly proxyService = inject(RestaurantTagService);
   protected readonly confirmationService = inject(ConfirmationService);
   protected readonly list = inject(ListService);
   protected readonly abpWindowService = inject(AbpWindowService);
 
   isExportToExcelBusy = false;
 
-  data: PagedResultDto<RestaurantTypeDto> = {
+  data: PagedResultDto<RestaurantTagDto> = {
     items: [],
     totalCount: 0,
   };
 
   selectionType = SelectionType;
-  selected = signal<RestaurantTypeDto[]>([]);
+  selected = signal<RestaurantTagDto[]>([]);
   allSelected = signal(false);
   selectedCount = computed(() => this.selected().length);
 
-  filters = {} as GetRestaurantTypesInput;
+  filters = {} as GetRestaurantTagsInput;
 
   protected clearAllSelection() {
     this.selected.set([]);
@@ -47,7 +47,7 @@ export abstract class AbstractRestaurantTypeViewService {
     return request.pipe(finalize(this.list.get));
   }
 
-  delete(record: RestaurantTypeDto) {
+  delete(record: RestaurantTagDto) {
     this.confirmationService
       .warn(
         'RestaurantService::DeleteConfirmationMessage',
@@ -124,7 +124,7 @@ export abstract class AbstractRestaurantTypeViewService {
         filterText: query.filter,
       });
 
-    const setData = (list: PagedResultDto<RestaurantTypeDto>) => {
+    const setData = (list: PagedResultDto<RestaurantTagDto>) => {
       this.data = list;
 
       if (this.selectedCount() > 0) {
@@ -136,7 +136,7 @@ export abstract class AbstractRestaurantTypeViewService {
   }
 
   clearFilters() {
-    this.filters = {} as GetRestaurantTypesInput;
+    this.filters = {} as GetRestaurantTagsInput;
     this.list.get();
   }
 
@@ -155,7 +155,7 @@ export abstract class AbstractRestaurantTypeViewService {
         finalize(() => (this.isExportToExcelBusy = false)),
       )
       .subscribe(result => {
-        this.abpWindowService.downloadBlob(result, 'RestaurantType.xlsx');
+        this.abpWindowService.downloadBlob(result, 'RestaurantTag.xlsx');
       });
   }
 }
