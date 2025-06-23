@@ -16,5 +16,8 @@ public class VisaServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<VisaTermCategory, VisaTermCategoryDto>();
         CreateMap<VisaTermCategory, VisaTermCategoryExcelDto>();
+
+        CreateMap<VisaType, VisaTypeDto>();
+        CreateMap<VisaType, VisaTypeExcelDto>();
     }
 }

@@ -18,4 +18,12 @@ public class VisaServicePermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class VisaTypes
+    {
+        public const string Default = GroupName + ".VisaTypes";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }

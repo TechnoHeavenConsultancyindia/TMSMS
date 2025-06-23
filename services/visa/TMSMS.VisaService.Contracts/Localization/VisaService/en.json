@@ -34,6 +34,17 @@
     "MinName": "Min Name",
     "MinDescription": "Min Description",
     "MaxName": "Max Name",
-    "MaxDescription": "Max Description"
+    "MaxDescription": "Max Description",
+    "Permission:VisaTypes": "Visa Types",
+    "VisaTypes": "Visa Types",
+    "NewVisaType": "New Visa Type",
+    "VisaType": "Visa Type",
+    "Menu:VisaTypes": "Visa Types",
+    "SubCategory": "Sub Category",
+    "VisaPurpose": "Visa Purpose",
+    "MinSubCategory": "Min Sub Category",
+    "MinVisaPurpose": "Min Visa Purpose",
+    "MaxSubCategory": "Max Sub Category",
+    "MaxVisaPurpose": "Max Visa Purpose"
   }
 }

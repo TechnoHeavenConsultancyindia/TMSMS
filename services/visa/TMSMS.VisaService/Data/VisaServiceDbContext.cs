@@ -13,6 +13,7 @@ public class VisaServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<VisaType> VisaTypes { get; set; } = null!;
     public DbSet<VisaTermCategory> VisaTermCategories { get; set; } = null!;
     public const string DbTablePrefix = "";
     public const string DbSchema = null;
@@ -41,6 +42,16 @@ public class VisaServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(VisaTermCategory.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(VisaTermCategory.Name)).HasMaxLength(VisaTermCategoryConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(VisaTermCategory.Description)).HasMaxLength(VisaTermCategoryConsts.DescriptionMaxLength);
+                });
+        builder.Entity<VisaType>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "VisaTypes", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(VisaType.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(VisaType.Name)).IsRequired().HasMaxLength(VisaTypeConsts.NameMaxLength);
+                    b.Property(x => x.SubCategory).HasColumnName(nameof(VisaType.SubCategory)).HasMaxLength(VisaTypeConsts.SubCategoryMaxLength);
+                    b.Property(x => x.VisaPurpose).HasColumnName(nameof(VisaType.VisaPurpose));
+                    b.Property(x => x.Description).HasColumnName(nameof(VisaType.Description));
                 });
     }
 }
