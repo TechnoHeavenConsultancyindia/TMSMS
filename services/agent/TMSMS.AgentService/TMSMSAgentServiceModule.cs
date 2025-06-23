@@ -1,3 +1,4 @@
+using TMSMS.AgentService.AgentServices;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -79,7 +80,7 @@ public class TMSMSAgentServiceModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var env = context.Services.GetHostingEnvironment();
-        
+
         var redis = CreateRedisConnection(configuration);
 
         ConfigurePII(configuration);
@@ -99,7 +100,7 @@ public class TMSMSAgentServiceModule : AbpModule
         ConfigureAutoControllers();
         ConfigureDynamicClaims(context);
         ConfigureHealthChecks(context);
-        
+
         context.Services.TransformAbpClaims();
     }
 
@@ -130,7 +131,7 @@ public class TMSMSAgentServiceModule : AbpModule
             app.UseSwagger();
             app.UseAbpSwaggerUI(options => { ConfigureSwaggerUI(options, configuration); });
         }
-        
+
         app.UseAbpSerilogEnrichers();
         app.UseAuditing();
         app.UseUnitOfWork();
@@ -140,7 +141,7 @@ public class TMSMSAgentServiceModule : AbpModule
             endpoints.MapMetrics();
         });
     }
-    
+
     public override async Task OnPreApplicationInitializationAsync(ApplicationInitializationContext context)
     {
         using var scope = context.ServiceProvider.CreateScope();
@@ -148,7 +149,7 @@ public class TMSMSAgentServiceModule : AbpModule
             .GetRequiredService<AgentServiceRuntimeDatabaseMigrator>()
             .CheckAndApplyDatabaseMigrationsAsync();
     }
-    
+
     private ConnectionMultiplexer CreateRedisConnection(IConfiguration configuration)
     {
         return ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
@@ -158,7 +159,7 @@ public class TMSMSAgentServiceModule : AbpModule
     {
         context.Services.AddAgentServiceHealthChecks();
     }
-    
+
     private void ConfigurePII(IConfiguration configuration)
     {
         if (configuration.GetValue<bool>(configuration["App:EnablePII"] ?? "false"))
@@ -168,7 +169,6 @@ public class TMSMSAgentServiceModule : AbpModule
         }
     }
 
-
     private void ConfigureMultiTenancy()
     {
         Configure<AbpMultiTenancyOptions>(options =>
@@ -176,7 +176,7 @@ public class TMSMSAgentServiceModule : AbpModule
             options.IsEnabled = true;
         });
     }
-    
+
     private void ConfigureJwtBearer(ServiceConfigurationContext context, IConfiguration configuration)
     {
         context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -235,7 +235,7 @@ public class TMSMSAgentServiceModule : AbpModule
                 },
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "AgentService API", Version = "v1"});
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "AgentService API", Version = "v1" });
                     options.DocInclusionPredicate((_, _) => true);
                     options.CustomSchemaIds(type => type.FullName);
                 });
@@ -252,7 +252,7 @@ public class TMSMSAgentServiceModule : AbpModule
                 database.MappedConnections.Add(AbpFeatureManagementDbProperties.ConnectionStringName);
                 database.MappedConnections.Add(AbpSettingManagementDbProperties.ConnectionStringName);
             });
-            
+
             options.Databases.Configure("AuditLoggingService", database =>
             {
                 database.MappedConnections.Add(AbpAuditLoggingDbProperties.ConnectionStringName);
@@ -262,7 +262,7 @@ public class TMSMSAgentServiceModule : AbpModule
             {
                 database.MappedConnections.Add(SaasDbProperties.ConnectionStringName);
             });
-            
+
             options.Databases.Configure("LanguageService", database =>
             {
                 database.MappedConnections.Add(LanguageManagementDbProperties.ConnectionStringName);
@@ -272,6 +272,10 @@ public class TMSMSAgentServiceModule : AbpModule
         context.Services.AddAbpDbContext<AgentServiceDbContext>(options =>
         {
             options.AddDefaultRepositories();
+            options.AddRepository<AgentGroupType, AgentServices.EfCoreAgentGroupTypeRepository>();
+
+            options.AddRepository<AgentPermissionType, AgentServices.EfCoreAgentPermissionTypeRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
@@ -281,7 +285,7 @@ public class TMSMSAgentServiceModule : AbpModule
                 /* Sets default DBMS for this service */
                 opts.UseSqlServer();
             });
-            
+
             options.Configure<AgentServiceDbContext>(c =>
             {
                 c.UseSqlServer(b =>
@@ -291,7 +295,7 @@ public class TMSMSAgentServiceModule : AbpModule
             });
         });
     }
-    
+
     private void ConfigureDistributedCache(IConfiguration configuration)
     {
         Configure<AbpDistributedCacheOptions>(options =>
@@ -299,7 +303,7 @@ public class TMSMSAgentServiceModule : AbpModule
             options.KeyPrefix = configuration["AbpDistributedCache:KeyPrefix"] ?? "";
         });
     }
-    
+
     private void ConfigureDataProtection(ServiceConfigurationContext context, IConfiguration configuration, IConnectionMultiplexer redis)
     {
         context.Services
@@ -330,7 +334,7 @@ public class TMSMSAgentServiceModule : AbpModule
             });
         });
     }
-    
+
     private void ConfigureIntegrationServices()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -338,7 +342,7 @@ public class TMSMSAgentServiceModule : AbpModule
             options.ExposeIntegrationServices = true;
         });
     }
-    
+
     private void ConfigureAntiForgery(IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
@@ -355,7 +359,7 @@ public class TMSMSAgentServiceModule : AbpModule
             });
         }
     }
-    
+
     private void ConfigureObjectMapper(ServiceConfigurationContext context)
     {
         context.Services.AddAutoMapperObjectMapper<TMSMSAgentServiceModule>();
@@ -365,7 +369,7 @@ public class TMSMSAgentServiceModule : AbpModule
             options.AddMaps<TMSMSAgentServiceModule>(validate: true);
         });
     }
-    
+
     private void ConfigureAutoControllers()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -379,14 +383,14 @@ public class TMSMSAgentServiceModule : AbpModule
                 });
         });
     }
-    
+
     private static void ConfigureSwaggerUI(SwaggerUIOptions options, IConfiguration configuration)
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "AgentService API");
         options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
         options.OAuthScopes("AgentService");
     }
-    
+
     private static bool IsSwaggerEnabled(IConfiguration configuration)
     {
         return bool.Parse(configuration["Swagger:IsEnabled"] ?? "true");
