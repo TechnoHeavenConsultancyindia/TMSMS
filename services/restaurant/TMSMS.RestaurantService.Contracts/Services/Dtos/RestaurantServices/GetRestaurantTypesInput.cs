@@ -5,6 +5,7 @@ namespace TMSMS.RestaurantService.RestaurantServices
 {
     public abstract class GetRestaurantTypesInputBase : PagedAndSortedResultRequestDto
     {
+
         public string? FilterText { get; set; }
 
         public string? Name { get; set; }
