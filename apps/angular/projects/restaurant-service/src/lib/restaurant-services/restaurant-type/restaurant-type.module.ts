@@ -7,3 +7,7 @@ import { RestaurantTypeRoutingModule } from './restaurant-type-routing.module';
   imports: [RestaurantTypeComponent, RestaurantTypeRoutingModule],
 })
 export class RestaurantTypeModule {}
+
+export function loadRestaurantTypeModuleAsChild() {
+  return Promise.resolve(RestaurantTypeModule);
+}

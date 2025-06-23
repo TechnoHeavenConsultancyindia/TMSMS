@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterOutletComponent } from '@abp/ng.core';
 import { Routes, RouterModule } from '@angular/router';
 import { loadRestaurantTagModuleAsChild } from './restaurant-services/restaurant-tag/restaurant-tag.module';
+import { loadRestaurantTypeModuleAsChild } from './restaurant-services/restaurant-type/restaurant-type.module';
 
 const routes: Routes = [
   {
@@ -10,13 +11,7 @@ const routes: Routes = [
     component: RouterOutletComponent,
     children: [],
   },
-  {
-    path: 'restaurant-types',
-    loadChildren: () =>
-      import('./restaurant-services/restaurant-type/restaurant-type.module').then(
-        m => m.RestaurantTypeModule,
-      ),
-  },
+  { path: 'restaurant-types', loadChildren: loadRestaurantTypeModuleAsChild },
   { path: 'restaurant-tags', loadChildren: loadRestaurantTagModuleAsChild },
 ];
 
@@ -24,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RestaurantServiceRoutingModule {}
+export class RestaurantServiceRoutingModule { }
