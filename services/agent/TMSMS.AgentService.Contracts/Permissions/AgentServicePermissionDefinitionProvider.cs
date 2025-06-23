@@ -24,6 +24,11 @@ public class AgentServicePermissionDefinitionProvider : PermissionDefinitionProv
         agentVoucherTypePermission.AddChild(AgentServicePermissions.AgentVoucherTypes.Create, L("Permission:Create"));
         agentVoucherTypePermission.AddChild(AgentServicePermissions.AgentVoucherTypes.Edit, L("Permission:Edit"));
         agentVoucherTypePermission.AddChild(AgentServicePermissions.AgentVoucherTypes.Delete, L("Permission:Delete"));
+
+        var agentFinanceDetailPermission = myGroup.AddPermission(AgentServicePermissions.AgentFinanceDetails.Default, L("Permission:AgentFinanceDetails"));
+        agentFinanceDetailPermission.AddChild(AgentServicePermissions.AgentFinanceDetails.Create, L("Permission:Create"));
+        agentFinanceDetailPermission.AddChild(AgentServicePermissions.AgentFinanceDetails.Edit, L("Permission:Edit"));
+        agentFinanceDetailPermission.AddChild(AgentServicePermissions.AgentFinanceDetails.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

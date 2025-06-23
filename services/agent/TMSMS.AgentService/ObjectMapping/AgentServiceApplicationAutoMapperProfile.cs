@@ -22,5 +22,8 @@ public class AgentServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<AgentVoucherType, AgentVoucherTypeDto>();
         CreateMap<AgentVoucherType, AgentVoucherTypeExcelDto>();
+
+        CreateMap<AgentFinanceDetail, AgentFinanceDetailDto>();
+        CreateMap<AgentFinanceDetail, AgentFinanceDetailExcelDto>();
     }
 }

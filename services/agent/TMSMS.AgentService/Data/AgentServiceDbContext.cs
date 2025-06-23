@@ -13,6 +13,7 @@ public class AgentServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<AgentFinanceDetail> AgentFinanceDetails { get; set; } = null!;
     public DbSet<AgentVoucherType> AgentVoucherTypes { get; set; } = null!;
     public DbSet<AgentPermissionType> AgentPermissionTypes { get; set; } = null!;
     public DbSet<AgentGroupType> AgentGroupTypes { get; set; } = null!;
@@ -58,6 +59,18 @@ public class AgentServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(AgentVoucherType.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(AgentVoucherType.Name)).IsRequired().HasMaxLength(AgentVoucherTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(AgentVoucherType.Description)).HasMaxLength(AgentVoucherTypeConsts.DescriptionMaxLength);
+                });
+        builder.Entity<AgentFinanceDetail>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "AgentFinanceDetails", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(AgentFinanceDetail.TenantId));
+                    b.Property(x => x.CreditLimit).HasColumnName(nameof(AgentFinanceDetail.CreditLimit));
+                    b.Property(x => x.CreditLimitCurrency).HasColumnName(nameof(AgentFinanceDetail.CreditLimitCurrency)).HasMaxLength(AgentFinanceDetailConsts.CreditLimitCurrencyMaxLength);
+                    b.Property(x => x.DisplayCurrency).HasColumnName(nameof(AgentFinanceDetail.DisplayCurrency)).HasMaxLength(AgentFinanceDetailConsts.DisplayCurrencyMaxLength);
+                    b.Property(x => x.OutstandingBalance).HasColumnName(nameof(AgentFinanceDetail.OutstandingBalance));
+                    b.Property(x => x.ConvertedBalance).HasColumnName(nameof(AgentFinanceDetail.ConvertedBalance));
+                    b.Property(x => x.LastConversionRate).HasColumnName(nameof(AgentFinanceDetail.LastConversionRate));
                 });
     }
 }

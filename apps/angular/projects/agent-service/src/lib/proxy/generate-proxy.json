@@ -1714,6 +1714,872 @@
               }
             }
           }
+        },
+        "TMSMS.AgentService.AgentServices.AgentFinanceDetailController": {
+          "controllerName": "AgentFinanceDetail",
+          "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailController",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "interfaces": [
+            {
+              "type": "TMSMS.AgentService.AgentServices.IAgentFinanceDetailAppService"
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/agent/agent-finance-details",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DisplayCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "OutstandingBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "OutstandingBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ConvertedBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ConvertedBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "LastConversionRateMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "LastConversionRateMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<TMSMS.AgentService.AgentServices.AgentFinanceDetailDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<TMSMS.AgentService.AgentServices.AgentFinanceDetailDto>"
+              }
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/agent/agent-finance-details/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto",
+                "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto"
+              }
+            },
+            "GetListAsExcelFileAsyncByInput": {
+              "uniqueName": "GetListAsExcelFileAsyncByInput",
+              "name": "GetListAsExcelFileAsync",
+              "httpMethod": "GET",
+              "url": "api/agent/agent-finance-details/as-excel-file",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.AgentServices.AgentFinanceDetailExcelDownloadDto, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailExcelDownloadDto",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailExcelDownloadDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "DownloadToken",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "CreditLimitMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "CreditLimitMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "CreditLimitCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "DisplayCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "OutstandingBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "OutstandingBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "ConvertedBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "ConvertedBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "LastConversionRateMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "LastConversionRateMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Content.IRemoteStreamContent",
+                "typeSimple": "Volo.Abp.Content.IRemoteStreamContent"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "TMSMS.AgentService.AgentServices.IAgentFinanceDetailsAppService"
+            },
+            "GetDownloadTokenAsync": {
+              "uniqueName": "GetDownloadTokenAsync",
+              "name": "GetDownloadTokenAsync",
+              "httpMethod": "GET",
+              "url": "api/agent/agent-finance-details/download-token",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "TMSMS.AgentService.Shared.DownloadTokenResultDto",
+                "typeSimple": "TMSMS.AgentService.Shared.DownloadTokenResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "TMSMS.AgentService.AgentServices.IAgentFinanceDetailsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/agent/agent-finance-details",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto",
+                "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto"
+              }
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/agent/agent-finance-details/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto",
+                "typeSimple": "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto"
+              }
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/agent/agent-finance-details/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              }
+            },
+            "UploadFileAsyncByInput": {
+              "name": "UploadFileAsync",
+              "uniqueName": "UploadFileAsyncByInput",
+              "httpMethod": "POST",
+              "url": "api/agent/agent-finance-details/upload-file",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Content.IRemoteStreamContent, Volo.Abp.Core",
+                  "type": "Volo.Abp.Content.IRemoteStreamContent",
+                  "typeSimple": "Volo.Abp.Content.IRemoteStreamContent",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Volo.Abp.Content.IRemoteStreamContent",
+                  "typeSimple": "Volo.Abp.Content.IRemoteStreamContent",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "TMSMS.AgentService.Shared.AppFileDescriptorDto",
+                "typeSimple": "TMSMS.AgentService.Shared.AppFileDescriptorDto"
+              }
+            },
+            "GetFileAsyncByInput": {
+              "name": "GetFileAsync",
+              "uniqueName": "GetFileAsyncByInput",
+              "httpMethod": "GET",
+              "url": "api/agent/agent-finance-details/file",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.Shared.GetFileInput, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.Shared.GetFileInput",
+                  "typeSimple": "TMSMS.AgentService.Shared.GetFileInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "DownloadToken",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "FileId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Content.IRemoteStreamContent",
+                "typeSimple": "Volo.Abp.Content.IRemoteStreamContent"
+              }
+            },
+            "DeleteAllAsync": {
+              "uniqueName": "DeleteAllAsync",
+              "name": "DeleteAllAsync",
+              "httpMethod": "DELETE",
+              "url": "api/agent/agent-finance-details/all",
+              "supportedVersions": [],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CreditLimitCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DisplayCurrency",
+                  "jsonName": null,
+                  "type": "System.String?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "OutstandingBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "OutstandingBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ConvertedBalanceMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ConvertedBalanceMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "LastConversionRateMin",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "LastConversionRateMax",
+                  "jsonName": null,
+                  "type": "System.Decimal?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput, TMSMS.AgentService.Application.Contracts",
+                  "type": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput",
+                  "typeSimple": "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              }
+            },
+            "DeleteByIdsAsyncByAgentFinanceDetailIds": {
+              "uniqueName": "DeleteByIdsAsyncByAgentFinanceDetailIds",
+              "name": "DeleteByIdsAsync",
+              "httpMethod": "DELETE",
+              "url": "api/agent/agent-finance-details",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "agentFinanceDetailIds",
+                  "type": "System.Collections.Generic.List<System.Int32>",
+                  "typeAsString": "System.Collections.Generic.List<System.Int32>, System.Private.CoreLib",
+                  "typeSimple": "[number]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "agentFinanceDetailIds",
+                  "name": "agentFinanceDetailIds",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.List<System.Int32>",
+                  "typeSimple": "[number]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              }
+            }
+          }
         }
       }
     }
@@ -2679,6 +3545,380 @@
           "jsonName": null,
           "type": "System.String?",
           "typeSimple": "string?",
+          "isRequired": false
+        }
+      ]
+    },
+    "TMSMS.AgentService.AgentServices.GetAgentFinanceDetailsInput": {
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "FilterText",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRequired": false
+        },
+        {
+          "name": "DisplayCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalanceMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalanceMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalanceMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalanceMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRateMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRateMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        }
+      ]
+    },
+    "TMSMS.AgentService.AgentServices.AgentFinanceDetailDto": {
+      "baseType": "Volo.Abp.Application.Dtos.FullAuditedEntityDto<System.Int32>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CreditLimit",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "DisplayCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRate",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false
+        }
+      ]
+    },
+    "TMSMS.AgentService.AgentServices.AgentFinanceDetailCreateDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CreditLimit",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "DisplayCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRate",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        }
+      ]
+    },
+    "TMSMS.AgentService.AgentServices.AgentFinanceDetailUpdateDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CreditLimit",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "DisplayCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalance",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRate",
+          "jsonName": null,
+          "type": "System.Decimal",
+          "typeSimple": "number",
+          "isRef": false,
+          "isRequired": false
+        },
+        {
+          "name": "ConcurrencyStamp",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false
+        }
+      ]
+    },
+    "TMSMS.AgentService.AgentServices.AgentFinanceDetailExcelDownloadDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "DownloadToken",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "FilterText",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CreditLimitMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "CreditLimitCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRequired": false
+        },
+        {
+          "name": "DisplayCurrency",
+          "jsonName": null,
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalanceMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "OutstandingBalanceMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalanceMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "ConvertedBalanceMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRateMin",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "LastConversionRateMax",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
           "isRequired": false
         }
       ]

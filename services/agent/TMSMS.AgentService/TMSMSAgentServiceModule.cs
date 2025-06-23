@@ -278,6 +278,8 @@ public class TMSMSAgentServiceModule : AbpModule
 
             options.AddRepository<AgentVoucherType, AgentServices.EfCoreAgentVoucherTypeRepository>();
 
+            options.AddRepository<AgentFinanceDetail, AgentServices.EfCoreAgentFinanceDetailRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
