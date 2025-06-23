@@ -13,6 +13,7 @@ public class AgentServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<AgentVoucherType> AgentVoucherTypes { get; set; } = null!;
     public DbSet<AgentPermissionType> AgentPermissionTypes { get; set; } = null!;
     public DbSet<AgentGroupType> AgentGroupTypes { get; set; } = null!;
     public const string DbTablePrefix = "";
@@ -49,6 +50,14 @@ public class AgentServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(AgentPermissionType.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(AgentPermissionType.Name)).IsRequired().HasMaxLength(AgentPermissionTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(AgentPermissionType.Description)).HasMaxLength(AgentPermissionTypeConsts.DescriptionMaxLength);
+                });
+        builder.Entity<AgentVoucherType>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "AgentVoucherTypes", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(AgentVoucherType.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(AgentVoucherType.Name)).IsRequired().HasMaxLength(AgentVoucherTypeConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(AgentVoucherType.Description)).HasMaxLength(AgentVoucherTypeConsts.DescriptionMaxLength);
                 });
     }
 }

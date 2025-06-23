@@ -276,6 +276,8 @@ public class TMSMSAgentServiceModule : AbpModule
 
             options.AddRepository<AgentPermissionType, AgentServices.EfCoreAgentPermissionTypeRepository>();
 
+            options.AddRepository<AgentVoucherType, AgentServices.EfCoreAgentVoucherTypeRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

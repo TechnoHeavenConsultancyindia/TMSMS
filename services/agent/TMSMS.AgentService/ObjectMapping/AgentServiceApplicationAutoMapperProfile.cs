@@ -19,5 +19,8 @@ public class AgentServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<AgentPermissionType, AgentPermissionTypeDto>();
         CreateMap<AgentPermissionType, AgentPermissionTypeExcelDto>();
+
+        CreateMap<AgentVoucherType, AgentVoucherTypeDto>();
+        CreateMap<AgentVoucherType, AgentVoucherTypeExcelDto>();
     }
 }

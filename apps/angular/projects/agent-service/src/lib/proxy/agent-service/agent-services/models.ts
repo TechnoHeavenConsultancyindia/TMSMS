@@ -48,6 +48,30 @@ export interface AgentPermissionTypeUpdateDto {
   concurrencyStamp?: string;
 }
 
+export interface AgentVoucherTypeCreateDto {
+  name: string;
+  description?: string;
+}
+
+export interface AgentVoucherTypeDto extends FullAuditedEntityDto<number> {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
+}
+
+export interface AgentVoucherTypeExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface AgentVoucherTypeUpdateDto {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
+}
+
 export interface GetAgentGroupTypesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
@@ -55,6 +79,12 @@ export interface GetAgentGroupTypesInput extends PagedAndSortedResultRequestDto 
 }
 
 export interface GetAgentPermissionTypesInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface GetAgentVoucherTypesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
   description?: string;

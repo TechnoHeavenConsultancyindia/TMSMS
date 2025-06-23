@@ -39,6 +39,11 @@
     "AgentPermissionTypes": "Agent Permission Types",
     "NewAgentPermissionType": "New Agent Permission Type",
     "AgentPermissionType": "Agent Permission Type",
-    "Menu:AgentPermissionTypes": "Agent Permission Types"
+    "Menu:AgentPermissionTypes": "Agent Permission Types",
+    "Permission:AgentVoucherTypes": "Agent Voucher Types",
+    "AgentVoucherTypes": "Agent Voucher Types",
+    "NewAgentVoucherType": "New Agent Voucher Type",
+    "AgentVoucherType": "Agent Voucher Type",
+    "Menu:AgentVoucherTypes": "Agent Voucher Types"
   }
 }
