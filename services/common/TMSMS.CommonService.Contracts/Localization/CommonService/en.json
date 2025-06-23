@@ -75,6 +75,11 @@
     "Cities": "Cities",
     "NewCity": "New City",
     "City": "City",
-    "Menu:Cities": "Cities"
+    "Menu:Cities": "Cities",
+    "Permission:Provinces": "Provinces",
+    "Provinces": "Provinces",
+    "NewProvince": "New Province",
+    "Province": "Province",
+    "Menu:Provinces": "Provinces"
   }
 }

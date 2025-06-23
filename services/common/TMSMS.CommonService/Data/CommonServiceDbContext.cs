@@ -13,6 +13,7 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<Province> Provinces { get; set; } = null!;
     public DbSet<City> Cities { get; set; } = null!;
     public DbSet<Country> Countries { get; set; } = null!;
     public const string DbTablePrefix = "";
@@ -73,6 +74,26 @@ public class CommonServiceDbContext :
                     b.Property(x => x.Categories).HasColumnName(nameof(City.Categories));
                     b.Property(x => x.Tags).HasColumnName(nameof(City.Tags));
                     b.Property(x => x.StatusFlag).HasColumnName(nameof(City.StatusFlag));
+                });
+        builder.Entity<Province>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "Provinces", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(Province.TenantId));
+                    b.Property(x => x.LocationId).HasColumnName(nameof(Province.LocationId));
+                    b.Property(x => x.Name).HasColumnName(nameof(Province.Name)).IsRequired();
+                    b.Property(x => x.FullName).HasColumnName(nameof(Province.FullName));
+                    b.Property(x => x.Descriptor).HasColumnName(nameof(Province.Descriptor));
+                    b.Property(x => x.IataAirportCode).HasColumnName(nameof(Province.IataAirportCode));
+                    b.Property(x => x.IataAirportMetroCode).HasColumnName(nameof(Province.IataAirportMetroCode));
+                    b.Property(x => x.CountrySubdivisionCode).HasColumnName(nameof(Province.CountrySubdivisionCode));
+                    b.Property(x => x.Latitude).HasColumnName(nameof(Province.Latitude));
+                    b.Property(x => x.Longitude).HasColumnName(nameof(Province.Longitude));
+                    b.Property(x => x.PolygonType).HasColumnName(nameof(Province.PolygonType));
+                    b.Property(x => x.CountryCode).HasColumnName(nameof(Province.CountryCode));
+                    b.Property(x => x.Categories).HasColumnName(nameof(Province.Categories)).IsRequired();
+                    b.Property(x => x.Tags).HasColumnName(nameof(Province.Tags));
+                    b.Property(x => x.StatusFlag).HasColumnName(nameof(Province.StatusFlag));
                 });
     }
 }
