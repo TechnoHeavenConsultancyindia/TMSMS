@@ -39,6 +39,11 @@
     "RestaurantTags": "Restaurant Tags",
     "NewRestaurantTag": "New Restaurant Tag",
     "RestaurantTag": "Restaurant Tag",
-    "Menu:RestaurantTags": "Restaurant Tags"
+    "Menu:RestaurantTags": "Restaurant Tags",
+    "Permission:RestaurantDietaryTypes": "Restaurant Dietary Types",
+    "RestaurantDietaryTypes": "Restaurant Dietary Types",
+    "NewRestaurantDietaryType": "New Restaurant Dietary Type",
+    "RestaurantDietaryType": "Restaurant Dietary Type",
+    "Menu:RestaurantDietaryTypes": "Restaurant Dietary Types"
   }
 }

@@ -13,6 +13,7 @@ public class RestaurantServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<RestaurantDietaryType> RestaurantDietaryTypes { get; set; } = null!;
     public DbSet<RestaurantTag> RestaurantTags { get; set; } = null!;
     public DbSet<RestaurantType> RestaurantTypes { get; set; } = null!;
     public const string DbTablePrefix = "";
@@ -50,6 +51,14 @@ public class RestaurantServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantTag.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(RestaurantTag.Name)).IsRequired().HasMaxLength(RestaurantTagConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(RestaurantTag.Description)).HasMaxLength(RestaurantTagConsts.DescriptionMaxLength);
+                });
+        builder.Entity<RestaurantDietaryType>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "RestaurantDietaryTypes", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantDietaryType.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(RestaurantDietaryType.Name)).IsRequired().HasMaxLength(RestaurantDietaryTypeConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(RestaurantDietaryType.Description)).HasMaxLength(RestaurantDietaryTypeConsts.DescriptionMaxLength);
                 });
     }
 }

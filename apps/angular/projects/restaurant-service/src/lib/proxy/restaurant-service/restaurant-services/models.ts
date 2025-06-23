@@ -1,5 +1,11 @@
 import type { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
 
+export interface GetRestaurantDietaryTypesInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
 export interface GetRestaurantTagsInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
@@ -10,6 +16,30 @@ export interface GetRestaurantTypesInput extends PagedAndSortedResultRequestDto 
   filterText?: string;
   name?: string;
   description?: string;
+}
+
+export interface RestaurantDietaryTypeCreateDto {
+  name: string;
+  description?: string;
+}
+
+export interface RestaurantDietaryTypeDto extends FullAuditedEntityDto<number> {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
+}
+
+export interface RestaurantDietaryTypeExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface RestaurantDietaryTypeUpdateDto {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
 }
 
 export interface RestaurantTagCreateDto {
