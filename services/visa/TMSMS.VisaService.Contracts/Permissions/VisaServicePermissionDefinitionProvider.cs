@@ -19,6 +19,11 @@ public class VisaServicePermissionDefinitionProvider : PermissionDefinitionProvi
         visaTypePermission.AddChild(VisaServicePermissions.VisaTypes.Create, L("Permission:Create"));
         visaTypePermission.AddChild(VisaServicePermissions.VisaTypes.Edit, L("Permission:Edit"));
         visaTypePermission.AddChild(VisaServicePermissions.VisaTypes.Delete, L("Permission:Delete"));
+
+        var visaDiscountCategoryPermission = myGroup.AddPermission(VisaServicePermissions.VisaDiscountCategories.Default, L("Permission:VisaDiscountCategories"));
+        visaDiscountCategoryPermission.AddChild(VisaServicePermissions.VisaDiscountCategories.Create, L("Permission:Create"));
+        visaDiscountCategoryPermission.AddChild(VisaServicePermissions.VisaDiscountCategories.Edit, L("Permission:Edit"));
+        visaDiscountCategoryPermission.AddChild(VisaServicePermissions.VisaDiscountCategories.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

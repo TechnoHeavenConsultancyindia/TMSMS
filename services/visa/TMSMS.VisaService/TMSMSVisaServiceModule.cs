@@ -276,6 +276,8 @@ public class TMSMSVisaServiceModule : AbpModule
 
             options.AddRepository<VisaType, VisaServices.EfCoreVisaTypeRepository>();
 
+            options.AddRepository<VisaDiscountCategory, VisaServices.EfCoreVisaDiscountCategoryRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

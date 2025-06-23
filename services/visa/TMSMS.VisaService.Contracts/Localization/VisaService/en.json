@@ -45,6 +45,12 @@
     "MinSubCategory": "Min Sub Category",
     "MinVisaPurpose": "Min Visa Purpose",
     "MaxSubCategory": "Max Sub Category",
-    "MaxVisaPurpose": "Max Visa Purpose"
+    "MaxVisaPurpose": "Max Visa Purpose",
+    "Permission:VisaDiscountCategories": "Visa Discount Categories",
+    "VisaDiscountCategories": "Visa Discount Categories",
+    "NewVisaDiscountCategory": "New Visa Discount Category",
+    "VisaDiscountCategory": "Visa Discount Category",
+    "Menu:VisaDiscountCategories": "Visa Discount Categories",
+    "DiscountCategories": "Discount Categories"
   }
 }

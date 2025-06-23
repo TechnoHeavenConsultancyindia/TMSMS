@@ -13,6 +13,7 @@ public class VisaServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<VisaDiscountCategory> VisaDiscountCategories { get; set; } = null!;
     public DbSet<VisaType> VisaTypes { get; set; } = null!;
     public DbSet<VisaTermCategory> VisaTermCategories { get; set; } = null!;
     public const string DbTablePrefix = "";
@@ -52,6 +53,14 @@ public class VisaServiceDbContext :
                     b.Property(x => x.SubCategory).HasColumnName(nameof(VisaType.SubCategory)).HasMaxLength(VisaTypeConsts.SubCategoryMaxLength);
                     b.Property(x => x.VisaPurpose).HasColumnName(nameof(VisaType.VisaPurpose));
                     b.Property(x => x.Description).HasColumnName(nameof(VisaType.Description));
+                });
+        builder.Entity<VisaDiscountCategory>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "VisaDiscountCategories", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(VisaDiscountCategory.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(VisaDiscountCategory.Name)).IsRequired().HasMaxLength(VisaDiscountCategoryConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(VisaDiscountCategory.Description)).HasMaxLength(VisaDiscountCategoryConsts.DescriptionMaxLength);
                 });
     }
 }

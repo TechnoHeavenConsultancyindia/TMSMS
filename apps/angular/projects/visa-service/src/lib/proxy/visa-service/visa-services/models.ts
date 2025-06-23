@@ -1,5 +1,11 @@
 import type { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
 
+export interface GetVisaDiscountCategoriesInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
 export interface GetVisaTermCategoriesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
@@ -12,6 +18,30 @@ export interface GetVisaTypesInput extends PagedAndSortedResultRequestDto {
   subCategory?: string;
   visaPurpose?: string;
   description?: string;
+}
+
+export interface VisaDiscountCategoryCreateDto {
+  name: string;
+  description?: string;
+}
+
+export interface VisaDiscountCategoryDto extends FullAuditedEntityDto<number> {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
+}
+
+export interface VisaDiscountCategoryExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface VisaDiscountCategoryUpdateDto {
+  name: string;
+  description?: string;
+  concurrencyStamp?: string;
 }
 
 export interface VisaTermCategoryCreateDto {
