@@ -8,7 +8,12 @@ public class RestaurantServicePermissionDefinitionProvider : PermissionDefinitio
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        //var myGroup = context.AddGroup(RestaurantServicePermissions.GroupName);
+        var myGroup = context.AddGroup(RestaurantServicePermissions.GroupName);
+
+        var restaurantTypePermission = myGroup.AddPermission(RestaurantServicePermissions.RestaurantTypes.Default, L("Permission:RestaurantTypes"));
+        restaurantTypePermission.AddChild(RestaurantServicePermissions.RestaurantTypes.Create, L("Permission:Create"));
+        restaurantTypePermission.AddChild(RestaurantServicePermissions.RestaurantTypes.Edit, L("Permission:Edit"));
+        restaurantTypePermission.AddChild(RestaurantServicePermissions.RestaurantTypes.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

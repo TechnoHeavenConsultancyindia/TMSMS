@@ -9,6 +9,13 @@ const routes: Routes = [
     component: RouterOutletComponent,
     children: [],
   },
+  {
+    path: 'restaurant-types',
+    loadChildren: () =>
+      import('./restaurant-services/restaurant-type/restaurant-type.module').then(
+        m => m.RestaurantTypeModule,
+      ),
+  },
 ];
 
 @NgModule({
