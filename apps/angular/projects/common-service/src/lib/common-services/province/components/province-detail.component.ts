@@ -28,7 +28,7 @@ import { ProvinceDetailViewService } from '../services/province-detail.service';
     { provide: NgbDateAdapter, useClass: DateAdapter },
     { provide: NgbTimeAdapter, useClass: TimeAdapter },
   ],
-  templateUrl: './province-detail.component.html',
+  templateUrl: './province-detail.extended.component.html',
   styles: [],
 })
 export class ProvinceDetailModalComponent {

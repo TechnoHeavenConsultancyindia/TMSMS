@@ -28,7 +28,7 @@ import { CountryDetailViewService } from '../services/country-detail.service';
     { provide: NgbDateAdapter, useClass: DateAdapter },
     { provide: NgbTimeAdapter, useClass: TimeAdapter },
   ],
-  templateUrl: './country-detail.component.html',
+  templateUrl: './country-detail.extended.component.html',
   styles: [],
 })
 export class CountryDetailModalComponent {

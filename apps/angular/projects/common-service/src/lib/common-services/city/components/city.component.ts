@@ -45,7 +45,7 @@ import {
     { provide: NgbDateAdapter, useClass: DateAdapter },
     { provide: NgbTimeAdapter, useClass: TimeAdapter },
   ],
-  templateUrl: './city.component.html',
+  templateUrl: './city.extended.component.html',
   styles: `
     ::ng-deep.datatable-row-detail {
       background: transparent !important;

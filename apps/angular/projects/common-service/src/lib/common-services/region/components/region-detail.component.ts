@@ -28,7 +28,7 @@ import { RegionDetailViewService } from '../services/region-detail.service';
     { provide: NgbDateAdapter, useClass: DateAdapter },
     { provide: NgbTimeAdapter, useClass: TimeAdapter },
   ],
-  templateUrl: './region-detail.component.html',
+  templateUrl: './region-detail.extended.component.html',
   styles: [],
 })
 export class RegionDetailModalComponent {

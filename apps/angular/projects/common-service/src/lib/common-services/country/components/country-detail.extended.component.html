@@ -1,0 +1,170 @@
+<abp-modal [busy]="service.isBusy" [(visible)]="service.isVisible" [options]="{ size: 'xl' }">
+  <ng-template #abpHeader>
+    <!--<suite-custom-code-block-0>-->
+    <!--</suite-custom-code-block-0>-->
+    <h3>
+      <!--<suite-custom-code-block-1>-->
+      <!--</suite-custom-code-block-1>-->
+      {{
+      (service.selected ? 'AbpUi::Edit' : 'CommonService::NewCountry') | abpLocalization
+      }}
+      <!--<suite-custom-code-block-2>-->
+      <!--</suite-custom-code-block-2>-->
+    </h3>
+    <!--<suite-custom-code-block-3>-->
+    <!--</suite-custom-code-block-3>-->
+  </ng-template>
+
+  <ng-template #abpBody>
+    <!--<suite-custom-code-block-4>-->
+    <!--</suite-custom-code-block-4>-->
+    <form [formGroup]="service.form" id="country" (ngSubmit)="service.submitForm()" validateOnSubmit>
+      <!--<suite-custom-code-block-5>-->
+      <!--</suite-custom-code-block-5>-->
+
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <ng-template ngbNavContent>
+            <div class="form-top fade-in-top">
+              <div class="row">
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-location-id">
+                    {{ 'CommonService::LocationId' | abpLocalization }}
+                  </label>
+
+                  <input id="country-location-id" formControlName="locationId" class="form-control" autofocus />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-name">
+                    {{ 'CommonService::Name' | abpLocalization }} *
+                  </label>
+
+                  <input id="country-name" formControlName="name" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-full-name">
+                    {{ 'CommonService::FullName' | abpLocalization }}
+                  </label>
+
+                  <input id="country-full-name" formControlName="fullName" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-iata-airport-code">
+                    {{ 'CommonService::IataAirportCode' | abpLocalization }}
+                  </label>
+
+                  <input id="country-iata-airport-code" formControlName="iataAirportCode" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-iata-airport-metro-code">
+                    {{ 'CommonService::IataAirportMetroCode' | abpLocalization }}
+                  </label>
+
+                  <input id="country-iata-airport-metro-code" formControlName="iataAirportMetroCode"
+                    class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-country-subdivision-code">
+                    {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
+                  </label>
+
+                  <input id="country-country-subdivision-code" formControlName="countrySubdivisionCode"
+                    class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-latitude">
+                    {{ 'CommonService::Latitude' | abpLocalization }}
+                  </label>
+
+                  <input id="country-latitude" formControlName="latitude" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-longitude">
+                    {{ 'CommonService::Longitude' | abpLocalization }}
+                  </label>
+
+                  <input id="country-longitude" formControlName="longitude" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-polygon-type">
+                    {{ 'CommonService::PolygonType' | abpLocalization }}
+                  </label>
+
+                  <input id="country-polygon-type" formControlName="polygonType" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-country-code">
+                    {{ 'CommonService::CountryCode' | abpLocalization }}
+                  </label>
+
+                  <input id="country-country-code" formControlName="countryCode" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-categories">
+                    {{ 'CommonService::Categories' | abpLocalization }} *
+                  </label>
+
+                  <input id="country-categories" formControlName="categories" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-tags">
+                    {{ 'CommonService::Tags' | abpLocalization }}
+                  </label>
+
+                  <input id="country-tags" formControlName="tags" class="form-control" />
+                </div>
+
+                <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-field-bottom">
+                  <label class="form-label" for="country-status-flag">
+                    {{ 'CommonService::StatusFlag' | abpLocalization }} *
+                  </label>
+
+                  <input type="number" id="country-status-flag" formControlName="statusFlag" class="form-control" />
+                </div>
+
+                <div class="col col-12 form-field-bottom">
+                  <label class="form-label" for="country-descriptor">
+                    {{ 'CommonService::Descriptor' | abpLocalization }}
+                  </label>
+
+                  <textarea id="country-descriptor" formControlName="descriptor" class="form-control">
+                </textarea>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+
+      <!--<suite-custom-code-block-6>-->
+      <!--</suite-custom-code-block-6>-->
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <!--<suite-custom-code-block-7>-->
+    <!--</suite-custom-code-block-7>-->
+    <button type="button" class="btn btn-secondary btn-sm" abpClose>
+      {{ 'AbpUi::Cancel' | abpLocalization }}
+    </button>
+    <!--<suite-custom-code-block-8>-->
+    <!--</suite-custom-code-block-8>-->
+    <abp-button iconClass="fa fa-check" buttonClass="btn btn-primary btn-sm" buttonType="submit" formName="country">
+      {{ 'AbpUi::Save' | abpLocalization }}
+    </abp-button>
+    <!--<suite-custom-code-block-9>-->
+    <!--</suite-custom-code-block-9>-->
+  </ng-template>
+</abp-modal>

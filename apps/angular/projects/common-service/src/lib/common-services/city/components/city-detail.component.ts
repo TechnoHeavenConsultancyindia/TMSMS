@@ -28,7 +28,7 @@ import { CityDetailViewService } from '../services/city-detail.service';
     { provide: NgbDateAdapter, useClass: DateAdapter },
     { provide: NgbTimeAdapter, useClass: TimeAdapter },
   ],
-  templateUrl: './city-detail.component.html',
+  templateUrl: './city-detail.extended.component.html',
   styles: [],
 })
 export class CityDetailModalComponent {
