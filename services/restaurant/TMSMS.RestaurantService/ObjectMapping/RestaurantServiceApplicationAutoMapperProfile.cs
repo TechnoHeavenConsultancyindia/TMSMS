@@ -22,5 +22,8 @@ public class RestaurantServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<RestaurantDietaryType, RestaurantDietaryTypeDto>();
         CreateMap<RestaurantDietaryType, RestaurantDietaryTypeExcelDto>();
+
+        CreateMap<RestaurantCuisine, RestaurantCuisineDto>();
+        CreateMap<RestaurantCuisine, RestaurantCuisineExcelDto>();
     }
 }

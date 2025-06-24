@@ -24,6 +24,11 @@ public class RestaurantServicePermissionDefinitionProvider : PermissionDefinitio
         restaurantDietaryTypePermission.AddChild(RestaurantServicePermissions.RestaurantDietaryTypes.Create, L("Permission:Create"));
         restaurantDietaryTypePermission.AddChild(RestaurantServicePermissions.RestaurantDietaryTypes.Edit, L("Permission:Edit"));
         restaurantDietaryTypePermission.AddChild(RestaurantServicePermissions.RestaurantDietaryTypes.Delete, L("Permission:Delete"));
+
+        var restaurantCuisinePermission = myGroup.AddPermission(RestaurantServicePermissions.RestaurantCuisines.Default, L("Permission:RestaurantCuisines"));
+        restaurantCuisinePermission.AddChild(RestaurantServicePermissions.RestaurantCuisines.Create, L("Permission:Create"));
+        restaurantCuisinePermission.AddChild(RestaurantServicePermissions.RestaurantCuisines.Edit, L("Permission:Edit"));
+        restaurantCuisinePermission.AddChild(RestaurantServicePermissions.RestaurantCuisines.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

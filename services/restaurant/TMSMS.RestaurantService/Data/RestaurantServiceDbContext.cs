@@ -13,6 +13,7 @@ public class RestaurantServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<RestaurantCuisine> RestaurantCuisines { get; set; } = null!;
     public DbSet<RestaurantDietaryType> RestaurantDietaryTypes { get; set; } = null!;
     public DbSet<RestaurantTag> RestaurantTags { get; set; } = null!;
     public DbSet<RestaurantType> RestaurantTypes { get; set; } = null!;
@@ -59,6 +60,14 @@ public class RestaurantServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantDietaryType.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(RestaurantDietaryType.Name)).IsRequired().HasMaxLength(RestaurantDietaryTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(RestaurantDietaryType.Description)).HasMaxLength(RestaurantDietaryTypeConsts.DescriptionMaxLength);
+                });
+        builder.Entity<RestaurantCuisine>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "RestaurantCuisines", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(RestaurantCuisine.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(RestaurantCuisine.Name)).IsRequired().HasMaxLength(RestaurantCuisineConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(RestaurantCuisine.Description)).HasMaxLength(RestaurantCuisineConsts.DescriptionMaxLength);
                 });
     }
 }

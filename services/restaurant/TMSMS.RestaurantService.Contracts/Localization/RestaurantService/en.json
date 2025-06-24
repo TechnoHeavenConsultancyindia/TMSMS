@@ -44,6 +44,11 @@
     "RestaurantDietaryTypes": "Restaurant Dietary Types",
     "NewRestaurantDietaryType": "New Restaurant Dietary Type",
     "RestaurantDietaryType": "Restaurant Dietary Type",
-    "Menu:RestaurantDietaryTypes": "Restaurant Dietary Types"
+    "Menu:RestaurantDietaryTypes": "Restaurant Dietary Types",
+    "Permission:RestaurantCuisines": "Restaurant Cuisines",
+    "RestaurantCuisines": "Restaurant Cuisines",
+    "NewRestaurantCuisine": "New Restaurant Cuisine",
+    "RestaurantCuisine": "Restaurant Cuisine",
+    "Menu:RestaurantCuisines": "Restaurant Cuisines"
   }
 }

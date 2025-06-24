@@ -3,6 +3,7 @@ import { RESTAURANT_SERVICE_ROUTE_PROVIDERS } from './providers/route.provider';
 import { RESTAURANT_SERVICES_RESTAURANT_TYPE_ROUTE_PROVIDER } from './providers/restaurant-type-route.provider';
 import { RESTAURANT_SERVICES_RESTAURANT_TAG_ROUTE_PROVIDER } from './providers/restaurant-tag-route.provider';
 import { RESTAURANT_SERVICES_RESTAURANT_DIETARY_TYPE_ROUTE_PROVIDER } from './providers/restaurant-dietary-type-route.provider';
+import { RESTAURANT_SERVICES_RESTAURANT_CUISINE_ROUTE_PROVIDER } from './providers/restaurant-cuisine-route.provider';
 
 @NgModule()
 export class RestaurantServiceConfigModule {
@@ -14,6 +15,7 @@ export class RestaurantServiceConfigModule {
         RESTAURANT_SERVICES_RESTAURANT_TYPE_ROUTE_PROVIDER,
         RESTAURANT_SERVICES_RESTAURANT_TAG_ROUTE_PROVIDER,
         RESTAURANT_SERVICES_RESTAURANT_DIETARY_TYPE_ROUTE_PROVIDER,
+        RESTAURANT_SERVICES_RESTAURANT_CUISINE_ROUTE_PROVIDER,
       ],
     };
   }

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { loadRestaurantTagModuleAsChild } from './restaurant-services/restaurant-tag/restaurant-tag.module';
 import { loadRestaurantTypeModuleAsChild } from './restaurant-services/restaurant-type/restaurant-type.module';
 import { loadRestaurantDietaryTypeModuleAsChild } from './restaurant-services/restaurant-dietary-type/restaurant-dietary-type.module';
+import { loadRestaurantCuisineModuleAsChild } from './restaurant-services/restaurant-cuisine/restaurant-cuisine.module';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     path: 'restaurant-dietary-types',
     loadChildren: loadRestaurantDietaryTypeModuleAsChild,
   },
+  { path: 'restaurant-cuisines', loadChildren: loadRestaurantCuisineModuleAsChild },
 ];
 
 @NgModule({
