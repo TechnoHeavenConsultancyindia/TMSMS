@@ -257,6 +257,240 @@ namespace TMSMS.CommonService.Migrations
                     b.ToTable("Countries", (string)null);
                 });
 
+            modelBuilder.Entity("TMSMS.CommonService.CommonServices.Province", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Categories")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Categories");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CountryCode");
+
+                    b.Property<string>("CountrySubdivisionCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CountrySubdivisionCode");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<string>("Descriptor")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Descriptor");
+
+                    b.Property<string>("ExtraProperties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("FullName");
+
+                    b.Property<string>("IataAirportCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("IataAirportCode");
+
+                    b.Property<string>("IataAirportMetroCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("IataAirportMetroCode");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<string>("Latitude")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Latitude");
+
+                    b.Property<string>("LocationId")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LocationId");
+
+                    b.Property<string>("Longitude")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Longitude");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<string>("PolygonType")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PolygonType");
+
+                    b.Property<int>("StatusFlag")
+                        .HasColumnType("int")
+                        .HasColumnName("StatusFlag");
+
+                    b.Property<string>("Tags")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Tags");
+
+                    b.Property<Guid?>("TenantId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("TenantId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Provinces", (string)null);
+                });
+
+            modelBuilder.Entity("TMSMS.CommonService.CommonServices.Region", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Categories")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Categories");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CountryCode");
+
+                    b.Property<string>("CountrySubdivisionCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CountrySubdivisionCode");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<string>("Descriptor")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Descriptor");
+
+                    b.Property<string>("ExtraProperties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("FullName");
+
+                    b.Property<string>("IataAirportCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("IataAirportCode");
+
+                    b.Property<string>("IataAirportMetroCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("IataAirportMetroCode");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<string>("Latitude")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Latitude");
+
+                    b.Property<string>("LocationId")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LocationId");
+
+                    b.Property<string>("Longitude")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Longitude");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<string>("PolygonType")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PolygonType");
+
+                    b.Property<int>("StatusFlag")
+                        .HasColumnType("int")
+                        .HasColumnName("StatusFlag");
+
+                    b.Property<string>("Tags")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Tags");
+
+                    b.Property<Guid?>("TenantId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("TenantId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Regions", (string)null);
+                });
+
             modelBuilder.Entity("Volo.Abp.EntityFrameworkCore.DistributedEvents.IncomingEventRecord", b =>
                 {
                     b.Property<Guid>("Id")
