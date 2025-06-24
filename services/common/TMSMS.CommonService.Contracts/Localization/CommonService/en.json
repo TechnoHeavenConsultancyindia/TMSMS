@@ -80,6 +80,11 @@
     "Provinces": "Provinces",
     "NewProvince": "New Province",
     "Province": "Province",
-    "Menu:Provinces": "Provinces"
+    "Menu:Provinces": "Provinces",
+    "Permission:Regions": "Regions",
+    "Regions": "Regions",
+    "NewRegion": "New Region",
+    "Region": "Region",
+    "Menu:Regions": "Regions"
   }
 }

@@ -13,6 +13,7 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<Region> Regions { get; set; } = null!;
     public DbSet<Province> Provinces { get; set; } = null!;
     public DbSet<City> Cities { get; set; } = null!;
     public DbSet<Country> Countries { get; set; } = null!;
@@ -94,6 +95,27 @@ public class CommonServiceDbContext :
                     b.Property(x => x.Categories).HasColumnName(nameof(Province.Categories)).IsRequired();
                     b.Property(x => x.Tags).HasColumnName(nameof(Province.Tags));
                     b.Property(x => x.StatusFlag).HasColumnName(nameof(Province.StatusFlag));
+                });
+
+        builder.Entity<Region>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "Regions", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(Region.TenantId));
+                    b.Property(x => x.LocationId).HasColumnName(nameof(Region.LocationId));
+                    b.Property(x => x.Name).HasColumnName(nameof(Region.Name)).IsRequired();
+                    b.Property(x => x.FullName).HasColumnName(nameof(Region.FullName));
+                    b.Property(x => x.Descriptor).HasColumnName(nameof(Region.Descriptor));
+                    b.Property(x => x.IataAirportCode).HasColumnName(nameof(Region.IataAirportCode));
+                    b.Property(x => x.IataAirportMetroCode).HasColumnName(nameof(Region.IataAirportMetroCode));
+                    b.Property(x => x.CountrySubdivisionCode).HasColumnName(nameof(Region.CountrySubdivisionCode));
+                    b.Property(x => x.Latitude).HasColumnName(nameof(Region.Latitude));
+                    b.Property(x => x.Longitude).HasColumnName(nameof(Region.Longitude));
+                    b.Property(x => x.PolygonType).HasColumnName(nameof(Region.PolygonType));
+                    b.Property(x => x.Categories).HasColumnName(nameof(Region.Categories)).IsRequired();
+                    b.Property(x => x.CountryCode).HasColumnName(nameof(Region.CountryCode));
+                    b.Property(x => x.Tags).HasColumnName(nameof(Region.Tags));
+                    b.Property(x => x.StatusFlag).HasColumnName(nameof(Region.StatusFlag));
                 });
     }
 }

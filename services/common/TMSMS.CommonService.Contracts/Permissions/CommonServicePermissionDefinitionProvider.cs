@@ -24,6 +24,11 @@ public class CommonServicePermissionDefinitionProvider : PermissionDefinitionPro
         provincePermission.AddChild(CommonServicePermissions.Provinces.Create, L("Permission:Create"));
         provincePermission.AddChild(CommonServicePermissions.Provinces.Edit, L("Permission:Edit"));
         provincePermission.AddChild(CommonServicePermissions.Provinces.Delete, L("Permission:Delete"));
+
+        var regionPermission = myGroup.AddPermission(CommonServicePermissions.Regions.Default, L("Permission:Regions"));
+        regionPermission.AddChild(CommonServicePermissions.Regions.Create, L("Permission:Create"));
+        regionPermission.AddChild(CommonServicePermissions.Regions.Edit, L("Permission:Edit"));
+        regionPermission.AddChild(CommonServicePermissions.Regions.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

@@ -22,5 +22,8 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<Province, ProvinceDto>();
         CreateMap<Province, ProvinceExcelDto>();
+
+        CreateMap<Region, RegionDto>();
+        CreateMap<Region, RegionExcelDto>();
     }
 }

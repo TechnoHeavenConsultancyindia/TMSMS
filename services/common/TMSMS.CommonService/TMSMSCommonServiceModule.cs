@@ -278,6 +278,8 @@ public class TMSMSCommonServiceModule : AbpModule
 
             options.AddRepository<Province, CommonServices.EfCoreProvinceRepository>();
 
+            options.AddRepository<Region, CommonServices.EfCoreRegionRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

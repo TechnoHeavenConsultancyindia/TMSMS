@@ -34,4 +34,12 @@ public class CommonServicePermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class Regions
+    {
+        public const string Default = GroupName + ".Regions";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }
