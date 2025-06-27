@@ -10,4 +10,36 @@ public class RestaurantServicePermissions
     {
         return ReflectionHelper.GetPublicConstantsRecursively(typeof(RestaurantServicePermissions));
     }
+
+    public static class RestaurantTypes
+    {
+        public const string Default = GroupName + ".RestaurantTypes";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class RestaurantTags
+    {
+        public const string Default = GroupName + ".RestaurantTags";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class RestaurantDietaryTypes
+    {
+        public const string Default = GroupName + ".RestaurantDietaryTypes";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class RestaurantCuisines
+    {
+        public const string Default = GroupName + ".RestaurantCuisines";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }
