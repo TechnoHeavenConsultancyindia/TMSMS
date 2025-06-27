@@ -1,11 +1,11 @@
 import { Environment } from '@abp/ng.core';
 
-const baseUrl = 'http://172.10.1.181:4200';
+const baseUrl = 'http://172.10.1.67:4200';
 
 const oAuthConfig = {
   issuer: 'http://172.10.1.181:44323/',
   redirectUri: baseUrl,
-  clientId: 'Angular',
+  clientId: 'AngularKhyati',
   responseType: 'code',
   scope: 'offline_access openid profile email phone AuthServer IdentityService AdministrationService AuditLoggingService GdprService ChatService SaasService FileManagementService LanguageService TourService CommonService TransferService VisaService RestaurantService AgentService',
   requireHttps: false,
@@ -27,7 +27,7 @@ export const environment = {
   oAuthConfig,
   apis: {
     default: {
-      url: 'http://172.10.1.181:44331',
+      url: 'http://172.10.1.67:44331',
       rootNamespace: 'TMSMS',
     },
     AbpAccountPublic: {
