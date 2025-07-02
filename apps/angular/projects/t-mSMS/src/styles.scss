@@ -59,4 +59,21 @@
     height: 20px;
     background-image: url('/assets/images/getting-started/x.svg');
   }
+    .form-top {
+    margin-top: 10px;
+  }
+
+  .form-field-bottom,
+  .form-search-field-bottom {
+    margin-bottom: 10px;
+  }
+
+  .form-field-check {
+    margin-top: 26px;
+    padding-top: 10px;
+  }
+
+  .form-check-input {
+    margin-right: 10px;
+  }
 }

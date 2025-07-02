@@ -138,8 +138,10 @@
                     {{ 'CommonService::Descriptor' | abpLocalization }}
                   </label>
 
-                  <textarea id="city-descriptor" formControlName="descriptor" class="form-control">
-                </textarea>
+                  <!-- <textarea id="city-descriptor" formControlName="descriptor" class="form-control">
+                </textarea> -->
+                  <div formControlName="descriptor" [ngxSummernote]="config" id="city-descriptor">
+                  </div>
                 </div>
               </div>
             </div>

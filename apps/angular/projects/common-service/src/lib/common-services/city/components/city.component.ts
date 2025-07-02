@@ -20,8 +20,8 @@ import {
   ChildTabDependencies,
   ChildComponentDependencies,
 } from './city.abstract.component';
-import { TechnoAdvancedEntityFiltersComponent } from '../../../custom-control/advanced-entity-filter/components/techno-advanced-entity-filters.component';
 import { GetCitiesInput } from '../../../proxy/common-service/common-services/models';
+import { TechnoAdvancedEntityFiltersComponent } from 'projects/t-mSMS/src/app/custom-control/advanced-entity-filter/components/techno-advanced-entity-filters.component';
 
 @Component({
   selector: 'lib-city',

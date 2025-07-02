@@ -1,0 +1,54 @@
+<div class="position-relative">
+  <div class="input-group mb-3">
+    <input
+      #typeahead
+      #typeaheadInstance="ngbTypeahead"
+      class="form-control"
+      [class.input-validation-error]="isInvalid"
+      [id]="cid"
+      [abpDisabled]="disabled"
+      [(ngModel)]="typeaheadModel"
+      [ngModelOptions]="{ standalone: true }"
+      [ngbTypeahead]="search"
+      [resultTemplate]="rt"
+      [editable]="false"
+      [inputFormatter]="typeaheadFormatter"
+      [resultFormatter]="typeaheadFormatter"
+      (blur)="value || (typeahead.value = null)"
+      (focus)="focus$.next($any($event).target.value)"
+      (click)="click$.next($any($event).target.value)"
+    />
+    <button
+      type="button"
+      class="btn btn-info text-light"
+      (click)="addToModel(typeaheadModel)"
+      [disabled]="isDisabled"
+    >
+      {{ 'AbpUi::Add' | abpLocalization }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-info text-light"
+      (click)="addAllToModel()"
+    >
+      {{ '::AddAll' | abpLocalization }}
+    </button>
+  </div>
+</div>
+
+@if (model.length) {
+  <abp-lookup-mtm-table
+    [data]="model"
+    ngDefaultControl
+    [displayNameProp]="displayNameProp"
+    (delete)="deleteItem($event)"
+  ></abp-lookup-mtm-table>
+}
+
+<ng-template #rt let-res="result" let-t="term">
+  @if (res) {
+    <ngb-highlight [result]="res[lookupNameProp]" [term]="t"></ngb-highlight>
+  } @else {
+    {{ 'AbpUi::NoDataAvailableInDatatable' | abpLocalization }}
+  }
+</ng-template>

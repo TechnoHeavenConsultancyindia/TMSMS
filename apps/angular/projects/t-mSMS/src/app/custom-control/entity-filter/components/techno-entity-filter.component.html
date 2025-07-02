@@ -1,0 +1,12 @@
+<div class="input-group">
+  <input
+    type="search"
+    style="height: 42px;"
+    class="form-control"
+    [placeholder]="placeholder || 'AbpUi::PagerSearch' | abpLocalization"
+    [(ngModel)]="list.filter"
+  />
+  <button style="height: 42px;" class="btn btn-primary" (click)="list.get()">
+    <i class="fas fa-search" aria-hidden="true"></i>
+  </button>
+</div>

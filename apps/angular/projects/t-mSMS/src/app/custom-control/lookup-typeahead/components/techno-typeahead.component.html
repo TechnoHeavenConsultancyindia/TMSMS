@@ -1,0 +1,27 @@
+<div class="position-relative">
+  <input
+    #typeahead
+    #typeaheadInstance="ngbTypeahead"
+    class="form-control"
+    [class.input-validation-error]="isInvalid"
+    [id]="cid"
+    [abpDisabled]="disabled"
+    [(ngModel)]="model"
+    [ngModelOptions]="{ standalone: true }"
+    [ngbTypeahead]="search"
+    [editable]="false"
+    [inputFormatter]="typeaheadFormatter"
+    [resultFormatter]="typeaheadFormatter"
+    [resultTemplate]="rt"
+    (blur)="value || (typeahead.value = null)"
+    (focus)="focus$.next($any($event).target.value)"
+    (click)="click$.next($any($event).target.value)"
+  />
+</div>
+<ng-template #rt let-r="result" let-t="term">
+  @if (r) {
+    <ngb-highlight [result]="r[lookupNameProp]" [term]="t"></ngb-highlight>
+  } @else {
+    {{ 'AbpUi::NoDataAvailableInDatatable' | abpLocalization }}
+  }
+</ng-template>

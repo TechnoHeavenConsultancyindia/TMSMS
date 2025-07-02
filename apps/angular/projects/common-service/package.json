@@ -6,6 +6,7 @@
     "@abp/ng.theme.shared": "~9.2.0"
   },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "ngx-summernote": "^1.0.0"
   }
 }

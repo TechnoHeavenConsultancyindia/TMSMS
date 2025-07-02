@@ -11,6 +11,7 @@ import {
   NgbTimeAdapter,
 } from '@ng-bootstrap/ng-bootstrap';
 import { CityDetailViewService } from '../services/city-detail.service';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 @Component({
   selector: 'lib-city-detail-modal',
@@ -23,6 +24,7 @@ import { CityDetailViewService } from '../services/city-detail.service';
     NgbDatepickerModule,
     NgbTimepickerModule,
     NgbNavModule,
+    NgxSummernoteModule,
   ],
   providers: [
     { provide: NgbDateAdapter, useClass: DateAdapter },
