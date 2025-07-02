@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   NgbDateAdapter,
   NgbTimeAdapter,
@@ -20,6 +20,8 @@ import {
   ChildTabDependencies,
   ChildComponentDependencies,
 } from './city.abstract.component';
+import { TechnoAdvancedEntityFiltersComponent } from '../../../custom-control/advanced-entity-filter/components/techno-advanced-entity-filters.component';
+import { GetCitiesInput } from '../../../proxy/common-service/common-services/models';
 
 @Component({
   selector: 'lib-city',
@@ -36,6 +38,7 @@ import {
     ThemeSharedModule,
     CommercialUiModule,
     CityDetailModalComponent,
+    TechnoAdvancedEntityFiltersComponent,
     ...ChildComponentDependencies,
   ],
   providers: [
@@ -52,4 +55,35 @@ import {
     }
   `,
 })
-export class CityComponent extends AbstractCityComponent {}
+export class CityComponent extends AbstractCityComponent implements OnInit {
+  protected isListQueryCreated: boolean = false;
+  filtersHidden = true;
+
+  ngOnInit() { }
+
+  searchResults() {
+    if (this.filtersHidden) {
+      this.service.filters = {
+        'name': this.service.filters.name,
+        'fullName': this.service.filters.fullName,
+        'countryCode': this.service.filters.countryCode,
+        'countrySubdivisionCode': this.service.filters.countrySubdivisionCode,
+      } as GetCitiesInput;
+    }
+    if (!this.isListQueryCreated) {
+      this.service.hookToQuery();
+      this.isListQueryCreated = true;
+    }
+    this.list.get();
+  }
+
+  clearFilters() {
+    this.setErrorAndData(false);
+    this.service.filters = {} as GetCitiesInput;
+  }
+
+  setErrorAndData(flag: boolean) {
+    this.service.data.totalCount = 0;
+    this.service.data.items = [];
+  }
+}

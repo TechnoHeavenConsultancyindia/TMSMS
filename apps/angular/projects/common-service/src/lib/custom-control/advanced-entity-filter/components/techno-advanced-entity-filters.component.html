@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <ng-content select="abp-advanced-entity-filters-above-search"></ng-content>
+
+    <!-- <div class="d-flex align-items-center">
+      <div class="data-tables-filter flex-grow-1">
+        <techno-entity-filter
+          [list]="list"
+          [placeholder]="entityFilterPlaceholder"
+        ></techno-entity-filter>
+      </div>
+      @if (form) {
+        <div class="ms-3">
+          <abp-advanced-entity-filters-toggle
+            [localizationSourceName]="localizationSourceName"
+            [(expanded)]="filtersHidden"
+            aId="advanced-content-filters"
+          ></abp-advanced-entity-filters-toggle>
+        </div>
+      }
+    </div> -->
+    <!-- asdfasfd
+    <div class="ms-3">
+      <abp-advanced-entity-filters-toggle [localizationSourceName]="localizationSourceName" [(expanded)]="filtersHidden"
+        aId="advanced-content-filters"></abp-advanced-entity-filters-toggle>
+    </div>
+    @if (form) {
+    <div id="advanced-content-filters" class="mt-3" [ngbCollapse]="filtersHidden">
+      <div id="advanced-content-filters" class="mt-3 collapse show">
+      <ng-content select="abp-advanced-entity-filters-form"></ng-content>
+    </div> -->
+
+    @if (form) {
+    <ng-content select="abp-advanced-entity-filters-form"></ng-content>
+    }
+  </div>
+</div>
