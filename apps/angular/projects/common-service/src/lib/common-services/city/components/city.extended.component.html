@@ -1,10 +1,6 @@
 <abp-page [title]="title | abpLocalization">
   <abp-page-toolbar-container class="col">
-    <!--<suite-custom-code-block-0>-->
-    <!--</suite-custom-code-block-0>-->
     <div class="text-lg-end pt-2">
-      <!--<suite-custom-code-block-1>-->
-      <!--</suite-custom-code-block-1>-->
 
       <button class="btn btn-primary btn-sm mx-2" type="button" [disabled]="service.isExportToExcelBusy"
         (click)="exportToExcel()">
@@ -16,8 +12,6 @@
         <i class="fa fa-plus me-1" aria-hidden="true"></i>
         {{ 'CommonService::NewCity' | abpLocalization }}
       </button>
-      <!--<suite-custom-code-block-2>-->
-      <!--</suite-custom-code-block-2>-->
     </div>
   </abp-page-toolbar-container>
 
@@ -25,10 +19,17 @@
     @if (service.filters; as filters) {
     <abp-advanced-entity-filters-form>
       <form #filterForm (keyup.enter)="list.get()">
-        <!--<suite-custom-code-block-3>-->
-        <!--</suite-custom-code-block-3>-->
         <techno-advanced-entity-filters-form>
           <div class="row">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="locationIdFilter">
+                {{ 'CommonService::LocationId' | abpLocalization }}
+              </label>
+
+              <input id="locationIdFilter" class="form-control" [(ngModel)]="filters.locationId"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
             <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="nameFilter">
                 {{ 'CommonService::Name' | abpLocalization }}
@@ -55,25 +56,16 @@
               <input id="countryCodeFilter" class="form-control" [(ngModel)]="filters.countryCode"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-
+          </div>
+        </techno-advanced-entity-filters-form>
+        <div id="advanced-content-filters" class="" [ngbCollapse]="filtersHidden">
+          <div class="row">
             <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="countrySubdivisionCodeFilter">
                 {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
               </label>
 
               <input id="countrySubdivisionCodeFilter" class="form-control" [(ngModel)]="filters.countrySubdivisionCode"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-        </techno-advanced-entity-filters-form>
-        <div id="advanced-content-filters" class="" [ngbCollapse]="filtersHidden">
-          <div class="row">
-            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
-              <label class="form-label" for="locationIdFilter">
-                {{ 'CommonService::LocationId' | abpLocalization }}
-              </label>
-
-              <input id="locationIdFilter" class="form-control" [(ngModel)]="filters.locationId"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
 
@@ -94,8 +86,6 @@
               <input id="iataAirportMetroCodeFilter" class="form-control" [(ngModel)]="filters.iataAirportMetroCode"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-
-
 
             <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="latitudeFilter">
@@ -180,14 +170,10 @@
             </div>
           </div>
         </div>
-        <!--<suite-custom-code-block-4>-->
-        <!--</suite-custom-code-block-4>-->
       </form>
     </abp-advanced-entity-filters-form>
     }
   </techno-advanced-entity-filters>
-  <!--<suite-custom-code-block-5>-->
-  <!--</suite-custom-code-block-5>-->
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center"
       *abpPermission="'CommonService.Cities.Delete'">
@@ -221,16 +207,10 @@
       }
     </div>
 
-    <!--<suite-custom-code-block-6>-->
-    <!--</suite-custom-code-block-6>-->
     <div class="card-body">
-      <!--<suite-custom-code-block-7>-->
-      <!--</suite-custom-code-block-7>-->
       <ngx-datatable default [rows]="service.data.items" [count]="service.data.totalCount" [list]="list"
         [selected]="service.selected()" [selectionType]="service.selectionType.checkbox"
         (select)="service.onSelect($event)">
-        <!--<suite-custom-code-block-8>-->
-        <!--</suite-custom-code-block-8>-->
 
         <ngx-datatable-column [width]="40" [sortable]="false" [canAutoResize]="false" [draggable]="false"
           [resizeable]="false" *abpPermission="'CommonService.Cities.Delete'">
@@ -248,7 +228,7 @@
           </ng-template>
         </ngx-datatable-column>
 
-    
+
         <ngx-datatable-column [name]="'AbpUi::Actions' | abpLocalization" [maxWidth]="150" [width]="150"
           [sortable]="false">
           <ng-template let-row="row" let-i="rowIndex" ngx-datatable-cell-template>
@@ -271,7 +251,7 @@
             </div>
           </ng-template>
         </ngx-datatable-column>
-    
+
         <ngx-datatable-column name="{{ 'CommonService::Location' | abpLocalization }}" prop="locationId">
           <ng-template let-row="row" ngx-datatable-cell-template>
             {{ row.locationId }}
@@ -339,18 +319,10 @@
             {{ row.statusFlag }}
           </ng-template>
         </ngx-datatable-column>
-        <!--<suite-custom-code-block-9>-->
-        <!--</suite-custom-code-block-9>-->
       </ngx-datatable>
-      <!--<suite-custom-code-block-10>-->
-      <!--</suite-custom-code-block-10>-->
     </div>
   </div>
-  <!--<suite-custom-code-block-11>-->
-  <!--</suite-custom-code-block-11>-->
 </abp-page>
-<!--<suite-custom-code-block-12>-->
-<!--</suite-custom-code-block-12>-->
 
 @defer (when serviceDetail.isVisible) {
 @if (serviceDetail.isVisible) {

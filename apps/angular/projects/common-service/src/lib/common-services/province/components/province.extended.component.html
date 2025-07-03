@@ -1,10 +1,7 @@
 <abp-page [title]="title | abpLocalization">
   <abp-page-toolbar-container class="col">
-    <!--<suite-custom-code-block-0>-->
-    <!--</suite-custom-code-block-0>-->
+
     <div class="text-lg-end pt-2">
-      <!--<suite-custom-code-block-1>-->
-      <!--</suite-custom-code-block-1>-->
 
       <button class="btn btn-primary btn-sm mx-2" type="button" [disabled]="service.isExportToExcelBusy"
         (click)="exportToExcel()">
@@ -16,20 +13,17 @@
         <i class="fa fa-plus me-1" aria-hidden="true"></i>
         {{ 'CommonService::NewProvince' | abpLocalization }}
       </button>
-      <!--<suite-custom-code-block-2>-->
-      <!--</suite-custom-code-block-2>-->
+
     </div>
   </abp-page-toolbar-container>
 
-  <abp-advanced-entity-filters localizationSourceName="CommonService" [list]="list">
+  <techno-advanced-entity-filters localizationSourceName="" [list]="list">
     @if (service.filters; as filters) {
     <abp-advanced-entity-filters-form>
       <form #filterForm (keyup.enter)="list.get()">
-        <!--<suite-custom-code-block-3>-->
-        <!--</suite-custom-code-block-3>-->
-        <div class="row">
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+        <techno-advanced-entity-filters-form>
+          <div class="row">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="locationIdFilter">
                 {{ 'CommonService::LocationId' | abpLocalization }}
               </label>
@@ -37,10 +31,7 @@
               <input id="locationIdFilter" class="form-control" [(ngModel)]="filters.locationId"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="nameFilter">
                 {{ 'CommonService::Name' | abpLocalization }}
               </label>
@@ -48,10 +39,8 @@
               <input id="nameFilter" class="form-control" [(ngModel)]="filters.name"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
 
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="fullNameFilter">
                 {{ 'CommonService::FullName' | abpLocalization }}
               </label>
@@ -59,87 +48,7 @@
               <input id="fullNameFilter" class="form-control" [(ngModel)]="filters.fullName"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="descriptorFilter">
-                {{ 'CommonService::Descriptor' | abpLocalization }}
-              </label>
-
-              <input id="descriptorFilter" class="form-control" [(ngModel)]="filters.descriptor"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="iataAirportCodeFilter">
-                {{ 'CommonService::IataAirportCode' | abpLocalization }}
-              </label>
-
-              <input id="iataAirportCodeFilter" class="form-control" [(ngModel)]="filters.iataAirportCode"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="iataAirportMetroCodeFilter">
-                {{ 'CommonService::IataAirportMetroCode' | abpLocalization }}
-              </label>
-
-              <input id="iataAirportMetroCodeFilter" class="form-control" [(ngModel)]="filters.iataAirportMetroCode"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="countrySubdivisionCodeFilter">
-                {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
-              </label>
-
-              <input id="countrySubdivisionCodeFilter" class="form-control" [(ngModel)]="filters.countrySubdivisionCode"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="latitudeFilter">
-                {{ 'CommonService::Latitude' | abpLocalization }}
-              </label>
-
-              <input id="latitudeFilter" class="form-control" [(ngModel)]="filters.latitude"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="longitudeFilter">
-                {{ 'CommonService::Longitude' | abpLocalization }}
-              </label>
-
-              <input id="longitudeFilter" class="form-control" [(ngModel)]="filters.longitude"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
-              <label class="form-label" for="polygonTypeFilter">
-                {{ 'CommonService::PolygonType' | abpLocalization }}
-              </label>
-
-              <input id="polygonTypeFilter" class="form-control" [(ngModel)]="filters.polygonType"
-                [ngModelOptions]="{ standalone: true }" />
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="countryCodeFilter">
                 {{ 'CommonService::CountryCode' | abpLocalization }}
               </label>
@@ -148,9 +57,64 @@
                 [ngModelOptions]="{ standalone: true }" />
             </div>
           </div>
+        </techno-advanced-entity-filters-form>
+        <div id="advanced-content-filters" class="" [ngbCollapse]="filtersHidden">
+          <div class="row">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="countrySubdivisionCodeFilter">
+                {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
+              </label>
 
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+              <input id="countrySubdivisionCodeFilter" class="form-control" [(ngModel)]="filters.countrySubdivisionCode"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="iataAirportCodeFilter">
+                {{ 'CommonService::IataAirportCode' | abpLocalization }}
+              </label>
+
+              <input id="iataAirportCodeFilter" class="form-control" [(ngModel)]="filters.iataAirportCode"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="iataAirportMetroCodeFilter">
+                {{ 'CommonService::IataAirportMetroCode' | abpLocalization }}
+              </label>
+
+              <input id="iataAirportMetroCodeFilter" class="form-control" [(ngModel)]="filters.iataAirportMetroCode"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="latitudeFilter">
+                {{ 'CommonService::Latitude' | abpLocalization }}
+              </label>
+
+              <input id="latitudeFilter" class="form-control" [(ngModel)]="filters.latitude"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="longitudeFilter">
+                {{ 'CommonService::Longitude' | abpLocalization }}
+              </label>
+
+              <input id="longitudeFilter" class="form-control" [(ngModel)]="filters.longitude"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
+              <label class="form-label" for="polygonTypeFilter">
+                {{ 'CommonService::PolygonType' | abpLocalization }}
+              </label>
+
+              <input id="polygonTypeFilter" class="form-control" [(ngModel)]="filters.polygonType"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="categoriesFilter">
                 {{ 'CommonService::Categories' | abpLocalization }}
               </label>
@@ -158,10 +122,8 @@
               <input id="categoriesFilter" class="form-control" [(ngModel)]="filters.categories"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
 
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="tagsFilter">
                 {{ 'CommonService::Tags' | abpLocalization }}
               </label>
@@ -169,10 +131,8 @@
               <input id="tagsFilter" class="form-control" [(ngModel)]="filters.tags"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
 
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="minStatusFlag">
                 {{ 'CommonService::MinStatusFlag' | abpLocalization }}
               </label>
@@ -180,10 +140,8 @@
               <input id="minStatusFlag" type="number" class="form-control" [(ngModel)]="filters.statusFlagMin"
                 [ngModelOptions]="{ standalone: true }" />
             </div>
-          </div>
 
-          <div class="col-12 col-sm-auto">
-            <div class="mb-3">
+            <div class="col col-12 col-sm-6 col-md-4 col-lg-3 form-search-field-bottom">
               <label class="form-label" for="maxStatusFlag">
                 {{ 'CommonService::MaxStatusFlag' | abpLocalization }}
               </label>
@@ -192,30 +150,32 @@
                 [ngModelOptions]="{ standalone: true }" />
             </div>
           </div>
+        </div>
 
-          <div class="col-12 col-sm-auto align-self-end mb-3">
-            <div class="row">
-              <div class="col-6 col-sm-auto d-grid">
-                <button type="button" class="btn btn-outline-primary" (click)="clearFilters()">
-                  <span>{{ 'AbpUi::Clear' | abpLocalization }}</span>
-                </button>
-              </div>
-              <div class="col-6 col-sm-auto d-grid">
-                <button type="button" class="btn btn-primary" (click)="list.get()">
-                  <span>{{ 'AbpUi::Refresh' | abpLocalization }}</span>
-                </button>
-              </div>
+        <div class="col-12 align-self-end form-field-bottom">
+          <div class="row float-end">
+            <div class="col-6 col-sm-auto d-grid">
+              <button type="button" class="btn btn-primary" (click)="searchResults()">
+                <span>{{ '::Search' | abpLocalization }}</span>
+              </button>
+            </div>
+            <div class="col-6 col-sm-auto d-grid">
+              <button type="button" class="btn btn-secondary" (click)="clearFilters()">
+                <span>{{ 'AbpUi::Clear' | abpLocalization }}</span>
+              </button>
+            </div>
+            <div class="col-6 col-sm-auto d-grid">
+              <abp-advanced-entity-filters-toggle [localizationSourceName]="localizationSourceName"
+                [(expanded)]="filtersHidden" aId="advanced-content-filters"></abp-advanced-entity-filters-toggle>
             </div>
           </div>
         </div>
-        <!--<suite-custom-code-block-4>-->
-        <!--</suite-custom-code-block-4>-->
+
       </form>
     </abp-advanced-entity-filters-form>
     }
-  </abp-advanced-entity-filters>
-  <!--<suite-custom-code-block-5>-->
-  <!--</suite-custom-code-block-5>-->
+  </techno-advanced-entity-filters>
+
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center"
       *abpPermission="'CommonService.Provinces.Delete'">
@@ -249,16 +209,11 @@
       }
     </div>
 
-    <!--<suite-custom-code-block-6>-->
-    <!--</suite-custom-code-block-6>-->
     <div class="card-body">
-      <!--<suite-custom-code-block-7>-->
-      <!--</suite-custom-code-block-7>-->
+
       <ngx-datatable default [rows]="service.data.items" [count]="service.data.totalCount" [list]="list"
         [selected]="service.selected()" [selectionType]="service.selectionType.checkbox"
         (select)="service.onSelect($event)">
-        <!--<suite-custom-code-block-8>-->
-        <!--</suite-custom-code-block-8>-->
 
         <ngx-datatable-column [width]="40" [sortable]="false" [canAutoResize]="false" [draggable]="false"
           [resizeable]="false" *abpPermission="'CommonService.Provinces.Delete'">
@@ -276,7 +231,7 @@
           </ng-template>
         </ngx-datatable-column>
 
-        @if (isActionButtonVisible) {
+      
         <ngx-datatable-column [name]="'AbpUi::Actions' | abpLocalization" [maxWidth]="150" [width]="150"
           [sortable]="false">
           <ng-template let-row="row" let-i="rowIndex" ngx-datatable-cell-template>
@@ -299,7 +254,7 @@
             </div>
           </ng-template>
         </ngx-datatable-column>
-        }
+      
         <ngx-datatable-column name="{{ 'CommonService::Location' | abpLocalization }}" prop="locationId">
           <ng-template let-row="row" ngx-datatable-cell-template>
             {{ row.locationId }}
@@ -367,18 +322,12 @@
             {{ row.statusFlag }}
           </ng-template>
         </ngx-datatable-column>
-        <!--<suite-custom-code-block-9>-->
-        <!--</suite-custom-code-block-9>-->
+
       </ngx-datatable>
-      <!--<suite-custom-code-block-10>-->
-      <!--</suite-custom-code-block-10>-->
     </div>
   </div>
-  <!--<suite-custom-code-block-11>-->
-  <!--</suite-custom-code-block-11>-->
+
 </abp-page>
-<!--<suite-custom-code-block-12>-->
-<!--</suite-custom-code-block-12>-->
 
 @defer (when serviceDetail.isVisible) {
 @if (serviceDetail.isVisible) {

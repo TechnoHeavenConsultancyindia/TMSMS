@@ -1,27 +1,15 @@
 <abp-modal [busy]="service.isBusy" [(visible)]="service.isVisible" [options]="{ size: 'xl' }">
   <ng-template #abpHeader>
-    <!--<suite-custom-code-block-0>-->
-    <!--</suite-custom-code-block-0>-->
     <h3>
-      <!--<suite-custom-code-block-1>-->
-      <!--</suite-custom-code-block-1>-->
       {{
       (service.selected ? 'AbpUi::Edit' : 'CommonService::NewProvince')
       | abpLocalization
       }}
-      <!--<suite-custom-code-block-2>-->
-      <!--</suite-custom-code-block-2>-->
     </h3>
-    <!--<suite-custom-code-block-3>-->
-    <!--</suite-custom-code-block-3>-->
   </ng-template>
-
   <ng-template #abpBody>
-    <!--<suite-custom-code-block-4>-->
-    <!--</suite-custom-code-block-4>-->
+
     <form [formGroup]="service.form" id="province" (ngSubmit)="service.submitForm()" validateOnSubmit>
-      <!--<suite-custom-code-block-5>-->
-      <!--</suite-custom-code-block-5>-->
 
       <ul ngbNav #nav="ngbNav" class="nav-tabs">
         <li ngbNavItem>
@@ -139,8 +127,8 @@
                     {{ 'CommonService::Descriptor' | abpLocalization }}
                   </label>
 
-                  <textarea id="province-descriptor" formControlName="descriptor" class="form-control">
-                </textarea>
+                  <div formControlName="descriptor" [ngxSummernote]="config" id="province-descriptor">
+                  </div>
                 </div>
               </div>
             </div>
@@ -149,23 +137,17 @@
       </ul>
       <div [ngbNavOutlet]="nav"></div>
 
-      <!--<suite-custom-code-block-6>-->
-      <!--</suite-custom-code-block-6>-->
     </form>
   </ng-template>
 
   <ng-template #abpFooter>
-    <!--<suite-custom-code-block-7>-->
-    <!--</suite-custom-code-block-7>-->
     <button type="button" class="btn btn-secondary btn-sm" abpClose>
       {{ 'AbpUi::Cancel' | abpLocalization }}
     </button>
-    <!--<suite-custom-code-block-8>-->
-    <!--</suite-custom-code-block-8>-->
+
     <abp-button iconClass="fa fa-check" buttonClass="btn btn-primary btn-sm" buttonType="submit" formName="province">
       {{ 'AbpUi::Save' | abpLocalization }}
     </abp-button>
-    <!--<suite-custom-code-block-9>-->
-    <!--</suite-custom-code-block-9>-->
+
   </ng-template>
 </abp-modal>
