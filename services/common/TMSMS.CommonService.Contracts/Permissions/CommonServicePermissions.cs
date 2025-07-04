@@ -58,4 +58,12 @@ public class CommonServicePermissions
         public const string Create = Default + ".Create";
         public const string Delete = Default + ".Delete";
     }
+
+    public static class PromoCodeUsageTrackings
+    {
+        public const string Default = GroupName + ".PromoCodeUsageTrackings";
+        public const string Edit = Default + ".Edit";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
+    }
 }

@@ -284,6 +284,8 @@ public class TMSMSCommonServiceModule : AbpModule
 
             options.AddRepository<PromoCodeMaster, CommonServices.EfCorePromoCodeMasterRepository>();
 
+            options.AddRepository<PromoCodeUsageTracking, CommonServices.EfCorePromoCodeUsageTrackingRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

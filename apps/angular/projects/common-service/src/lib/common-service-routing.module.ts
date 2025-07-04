@@ -7,6 +7,7 @@ import { loadProvinceModuleAsChild } from './common-services/province/province.m
 import { loadRegionModuleAsChild } from './common-services/region/region.module';
 import { loadWeekDayModuleAsChild } from './common-services/week-day/week-day.module';
 import { loadPromoCodeMasterModuleAsChild } from './common-services/promo-code-master/promo-code-master.module';
+import { loadPromoCodeUsageTrackingModuleAsChild } from './common-services/promo-code-usage-tracking/promo-code-usage-tracking.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   { path: 'regions', loadChildren: loadRegionModuleAsChild },
   { path: 'week-days', loadChildren: loadWeekDayModuleAsChild },
   { path: 'promo-code-masters', loadChildren: loadPromoCodeMasterModuleAsChild },
+  {
+    path: 'promo-code-usage-trackings',
+    loadChildren: loadPromoCodeUsageTrackingModuleAsChild,
+  },
 ];
 
 @NgModule({

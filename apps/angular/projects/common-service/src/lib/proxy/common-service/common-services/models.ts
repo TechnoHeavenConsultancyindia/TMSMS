@@ -220,6 +220,17 @@ export interface GetPromoCodeMastersInput extends PagedAndSortedResultRequestDto
   cityId?: string;
 }
 
+export interface GetPromoCodeUsageTrackingsInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  userIDMin?: number;
+  userIDMax?: number;
+  bookingIDMin?: number;
+  bookingIDMax?: number;
+  usageDateMin?: string;
+  usageDateMax?: string;
+  promoCodeMasterId?: number;
+}
+
 export interface GetProvincesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   locationId?: string;
@@ -380,6 +391,46 @@ export interface PromoCodeMasterWithNavigationPropertiesDto {
   promoCodeMaster: PromoCodeMasterDto;
   countries: CountryDto[];
   cities: CityDto[];
+}
+
+export interface PromoCodeUsageTrackingCreateDto {
+  userID: number;
+  bookingID: number;
+  usageDate?: string;
+  promoCodeMasterId?: number;
+}
+
+export interface PromoCodeUsageTrackingDto extends FullAuditedEntityDto<number> {
+  userID: number;
+  bookingID: number;
+  usageDate?: string;
+  promoCodeMasterId?: number;
+  concurrencyStamp?: string;
+}
+
+export interface PromoCodeUsageTrackingExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  userIDMin?: number;
+  userIDMax?: number;
+  bookingIDMin?: number;
+  bookingIDMax?: number;
+  usageDateMin?: string;
+  usageDateMax?: string;
+  promoCodeMasterId?: number;
+}
+
+export interface PromoCodeUsageTrackingUpdateDto {
+  userID: number;
+  bookingID: number;
+  usageDate?: string;
+  promoCodeMasterId?: number;
+  concurrencyStamp?: string;
+}
+
+export interface PromoCodeUsageTrackingWithNavigationPropertiesDto {
+  promoCodeUsageTracking: PromoCodeUsageTrackingDto;
+  promoCodeMaster: PromoCodeMasterDto;
 }
 
 export interface ProvinceCreateDto {
