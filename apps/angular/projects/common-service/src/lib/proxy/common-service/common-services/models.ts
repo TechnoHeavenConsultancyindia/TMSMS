@@ -1,6 +1,4 @@
 import type { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
-import type { SupplierType } from '../supplier-type.enum';
-import type { SupplierStatus } from '../supplier-status.enum';
 
 export interface CityCreateDto {
   locationId?: string;
@@ -274,12 +272,13 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
 export interface GetSupplierMastersInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
-  type?: SupplierType;
+  type?: string;
   contactName?: string;
   contactEmail?: string;
   dialCode?: string;
   contactPhone?: string;
-  supplierStatus?: SupplierStatus;
+  supplierStatusMin?: number;
+  supplierStatusMax?: number;
   preffered?: boolean;
   countryId?: number;
   supplierServiceTypeId?: number;
@@ -603,12 +602,12 @@ export interface RegionUpdateDto {
 
 export interface SupplierMasterCreateDto {
   name: string;
-  type: SupplierType;
+  type?: string;
   contactName: string;
   contactEmail?: string;
   dialCode?: string;
   contactPhone?: string;
-  supplierStatus: SupplierStatus;
+  supplierStatus: number;
   preffered: boolean;
   countryId: number;
   supplierServiceTypeId: number;
@@ -616,12 +615,12 @@ export interface SupplierMasterCreateDto {
 
 export interface SupplierMasterDto extends FullAuditedEntityDto<number> {
   name: string;
-  type: SupplierType;
+  type?: string;
   contactName: string;
   contactEmail?: string;
   dialCode?: string;
   contactPhone?: string;
-  supplierStatus: SupplierStatus;
+  supplierStatus: number;
   preffered: boolean;
   countryId: number;
   supplierServiceTypeId: number;
@@ -632,12 +631,13 @@ export interface SupplierMasterExcelDownloadDto {
   downloadToken?: string;
   filterText?: string;
   name?: string;
-  type?: SupplierType;
+  type?: string;
   contactName?: string;
   contactEmail?: string;
   dialCode?: string;
   contactPhone?: string;
-  supplierStatus?: SupplierStatus;
+  supplierStatusMin?: number;
+  supplierStatusMax?: number;
   preffered?: boolean;
   countryId?: number;
   supplierServiceTypeId?: number;
@@ -645,12 +645,12 @@ export interface SupplierMasterExcelDownloadDto {
 
 export interface SupplierMasterUpdateDto {
   name: string;
-  type: SupplierType;
+  type?: string;
   contactName: string;
   contactEmail?: string;
   dialCode?: string;
   contactPhone?: string;
-  supplierStatus: SupplierStatus;
+  supplierStatus: number;
   preffered: boolean;
   countryId: number;
   supplierServiceTypeId: number;

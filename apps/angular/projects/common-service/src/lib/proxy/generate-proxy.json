@@ -8232,8 +8232,8 @@
                   "nameOnMethod": "input",
                   "name": "Type",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierType?",
-                  "typeSimple": "TMSMS.CommonService.SupplierType?",
+                  "type": "System.String?",
+                  "typeSimple": "string?",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -8290,10 +8290,22 @@
                 },
                 {
                   "nameOnMethod": "input",
-                  "name": "SupplierStatus",
+                  "name": "SupplierStatusMin",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierStatus?",
-                  "typeSimple": "TMSMS.CommonService.SupplierStatus?",
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SupplierStatusMax",
+                  "jsonName": null,
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -8587,8 +8599,8 @@
                 {
                   "name": "Type",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierType?",
-                  "typeSimple": "TMSMS.CommonService.SupplierType?",
+                  "type": "System.String?",
+                  "typeSimple": "string?",
                   "isRequired": false,
                   "nameOnMethod": "input",
                   "isOptional": true,
@@ -8650,10 +8662,23 @@
                   "descriptorName": "input"
                 },
                 {
-                  "name": "SupplierStatus",
+                  "name": "SupplierStatusMin",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierStatus?",
-                  "typeSimple": "TMSMS.CommonService.SupplierStatus?",
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
+                  "isRequired": false,
+                  "nameOnMethod": "input",
+                  "isOptional": true,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "name": "SupplierStatusMax",
+                  "jsonName": null,
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
                   "isRequired": false,
                   "nameOnMethod": "input",
                   "isOptional": true,
@@ -9002,8 +9027,8 @@
                   "nameOnMethod": "input",
                   "name": "Type",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierType?",
-                  "typeSimple": "TMSMS.CommonService.SupplierType?",
+                  "type": "System.String?",
+                  "typeSimple": "string?",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -9060,10 +9085,22 @@
                 },
                 {
                   "nameOnMethod": "input",
-                  "name": "SupplierStatus",
+                  "name": "SupplierStatusMin",
                   "jsonName": null,
-                  "type": "TMSMS.CommonService.SupplierStatus?",
-                  "typeSimple": "TMSMS.CommonService.SupplierStatus?",
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SupplierStatusMax",
+                  "jsonName": null,
+                  "type": "System.Int?",
+                  "typeSimple": "number?",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -13968,8 +14005,8 @@
         {
           "name": "Type",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierType?",
-          "typeSimple": "TMSMS.CommonService.SupplierType?",
+          "type": "System.String?",
+          "typeSimple": "string?",
           "isRequired": false
         },
         {
@@ -14001,10 +14038,17 @@
           "isRequired": false
         },
         {
-          "name": "SupplierStatus",
+          "name": "SupplierStatusMin",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierStatus?",
-          "typeSimple": "TMSMS.CommonService.SupplierStatus?",
+          "type": "System.Int?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "SupplierStatusMax",
+          "jsonName": null,
+          "type": "System.Int?",
+          "typeSimple": "number?",
           "isRequired": false
         },
         {
@@ -14048,8 +14092,9 @@
         {
           "name": "Type",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierType",
-          "typeSimple": "TMSMS.CommonService.SupplierType",
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14087,8 +14132,9 @@
         {
           "name": "SupplierStatus",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierStatus",
-          "typeSimple": "TMSMS.CommonService.SupplierStatus",
+          "type": "System.Int",
+          "typeSimple": "number",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14142,8 +14188,9 @@
         {
           "name": "Type",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierType",
-          "typeSimple": "TMSMS.CommonService.SupplierType",
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14181,8 +14228,9 @@
         {
           "name": "SupplierStatus",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierStatus",
-          "typeSimple": "TMSMS.CommonService.SupplierStatus",
+          "type": "System.Int",
+          "typeSimple": "number",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14229,8 +14277,9 @@
         {
           "name": "Type",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierType",
-          "typeSimple": "TMSMS.CommonService.SupplierType",
+          "type": "System.String?",
+          "typeSimple": "string?",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14268,8 +14317,9 @@
         {
           "name": "SupplierStatus",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierStatus",
-          "typeSimple": "TMSMS.CommonService.SupplierStatus",
+          "type": "System.Int",
+          "typeSimple": "number",
+          "isRef": false,
           "isRequired": false
         },
         {
@@ -14346,8 +14396,8 @@
         {
           "name": "Type",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierType?",
-          "typeSimple": "TMSMS.CommonService.SupplierType?",
+          "type": "System.String?",
+          "typeSimple": "string?",
           "isRequired": false
         },
         {
@@ -14379,10 +14429,17 @@
           "isRequired": false
         },
         {
-          "name": "SupplierStatus",
+          "name": "SupplierStatusMin",
           "jsonName": null,
-          "type": "TMSMS.CommonService.SupplierStatus?",
-          "typeSimple": "TMSMS.CommonService.SupplierStatus?",
+          "type": "System.Int?",
+          "typeSimple": "number?",
+          "isRequired": false
+        },
+        {
+          "name": "SupplierStatusMax",
+          "jsonName": null,
+          "type": "System.Int?",
+          "typeSimple": "number?",
           "isRequired": false
         },
         {
@@ -14437,22 +14494,6 @@
           "isRequired": true
         }
       ]
-    },
-    "TMSMS.CommonService.SupplierType": {
-      "baseType": "System.Enum",
-      "isEnum": true,
-      "enumNames": ["OTA", "DMC", "Wholesaler"],
-      "enumValues": [0, 1, 2],
-      "genericArguments": null,
-      "properties": null
-    },
-    "TMSMS.CommonService.SupplierStatus": {
-      "baseType": "System.Enum",
-      "isEnum": true,
-      "enumNames": ["Active", "InActive"],
-      "enumValues": [0, 1],
-      "genericArguments": null,
-      "properties": null
     }
   }
 }

@@ -1,4 +1,3 @@
-using TMSMS.CommonService;
 using TMSMS.CommonService.CommonServices;
 using System;
 using System.Linq;
@@ -20,7 +19,8 @@ namespace TMSMS.CommonService.CommonServices
         [NotNull]
         public virtual string Name { get; set; }
 
-        public virtual SupplierType Type { get; set; }
+        [CanBeNull]
+        public virtual string? Type { get; set; }
 
         [NotNull]
         public virtual string ContactName { get; set; }
@@ -34,7 +34,7 @@ namespace TMSMS.CommonService.CommonServices
         [CanBeNull]
         public virtual string? ContactPhone { get; set; }
 
-        public virtual SupplierStatus SupplierStatus { get; set; }
+        public virtual int SupplierStatus { get; set; }
 
         public virtual bool Preffered { get; set; }
         public int CountryId { get; set; }
@@ -45,7 +45,7 @@ namespace TMSMS.CommonService.CommonServices
 
         }
 
-        public SupplierMasterBase(int countryId, int supplierServiceTypeId, string name, SupplierType type, string contactName, SupplierStatus supplierStatus, bool preffered, string? contactEmail = null, string? dialCode = null, string? contactPhone = null)
+        public SupplierMasterBase(int countryId, int supplierServiceTypeId, string name, string contactName, int supplierStatus, bool preffered, string? type = null, string? contactEmail = null, string? dialCode = null, string? contactPhone = null)
         {
 
             Check.NotNull(name, nameof(name));
@@ -56,10 +56,10 @@ namespace TMSMS.CommonService.CommonServices
             Check.Length(dialCode, nameof(dialCode), SupplierMasterConsts.DialCodeMaxLength, 0);
             Check.Length(contactPhone, nameof(contactPhone), SupplierMasterConsts.ContactPhoneMaxLength, 0);
             Name = name;
-            Type = type;
             ContactName = contactName;
             SupplierStatus = supplierStatus;
             Preffered = preffered;
+            Type = type;
             ContactEmail = contactEmail;
             DialCode = dialCode;
             ContactPhone = contactPhone;

@@ -1,4 +1,3 @@
-using TMSMS.CommonService;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -13,12 +12,13 @@ namespace TMSMS.CommonService.CommonServices
         Task DeleteAllAsync(
             string? filterText = null,
             string? name = null,
-            SupplierType? type = null,
+            string? type = null,
             string? contactName = null,
             string? contactEmail = null,
             string? dialCode = null,
             string? contactPhone = null,
-            SupplierStatus? supplierStatus = null,
+            int? supplierStatusMin = null,
+            int? supplierStatusMax = null,
             bool? preffered = null,
             int? countryId = null,
             int? supplierServiceTypeId = null,
@@ -31,12 +31,13 @@ namespace TMSMS.CommonService.CommonServices
         Task<List<SupplierMasterWithNavigationProperties>> GetListWithNavigationPropertiesAsync(
             string? filterText = null,
             string? name = null,
-            SupplierType? type = null,
+            string? type = null,
             string? contactName = null,
             string? contactEmail = null,
             string? dialCode = null,
             string? contactPhone = null,
-            SupplierStatus? supplierStatus = null,
+            int? supplierStatusMin = null,
+            int? supplierStatusMax = null,
             bool? preffered = null,
             int? countryId = null,
             int? supplierServiceTypeId = null,
@@ -49,12 +50,13 @@ namespace TMSMS.CommonService.CommonServices
         Task<List<SupplierMaster>> GetListAsync(
                     string? filterText = null,
                     string? name = null,
-                    SupplierType? type = null,
+                    string? type = null,
                     string? contactName = null,
                     string? contactEmail = null,
                     string? dialCode = null,
                     string? contactPhone = null,
-                    SupplierStatus? supplierStatus = null,
+                    int? supplierStatusMin = null,
+                    int? supplierStatusMax = null,
                     bool? preffered = null,
                     string? sorting = null,
                     int maxResultCount = int.MaxValue,
@@ -65,12 +67,13 @@ namespace TMSMS.CommonService.CommonServices
         Task<long> GetCountAsync(
             string? filterText = null,
             string? name = null,
-            SupplierType? type = null,
+            string? type = null,
             string? contactName = null,
             string? contactEmail = null,
             string? dialCode = null,
             string? contactPhone = null,
-            SupplierStatus? supplierStatus = null,
+            int? supplierStatusMin = null,
+            int? supplierStatusMax = null,
             bool? preffered = null,
             int? countryId = null,
             int? supplierServiceTypeId = null,

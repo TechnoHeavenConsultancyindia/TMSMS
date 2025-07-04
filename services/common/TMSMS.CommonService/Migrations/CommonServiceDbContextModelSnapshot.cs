@@ -836,8 +836,8 @@ namespace TMSMS.CommonService.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("TenantId");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int")
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("Type");
 
                     b.HasKey("Id");

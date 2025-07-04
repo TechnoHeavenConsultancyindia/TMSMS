@@ -1,4 +1,3 @@
-using TMSMS.CommonService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,23 +20,21 @@ namespace TMSMS.CommonService.CommonServices
         }
 
         public virtual async Task<SupplierMaster> CreateAsync(
-        int countryId, int supplierServiceTypeId, string name, SupplierType type, string contactName, SupplierStatus supplierStatus, bool preffered, string? contactEmail = null, string? dialCode = null, string? contactPhone = null)
+        int countryId, int supplierServiceTypeId, string name, string contactName, int supplierStatus, bool preffered, string? type = null, string? contactEmail = null, string? dialCode = null, string? contactPhone = null)
         {
             Check.NotNull(countryId, nameof(countryId));
             Check.NotNull(supplierServiceTypeId, nameof(supplierServiceTypeId));
             Check.NotNullOrWhiteSpace(name, nameof(name));
             Check.Length(name, nameof(name), SupplierMasterConsts.NameMaxLength);
-            Check.NotNull(type, nameof(type));
             Check.NotNullOrWhiteSpace(contactName, nameof(contactName));
             Check.Length(contactName, nameof(contactName), SupplierMasterConsts.ContactNameMaxLength);
-            Check.NotNull(supplierStatus, nameof(supplierStatus));
             Check.Length(contactEmail, nameof(contactEmail), SupplierMasterConsts.ContactEmailMaxLength);
             Check.Length(dialCode, nameof(dialCode), SupplierMasterConsts.DialCodeMaxLength);
             Check.Length(contactPhone, nameof(contactPhone), SupplierMasterConsts.ContactPhoneMaxLength);
 
             var supplierMaster = new SupplierMaster(
 
-             countryId, supplierServiceTypeId, name, type, contactName, supplierStatus, preffered, contactEmail, dialCode, contactPhone
+             countryId, supplierServiceTypeId, name, contactName, supplierStatus, preffered, type, contactEmail, dialCode, contactPhone
              );
 
             return await _supplierMasterRepository.InsertAsync(supplierMaster);
@@ -45,17 +42,15 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual async Task<SupplierMaster> UpdateAsync(
             int id,
-            int countryId, int supplierServiceTypeId, string name, SupplierType type, string contactName, SupplierStatus supplierStatus, bool preffered, string? contactEmail = null, string? dialCode = null, string? contactPhone = null, [CanBeNull] string? concurrencyStamp = null
+            int countryId, int supplierServiceTypeId, string name, string contactName, int supplierStatus, bool preffered, string? type = null, string? contactEmail = null, string? dialCode = null, string? contactPhone = null, [CanBeNull] string? concurrencyStamp = null
         )
         {
             Check.NotNull(countryId, nameof(countryId));
             Check.NotNull(supplierServiceTypeId, nameof(supplierServiceTypeId));
             Check.NotNullOrWhiteSpace(name, nameof(name));
             Check.Length(name, nameof(name), SupplierMasterConsts.NameMaxLength);
-            Check.NotNull(type, nameof(type));
             Check.NotNullOrWhiteSpace(contactName, nameof(contactName));
             Check.Length(contactName, nameof(contactName), SupplierMasterConsts.ContactNameMaxLength);
-            Check.NotNull(supplierStatus, nameof(supplierStatus));
             Check.Length(contactEmail, nameof(contactEmail), SupplierMasterConsts.ContactEmailMaxLength);
             Check.Length(dialCode, nameof(dialCode), SupplierMasterConsts.DialCodeMaxLength);
             Check.Length(contactPhone, nameof(contactPhone), SupplierMasterConsts.ContactPhoneMaxLength);
@@ -65,10 +60,10 @@ namespace TMSMS.CommonService.CommonServices
             supplierMaster.CountryId = countryId;
             supplierMaster.SupplierServiceTypeId = supplierServiceTypeId;
             supplierMaster.Name = name;
-            supplierMaster.Type = type;
             supplierMaster.ContactName = contactName;
             supplierMaster.SupplierStatus = supplierStatus;
             supplierMaster.Preffered = preffered;
+            supplierMaster.Type = type;
             supplierMaster.ContactEmail = contactEmail;
             supplierMaster.DialCode = dialCode;
             supplierMaster.ContactPhone = contactPhone;

@@ -206,11 +206,6 @@
     "MaxDialCode": "Max Dial Code",
     "MaxContactPhone": "Max Contact Phone",
     "MaxSupplierStatus": "Max Supplier Status",
-    "MaxPreffered": "Max Preffered",
-    "Enum:SupplierType.0": "OTA",
-    "Enum:SupplierType.1": "DMC",
-    "Enum:SupplierType.2": "Wholesaler",
-    "Enum:SupplierStatus.0": "Active",
-    "Enum:SupplierStatus.1": "In active"
+    "MaxPreffered": "Max Preffered"
   }
 }
