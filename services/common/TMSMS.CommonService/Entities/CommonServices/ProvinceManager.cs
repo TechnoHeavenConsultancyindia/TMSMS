@@ -20,14 +20,13 @@ namespace TMSMS.CommonService.CommonServices
         }
 
         public virtual async Task<Province> CreateAsync(
-        string name, string categories, int statusFlag, string? locationId = null, string? fullName = null, string? descriptor = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? countrySubdivisionCode = null, string? latitude = null, string? longitude = null, string? polygonType = null, string? countryCode = null, string? tags = null)
+        string name, int statusFlag, string? locationId = null, string? fullName = null, string? latitude = null, string? longitude = null, string? countryCode = null, string? countrySubdivisionCode = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? polygonType = null, string? categories = null, string? tags = null, string? descriptor = null)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
-            Check.NotNullOrWhiteSpace(categories, nameof(categories));
 
             var province = new Province(
 
-             name, categories, statusFlag, locationId, fullName, descriptor, iataAirportCode, iataAirportMetroCode, countrySubdivisionCode, latitude, longitude, polygonType, countryCode, tags
+             name, statusFlag, locationId, fullName, latitude, longitude, countryCode, countrySubdivisionCode, iataAirportCode, iataAirportMetroCode, polygonType, categories, tags, descriptor
              );
 
             return await _provinceRepository.InsertAsync(province);
@@ -35,28 +34,27 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual async Task<Province> UpdateAsync(
             int id,
-            string name, string categories, int statusFlag, string? locationId = null, string? fullName = null, string? descriptor = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? countrySubdivisionCode = null, string? latitude = null, string? longitude = null, string? polygonType = null, string? countryCode = null, string? tags = null, [CanBeNull] string? concurrencyStamp = null
+            string name, int statusFlag, string? locationId = null, string? fullName = null, string? latitude = null, string? longitude = null, string? countryCode = null, string? countrySubdivisionCode = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? polygonType = null, string? categories = null, string? tags = null, string? descriptor = null, [CanBeNull] string? concurrencyStamp = null
         )
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
-            Check.NotNullOrWhiteSpace(categories, nameof(categories));
 
             var province = await _provinceRepository.GetAsync(id);
 
             province.Name = name;
-            province.Categories = categories;
             province.StatusFlag = statusFlag;
             province.LocationId = locationId;
             province.FullName = fullName;
-            province.Descriptor = descriptor;
-            province.IataAirportCode = iataAirportCode;
-            province.IataAirportMetroCode = iataAirportMetroCode;
-            province.CountrySubdivisionCode = countrySubdivisionCode;
             province.Latitude = latitude;
             province.Longitude = longitude;
-            province.PolygonType = polygonType;
             province.CountryCode = countryCode;
+            province.CountrySubdivisionCode = countrySubdivisionCode;
+            province.IataAirportCode = iataAirportCode;
+            province.IataAirportMetroCode = iataAirportMetroCode;
+            province.PolygonType = polygonType;
+            province.Categories = categories;
             province.Tags = tags;
+            province.Descriptor = descriptor;
 
             province.SetConcurrencyStampIfNotNull(concurrencyStamp);
             return await _provinceRepository.UpdateAsync(province);

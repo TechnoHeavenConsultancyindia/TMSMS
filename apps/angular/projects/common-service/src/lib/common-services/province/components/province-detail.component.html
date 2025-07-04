@@ -69,16 +69,51 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label" for="province-descriptor">
-                  {{ 'CommonService::Descriptor' | abpLocalization }}
+                <label class="form-label" for="province-latitude">
+                  {{ 'CommonService::Latitude' | abpLocalization }}
                 </label>
 
-                <textarea
-                  id="province-descriptor"
-                  formControlName="descriptor"
+                <input
+                  id="province-latitude"
+                  formControlName="latitude"
                   class="form-control"
-                >
-                </textarea>
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="province-longitude">
+                  {{ 'CommonService::Longitude' | abpLocalization }}
+                </label>
+
+                <input
+                  id="province-longitude"
+                  formControlName="longitude"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="province-country-code">
+                  {{ 'CommonService::CountryCode' | abpLocalization }}
+                </label>
+
+                <input
+                  id="province-country-code"
+                  formControlName="countryCode"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="province-country-subdivision-code">
+                  {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
+                </label>
+
+                <input
+                  id="province-country-subdivision-code"
+                  formControlName="countrySubdivisionCode"
+                  class="form-control"
+                />
               </div>
 
               <div class="mb-3">
@@ -106,42 +141,6 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label" for="province-country-subdivision-code">
-                  {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
-                </label>
-
-                <input
-                  id="province-country-subdivision-code"
-                  formControlName="countrySubdivisionCode"
-                  class="form-control"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="province-latitude">
-                  {{ 'CommonService::Latitude' | abpLocalization }}
-                </label>
-
-                <input
-                  id="province-latitude"
-                  formControlName="latitude"
-                  class="form-control"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="province-longitude">
-                  {{ 'CommonService::Longitude' | abpLocalization }}
-                </label>
-
-                <input
-                  id="province-longitude"
-                  formControlName="longitude"
-                  class="form-control"
-                />
-              </div>
-
-              <div class="mb-3">
                 <label class="form-label" for="province-polygon-type">
                   {{ 'CommonService::PolygonType' | abpLocalization }}
                 </label>
@@ -154,20 +153,8 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label" for="province-country-code">
-                  {{ 'CommonService::CountryCode' | abpLocalization }}
-                </label>
-
-                <input
-                  id="province-country-code"
-                  formControlName="countryCode"
-                  class="form-control"
-                />
-              </div>
-
-              <div class="mb-3">
                 <label class="form-label" for="province-categories">
-                  {{ 'CommonService::Categories' | abpLocalization }} *
+                  {{ 'CommonService::Categories' | abpLocalization }}
                 </label>
 
                 <input
@@ -196,6 +183,19 @@
                   formControlName="statusFlag"
                   class="form-control"
                 />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="province-descriptor">
+                  {{ 'CommonService::Descriptor' | abpLocalization }}
+                </label>
+
+                <textarea
+                  id="province-descriptor"
+                  formControlName="descriptor"
+                  class="form-control"
+                >
+                </textarea>
               </div>
             </div>
           </ng-template>
