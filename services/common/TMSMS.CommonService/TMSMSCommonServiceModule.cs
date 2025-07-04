@@ -282,6 +282,8 @@ public class TMSMSCommonServiceModule : AbpModule
 
             options.AddRepository<WeekDay, CommonServices.EfCoreWeekDayRepository>();
 
+            options.AddRepository<PromoCodeMaster, CommonServices.EfCorePromoCodeMasterRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

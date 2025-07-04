@@ -5,6 +5,7 @@ import { COMMON_SERVICES_CITY_ROUTE_PROVIDER } from './providers/city-route.prov
 import { COMMON_SERVICES_PROVINCE_ROUTE_PROVIDER } from './providers/province-route.provider';
 import { COMMON_SERVICES_REGION_ROUTE_PROVIDER } from './providers/region-route.provider';
 import { COMMON_SERVICES_WEEK_DAY_ROUTE_PROVIDER } from './providers/week-day-route.provider';
+import { COMMON_SERVICES_PROMO_CODE_MASTER_ROUTE_PROVIDER } from './providers/promo-code-master-route.provider';
 
 @NgModule()
 export class CommonServiceConfigModule {
@@ -18,6 +19,7 @@ export class CommonServiceConfigModule {
         COMMON_SERVICES_PROVINCE_ROUTE_PROVIDER,
         COMMON_SERVICES_REGION_ROUTE_PROVIDER,
         COMMON_SERVICES_WEEK_DAY_ROUTE_PROVIDER,
+        COMMON_SERVICES_PROMO_CODE_MASTER_ROUTE_PROVIDER,
       ],
     };
   }

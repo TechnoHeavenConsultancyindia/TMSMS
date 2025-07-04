@@ -28,5 +28,11 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<WeekDay, WeekDayDto>();
         CreateMap<WeekDay, WeekDayExcelDto>();
+
+        CreateMap<PromoCodeMaster, PromoCodeMasterDto>();
+        CreateMap<PromoCodeMaster, PromoCodeMasterExcelDto>();
+        CreateMap<PromoCodeMasterWithNavigationProperties, PromoCodeMasterWithNavigationPropertiesDto>();
+        CreateMap<Country, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
+        CreateMap<City, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
     }
 }

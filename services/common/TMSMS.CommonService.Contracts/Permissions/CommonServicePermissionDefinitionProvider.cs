@@ -34,6 +34,11 @@ public class CommonServicePermissionDefinitionProvider : PermissionDefinitionPro
         weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Create, L("Permission:Create"));
         weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Edit, L("Permission:Edit"));
         weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Delete, L("Permission:Delete"));
+
+        var promoCodeMasterPermission = myGroup.AddPermission(CommonServicePermissions.PromoCodeMasters.Default, L("Permission:PromoCodeMasters"));
+        promoCodeMasterPermission.AddChild(CommonServicePermissions.PromoCodeMasters.Create, L("Permission:Create"));
+        promoCodeMasterPermission.AddChild(CommonServicePermissions.PromoCodeMasters.Edit, L("Permission:Edit"));
+        promoCodeMasterPermission.AddChild(CommonServicePermissions.PromoCodeMasters.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

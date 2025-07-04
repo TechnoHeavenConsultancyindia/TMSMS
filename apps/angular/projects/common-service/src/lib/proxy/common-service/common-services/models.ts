@@ -184,6 +184,42 @@ export interface GetCountriesInput extends PagedAndSortedResultRequestDto {
   descriptor?: string;
 }
 
+export interface GetPromoCodeMastersInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  promoCode?: string;
+  serviceType?: string;
+  discountType?: string;
+  discountValueMin?: number;
+  discountValueMax?: number;
+  dateEffectiveFromMin?: string;
+  dateEffectiveFromMax?: string;
+  dateEffectiveToMin?: string;
+  dateEffectiveToMax?: string;
+  maxUsageLimitMin?: number;
+  maxUsageLimitMax?: number;
+  maxUsagePerUserMin?: number;
+  maxUsagePerUserMax?: number;
+  customerType?: string;
+  minBookingAmountMin?: number;
+  minBookingAmountMax?: number;
+  paymentMethod?: string;
+  userGroup?: string;
+  minNoOfNightsMin?: number;
+  minNoOfNightsMax?: number;
+  minNoOfPaxMin?: number;
+  minNoOfPaxMax?: number;
+  earlyBirdDaysMin?: number;
+  earlyBirdDaysMax?: number;
+  validTimeFromMin?: string;
+  validTimeFromMax?: string;
+  validTimeToMin?: string;
+  validTimeToMax?: string;
+  stackable?: boolean;
+  countryId?: string;
+  cityId?: string;
+}
+
 export interface GetProvincesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   locationId?: string;
@@ -229,6 +265,121 @@ export interface GetWeekDaysInput extends PagedAndSortedResultRequestDto {
   isWeekend?: boolean;
   displayOrderMin?: number;
   displayOrderMax?: number;
+}
+
+export interface PromoCodeMasterCreateDto {
+  name: string;
+  promoCode?: string;
+  serviceType?: string;
+  discountType?: string;
+  discountValue: number;
+  dateEffectiveFrom?: string;
+  dateEffectiveTo?: string;
+  maxUsageLimit?: number;
+  maxUsagePerUser?: number;
+  customerType?: string;
+  minBookingAmount: number;
+  paymentMethod?: string;
+  userGroup?: string;
+  minNoOfNights: number;
+  minNoOfPax: number;
+  earlyBirdDays: number;
+  validTimeFrom?: string;
+  validTimeTo?: string;
+  stackable: boolean;
+  countryIds: string[];
+  cityIds: string[];
+}
+
+export interface PromoCodeMasterDto extends FullAuditedEntityDto<number> {
+  name: string;
+  promoCode?: string;
+  serviceType?: string;
+  discountType?: string;
+  discountValue: number;
+  dateEffectiveFrom?: string;
+  dateEffectiveTo?: string;
+  maxUsageLimit?: number;
+  maxUsagePerUser?: number;
+  customerType?: string;
+  minBookingAmount: number;
+  paymentMethod?: string;
+  userGroup?: string;
+  minNoOfNights: number;
+  minNoOfPax: number;
+  earlyBirdDays: number;
+  validTimeFrom?: string;
+  validTimeTo?: string;
+  stackable: boolean;
+  concurrencyStamp?: string;
+}
+
+export interface PromoCodeMasterExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  promoCode?: string;
+  serviceType?: string;
+  discountType?: string;
+  discountValueMin?: number;
+  discountValueMax?: number;
+  dateEffectiveFromMin?: string;
+  dateEffectiveFromMax?: string;
+  dateEffectiveToMin?: string;
+  dateEffectiveToMax?: string;
+  maxUsageLimitMin?: number;
+  maxUsageLimitMax?: number;
+  maxUsagePerUserMin?: number;
+  maxUsagePerUserMax?: number;
+  customerType?: string;
+  minBookingAmountMin?: number;
+  minBookingAmountMax?: number;
+  paymentMethod?: string;
+  userGroup?: string;
+  minNoOfNightsMin?: number;
+  minNoOfNightsMax?: number;
+  minNoOfPaxMin?: number;
+  minNoOfPaxMax?: number;
+  earlyBirdDaysMin?: number;
+  earlyBirdDaysMax?: number;
+  validTimeFromMin?: string;
+  validTimeFromMax?: string;
+  validTimeToMin?: string;
+  validTimeToMax?: string;
+  stackable?: boolean;
+  countryId?: string;
+  cityId?: string;
+}
+
+export interface PromoCodeMasterUpdateDto {
+  name: string;
+  promoCode?: string;
+  serviceType?: string;
+  discountType?: string;
+  discountValue: number;
+  dateEffectiveFrom?: string;
+  dateEffectiveTo?: string;
+  maxUsageLimit?: number;
+  maxUsagePerUser?: number;
+  customerType?: string;
+  minBookingAmount: number;
+  paymentMethod?: string;
+  userGroup?: string;
+  minNoOfNights: number;
+  minNoOfPax: number;
+  earlyBirdDays: number;
+  validTimeFrom?: string;
+  validTimeTo?: string;
+  stackable: boolean;
+  countryIds: string[];
+  cityIds: string[];
+  concurrencyStamp?: string;
+}
+
+export interface PromoCodeMasterWithNavigationPropertiesDto {
+  promoCodeMaster: PromoCodeMasterDto;
+  countries: CountryDto[];
+  cities: CityDto[];
 }
 
 export interface ProvinceCreateDto {

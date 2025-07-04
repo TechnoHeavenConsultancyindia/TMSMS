@@ -13,6 +13,7 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<PromoCodeMaster> PromoCodeMasters { get; set; } = null!;
     public DbSet<WeekDay> WeekDays { get; set; } = null!;
     public DbSet<Region> Regions { get; set; } = null!;
     public DbSet<Province> Provinces { get; set; } = null!;
@@ -128,5 +129,65 @@ public class CommonServiceDbContext :
                     b.Property(x => x.IsWeekend).HasColumnName(nameof(WeekDay.IsWeekend));
                     b.Property(x => x.DisplayOrder).HasColumnName(nameof(WeekDay.DisplayOrder));
                 });
+        builder.Entity<PromoCodeMaster>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "PromoCodeMasters", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(PromoCodeMaster.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(PromoCodeMaster.Name)).IsRequired().HasMaxLength(PromoCodeMasterConsts.NameMaxLength);
+                    b.Property(x => x.PromoCode).HasColumnName(nameof(PromoCodeMaster.PromoCode)).HasMaxLength(PromoCodeMasterConsts.PromoCodeMaxLength);
+                    b.Property(x => x.ServiceType).HasColumnName(nameof(PromoCodeMaster.ServiceType)).HasMaxLength(PromoCodeMasterConsts.ServiceTypeMaxLength);
+                    b.Property(x => x.DiscountType).HasColumnName(nameof(PromoCodeMaster.DiscountType)).HasMaxLength(PromoCodeMasterConsts.DiscountTypeMaxLength);
+                    b.Property(x => x.DiscountValue).HasColumnName(nameof(PromoCodeMaster.DiscountValue));
+                    b.Property(x => x.DateEffectiveFrom).HasColumnName(nameof(PromoCodeMaster.DateEffectiveFrom));
+                    b.Property(x => x.DateEffectiveTo).HasColumnName(nameof(PromoCodeMaster.DateEffectiveTo));
+                    b.Property(x => x.MaxUsageLimit).HasColumnName(nameof(PromoCodeMaster.MaxUsageLimit));
+                    b.Property(x => x.MaxUsagePerUser).HasColumnName(nameof(PromoCodeMaster.MaxUsagePerUser));
+                    b.Property(x => x.CustomerType).HasColumnName(nameof(PromoCodeMaster.CustomerType)).HasMaxLength(PromoCodeMasterConsts.CustomerTypeMaxLength);
+                    b.Property(x => x.MinBookingAmount).HasColumnName(nameof(PromoCodeMaster.MinBookingAmount));
+                    b.Property(x => x.PaymentMethod).HasColumnName(nameof(PromoCodeMaster.PaymentMethod)).HasMaxLength(PromoCodeMasterConsts.PaymentMethodMaxLength);
+                    b.Property(x => x.UserGroup).HasColumnName(nameof(PromoCodeMaster.UserGroup)).HasMaxLength(PromoCodeMasterConsts.UserGroupMaxLength);
+                    b.Property(x => x.MinNoOfNights).HasColumnName(nameof(PromoCodeMaster.MinNoOfNights));
+                    b.Property(x => x.MinNoOfPax).HasColumnName(nameof(PromoCodeMaster.MinNoOfPax));
+                    b.Property(x => x.EarlyBirdDays).HasColumnName(nameof(PromoCodeMaster.EarlyBirdDays));
+                    b.Property(x => x.ValidTimeFrom).HasColumnName(nameof(PromoCodeMaster.ValidTimeFrom));
+                    b.Property(x => x.ValidTimeTo).HasColumnName(nameof(PromoCodeMaster.ValidTimeTo));
+                    b.Property(x => x.Stackable).HasColumnName(nameof(PromoCodeMaster.Stackable));
+                    b.HasMany(x => x.Countries).WithOne().HasForeignKey(x => x.PromoCodeMasterId).IsRequired().OnDelete(DeleteBehavior.NoAction);
+                    b.HasMany(x => x.Cities).WithOne().HasForeignKey(x => x.PromoCodeMasterId).IsRequired().OnDelete(DeleteBehavior.NoAction);
+                });
+
+        builder.Entity<PromoCodeMasterCountry>(b =>
+    {
+        b.ToTable(DbTablePrefix + "PromoCodeMasterCountry", DbSchema);
+        b.ConfigureByConvention();
+
+        b.HasKey(
+            x => new { x.PromoCodeMasterId, x.CountryId }
+        );
+
+        b.HasOne<PromoCodeMaster>().WithMany(x => x.Countries).HasForeignKey(x => x.PromoCodeMasterId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+        b.HasOne<Country>().WithMany().HasForeignKey(x => x.CountryId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+
+        b.HasIndex(
+                x => new { x.PromoCodeMasterId, x.CountryId }
+        );
+    });
+        builder.Entity<PromoCodeMasterCity>(b =>
+    {
+        b.ToTable(DbTablePrefix + "PromoCodeMasterCity", DbSchema);
+        b.ConfigureByConvention();
+
+        b.HasKey(
+            x => new { x.PromoCodeMasterId, x.CityId }
+        );
+
+        b.HasOne<PromoCodeMaster>().WithMany(x => x.Cities).HasForeignKey(x => x.PromoCodeMasterId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+        b.HasOne<City>().WithMany().HasForeignKey(x => x.CityId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+
+        b.HasIndex(
+                x => new { x.PromoCodeMasterId, x.CityId }
+        );
+    });
     }
 }
