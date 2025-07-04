@@ -37,26 +37,6 @@ public class CommonServiceDbContext :
         builder.ConfigureEventInbox();
         builder.ConfigureEventOutbox();
 
-        builder.Entity<City>(b =>
-                {
-                    b.ToTable(DbTablePrefix + "Cities", DbSchema);
-                    b.ConfigureByConvention();
-                    b.Property(x => x.TenantId).HasColumnName(nameof(City.TenantId));
-                    b.Property(x => x.LocationId).HasColumnName(nameof(City.LocationId));
-                    b.Property(x => x.Name).HasColumnName(nameof(City.Name)).IsRequired();
-                    b.Property(x => x.FullName).HasColumnName(nameof(City.FullName));
-                    b.Property(x => x.Descriptor).HasColumnName(nameof(City.Descriptor));
-                    b.Property(x => x.IataAirportCode).HasColumnName(nameof(City.IataAirportCode));
-                    b.Property(x => x.IataAirportMetroCode).HasColumnName(nameof(City.IataAirportMetroCode));
-                    b.Property(x => x.CountrySubdivisionCode).HasColumnName(nameof(City.CountrySubdivisionCode));
-                    b.Property(x => x.Latitude).HasColumnName(nameof(City.Latitude));
-                    b.Property(x => x.Longitude).HasColumnName(nameof(City.Longitude));
-                    b.Property(x => x.PolygonType).HasColumnName(nameof(City.PolygonType));
-                    b.Property(x => x.CountryCode).HasColumnName(nameof(City.CountryCode));
-                    b.Property(x => x.Categories).HasColumnName(nameof(City.Categories));
-                    b.Property(x => x.Tags).HasColumnName(nameof(City.Tags));
-                    b.Property(x => x.StatusFlag).HasColumnName(nameof(City.StatusFlag));
-                });
         builder.Entity<Province>(b =>
                 {
                     b.ToTable(DbTablePrefix + "Provinces", DbSchema);
@@ -117,6 +97,26 @@ public class CommonServiceDbContext :
                     b.Property(x => x.Tags).HasColumnName(nameof(Country.Tags));
                     b.Property(x => x.StatusFlag).HasColumnName(nameof(Country.StatusFlag));
                     b.Property(x => x.Descriptor).HasColumnName(nameof(Country.Descriptor));
+                });
+        builder.Entity<City>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "Cities", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(City.TenantId));
+                    b.Property(x => x.LocationId).HasColumnName(nameof(City.LocationId));
+                    b.Property(x => x.Name).HasColumnName(nameof(City.Name)).IsRequired();
+                    b.Property(x => x.FullName).HasColumnName(nameof(City.FullName));
+                    b.Property(x => x.Latitude).HasColumnName(nameof(City.Latitude));
+                    b.Property(x => x.Longitude).HasColumnName(nameof(City.Longitude));
+                    b.Property(x => x.CountryCode).HasColumnName(nameof(City.CountryCode));
+                    b.Property(x => x.CountrySubdivisionCode).HasColumnName(nameof(City.CountrySubdivisionCode));
+                    b.Property(x => x.IataAirportCode).HasColumnName(nameof(City.IataAirportCode));
+                    b.Property(x => x.IataAirportMetroCode).HasColumnName(nameof(City.IataAirportMetroCode));
+                    b.Property(x => x.PolygonType).HasColumnName(nameof(City.PolygonType));
+                    b.Property(x => x.Categories).HasColumnName(nameof(City.Categories));
+                    b.Property(x => x.Tags).HasColumnName(nameof(City.Tags));
+                    b.Property(x => x.StatusFlag).HasColumnName(nameof(City.StatusFlag));
+                    b.Property(x => x.Descriptor).HasColumnName(nameof(City.Descriptor));
                 });
     }
 }

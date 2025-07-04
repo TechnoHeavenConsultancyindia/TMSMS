@@ -25,7 +25,16 @@ namespace TMSMS.CommonService.CommonServices
         public virtual string? FullName { get; set; }
 
         [CanBeNull]
-        public virtual string? Descriptor { get; set; }
+        public virtual string? Latitude { get; set; }
+
+        [CanBeNull]
+        public virtual string? Longitude { get; set; }
+
+        [CanBeNull]
+        public virtual string? CountryCode { get; set; }
+
+        [CanBeNull]
+        public virtual string? CountrySubdivisionCode { get; set; }
 
         [CanBeNull]
         public virtual string? IataAirportCode { get; set; }
@@ -34,19 +43,7 @@ namespace TMSMS.CommonService.CommonServices
         public virtual string? IataAirportMetroCode { get; set; }
 
         [CanBeNull]
-        public virtual string? CountrySubdivisionCode { get; set; }
-
-        [CanBeNull]
-        public virtual string? Latitude { get; set; }
-
-        [CanBeNull]
-        public virtual string? Longitude { get; set; }
-
-        [CanBeNull]
         public virtual string? PolygonType { get; set; }
-
-        [CanBeNull]
-        public virtual string? CountryCode { get; set; }
 
         [CanBeNull]
         public virtual string? Categories { get; set; }
@@ -56,12 +53,15 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual int StatusFlag { get; set; }
 
+        [CanBeNull]
+        public virtual string? Descriptor { get; set; }
+
         protected CityBase()
         {
 
         }
 
-        public CityBase(string name, int statusFlag, string? locationId = null, string? fullName = null, string? descriptor = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? countrySubdivisionCode = null, string? latitude = null, string? longitude = null, string? polygonType = null, string? countryCode = null, string? categories = null, string? tags = null)
+        public CityBase(string name, int statusFlag, string? locationId = null, string? fullName = null, string? latitude = null, string? longitude = null, string? countryCode = null, string? countrySubdivisionCode = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? polygonType = null, string? categories = null, string? tags = null, string? descriptor = null)
         {
 
             Check.NotNull(name, nameof(name));
@@ -69,16 +69,16 @@ namespace TMSMS.CommonService.CommonServices
             StatusFlag = statusFlag;
             LocationId = locationId;
             FullName = fullName;
-            Descriptor = descriptor;
-            IataAirportCode = iataAirportCode;
-            IataAirportMetroCode = iataAirportMetroCode;
-            CountrySubdivisionCode = countrySubdivisionCode;
             Latitude = latitude;
             Longitude = longitude;
-            PolygonType = polygonType;
             CountryCode = countryCode;
+            CountrySubdivisionCode = countrySubdivisionCode;
+            IataAirportCode = iataAirportCode;
+            IataAirportMetroCode = iataAirportMetroCode;
+            PolygonType = polygonType;
             Categories = categories;
             Tags = tags;
+            Descriptor = descriptor;
         }
 
     }

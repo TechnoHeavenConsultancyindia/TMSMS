@@ -83,14 +83,59 @@
 
             <div class="col-12 col-sm-auto">
               <div class="mb-3">
-                <label class="form-label" for="descriptorFilter">
-                  {{ 'CommonService::Descriptor' | abpLocalization }}
+                <label class="form-label" for="latitudeFilter">
+                  {{ 'CommonService::Latitude' | abpLocalization }}
                 </label>
 
                 <input
-                  id="descriptorFilter"
+                  id="latitudeFilter"
                   class="form-control"
-                  [(ngModel)]="filters.descriptor"
+                  [(ngModel)]="filters.latitude"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="longitudeFilter">
+                  {{ 'CommonService::Longitude' | abpLocalization }}
+                </label>
+
+                <input
+                  id="longitudeFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.longitude"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="countryCodeFilter">
+                  {{ 'CommonService::CountryCode' | abpLocalization }}
+                </label>
+
+                <input
+                  id="countryCodeFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.countryCode"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="countrySubdivisionCodeFilter">
+                  {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
+                </label>
+
+                <input
+                  id="countrySubdivisionCodeFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.countrySubdivisionCode"
                   [ngModelOptions]="{ standalone: true }"
                 />
               </div>
@@ -128,51 +173,6 @@
 
             <div class="col-12 col-sm-auto">
               <div class="mb-3">
-                <label class="form-label" for="countrySubdivisionCodeFilter">
-                  {{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}
-                </label>
-
-                <input
-                  id="countrySubdivisionCodeFilter"
-                  class="form-control"
-                  [(ngModel)]="filters.countrySubdivisionCode"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-auto">
-              <div class="mb-3">
-                <label class="form-label" for="latitudeFilter">
-                  {{ 'CommonService::Latitude' | abpLocalization }}
-                </label>
-
-                <input
-                  id="latitudeFilter"
-                  class="form-control"
-                  [(ngModel)]="filters.latitude"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-auto">
-              <div class="mb-3">
-                <label class="form-label" for="longitudeFilter">
-                  {{ 'CommonService::Longitude' | abpLocalization }}
-                </label>
-
-                <input
-                  id="longitudeFilter"
-                  class="form-control"
-                  [(ngModel)]="filters.longitude"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-auto">
-              <div class="mb-3">
                 <label class="form-label" for="polygonTypeFilter">
                   {{ 'CommonService::PolygonType' | abpLocalization }}
                 </label>
@@ -181,21 +181,6 @@
                   id="polygonTypeFilter"
                   class="form-control"
                   [(ngModel)]="filters.polygonType"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-auto">
-              <div class="mb-3">
-                <label class="form-label" for="countryCodeFilter">
-                  {{ 'CommonService::CountryCode' | abpLocalization }}
-                </label>
-
-                <input
-                  id="countryCodeFilter"
-                  class="form-control"
-                  [(ngModel)]="filters.countryCode"
                   [ngModelOptions]="{ standalone: true }"
                 />
               </div>
@@ -258,6 +243,21 @@
                   type="number"
                   class="form-control"
                   [(ngModel)]="filters.statusFlagMax"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="descriptorFilter">
+                  {{ 'CommonService::Descriptor' | abpLocalization }}
+                </label>
+
+                <input
+                  id="descriptorFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.descriptor"
                   [ngModelOptions]="{ standalone: true }"
                 />
               </div>
@@ -445,30 +445,6 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="{{ 'CommonService::IataAirportCode' | abpLocalization }}"
-          prop="iataAirportCode"
-        >
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.iataAirportCode }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column
-          name="{{ 'CommonService::IataAirportMetroCode' | abpLocalization }}"
-          prop="iataAirportMetroCode"
-        >
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.iataAirportMetroCode }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column
-          name="{{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}"
-          prop="countrySubdivisionCode"
-        >
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.countrySubdivisionCode }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column
           name="{{ 'CommonService::Latitude' | abpLocalization }}"
           prop="latitude"
         >
@@ -485,19 +461,43 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="{{ 'CommonService::PolygonType' | abpLocalization }}"
-          prop="polygonType"
-        >
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.polygonType }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column
           name="{{ 'CommonService::CountryCode' | abpLocalization }}"
           prop="countryCode"
         >
           <ng-template let-row="row" ngx-datatable-cell-template>
             {{ row.countryCode }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ 'CommonService::CountrySubdivisionCode' | abpLocalization }}"
+          prop="countrySubdivisionCode"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.countrySubdivisionCode }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ 'CommonService::IataAirportCode' | abpLocalization }}"
+          prop="iataAirportCode"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.iataAirportCode }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ 'CommonService::IataAirportMetroCode' | abpLocalization }}"
+          prop="iataAirportMetroCode"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.iataAirportMetroCode }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ 'CommonService::PolygonType' | abpLocalization }}"
+          prop="polygonType"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.polygonType }}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column

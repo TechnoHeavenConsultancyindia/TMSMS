@@ -20,13 +20,13 @@ namespace TMSMS.CommonService.CommonServices
         }
 
         public virtual async Task<City> CreateAsync(
-        string name, int statusFlag, string? locationId = null, string? fullName = null, string? descriptor = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? countrySubdivisionCode = null, string? latitude = null, string? longitude = null, string? polygonType = null, string? countryCode = null, string? categories = null, string? tags = null)
+        string name, int statusFlag, string? locationId = null, string? fullName = null, string? latitude = null, string? longitude = null, string? countryCode = null, string? countrySubdivisionCode = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? polygonType = null, string? categories = null, string? tags = null, string? descriptor = null)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
             var city = new City(
 
-             name, statusFlag, locationId, fullName, descriptor, iataAirportCode, iataAirportMetroCode, countrySubdivisionCode, latitude, longitude, polygonType, countryCode, categories, tags
+             name, statusFlag, locationId, fullName, latitude, longitude, countryCode, countrySubdivisionCode, iataAirportCode, iataAirportMetroCode, polygonType, categories, tags, descriptor
              );
 
             return await _cityRepository.InsertAsync(city);
@@ -34,7 +34,7 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual async Task<City> UpdateAsync(
             int id,
-            string name, int statusFlag, string? locationId = null, string? fullName = null, string? descriptor = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? countrySubdivisionCode = null, string? latitude = null, string? longitude = null, string? polygonType = null, string? countryCode = null, string? categories = null, string? tags = null, [CanBeNull] string? concurrencyStamp = null
+            string name, int statusFlag, string? locationId = null, string? fullName = null, string? latitude = null, string? longitude = null, string? countryCode = null, string? countrySubdivisionCode = null, string? iataAirportCode = null, string? iataAirportMetroCode = null, string? polygonType = null, string? categories = null, string? tags = null, string? descriptor = null, [CanBeNull] string? concurrencyStamp = null
         )
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
@@ -45,16 +45,16 @@ namespace TMSMS.CommonService.CommonServices
             city.StatusFlag = statusFlag;
             city.LocationId = locationId;
             city.FullName = fullName;
-            city.Descriptor = descriptor;
-            city.IataAirportCode = iataAirportCode;
-            city.IataAirportMetroCode = iataAirportMetroCode;
-            city.CountrySubdivisionCode = countrySubdivisionCode;
             city.Latitude = latitude;
             city.Longitude = longitude;
-            city.PolygonType = polygonType;
             city.CountryCode = countryCode;
+            city.CountrySubdivisionCode = countrySubdivisionCode;
+            city.IataAirportCode = iataAirportCode;
+            city.IataAirportMetroCode = iataAirportMetroCode;
+            city.PolygonType = polygonType;
             city.Categories = categories;
             city.Tags = tags;
+            city.Descriptor = descriptor;
 
             city.SetConcurrencyStampIfNotNull(concurrencyStamp);
             return await _cityRepository.UpdateAsync(city);

@@ -4,34 +4,34 @@ export interface CityCreateDto {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
   categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
 }
 
 export interface CityDto extends FullAuditedEntityDto<number> {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
   categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
   concurrencyStamp?: string;
 }
 
@@ -41,35 +41,35 @@ export interface CityExcelDownloadDto {
   locationId?: string;
   name?: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
   categories?: string;
   tags?: string;
   statusFlagMin?: number;
   statusFlagMax?: number;
+  descriptor?: string;
 }
 
 export interface CityUpdateDto {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
   categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
   concurrencyStamp?: string;
 }
 
@@ -151,18 +151,18 @@ export interface GetCitiesInput extends PagedAndSortedResultRequestDto {
   locationId?: string;
   name?: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
   categories?: string;
   tags?: string;
   statusFlagMin?: number;
   statusFlagMax?: number;
+  descriptor?: string;
 }
 
 export interface GetCountriesInput extends PagedAndSortedResultRequestDto {
