@@ -49,6 +49,11 @@ public class CommonServicePermissionDefinitionProvider : PermissionDefinitionPro
         supplierServiceTypePermission.AddChild(CommonServicePermissions.SupplierServiceTypes.Create, L("Permission:Create"));
         supplierServiceTypePermission.AddChild(CommonServicePermissions.SupplierServiceTypes.Edit, L("Permission:Edit"));
         supplierServiceTypePermission.AddChild(CommonServicePermissions.SupplierServiceTypes.Delete, L("Permission:Delete"));
+
+        var supplierMasterPermission = myGroup.AddPermission(CommonServicePermissions.SupplierMasters.Default, L("Permission:SupplierMasters"));
+        supplierMasterPermission.AddChild(CommonServicePermissions.SupplierMasters.Create, L("Permission:Create"));
+        supplierMasterPermission.AddChild(CommonServicePermissions.SupplierMasters.Edit, L("Permission:Edit"));
+        supplierMasterPermission.AddChild(CommonServicePermissions.SupplierMasters.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

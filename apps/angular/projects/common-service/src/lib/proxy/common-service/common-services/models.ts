@@ -269,6 +269,21 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
   descriptor?: string;
 }
 
+export interface GetSupplierMastersInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  type?: string;
+  contactName?: string;
+  contactEmail?: string;
+  dialCode?: string;
+  contactPhone?: string;
+  supplierStatusMin?: number;
+  supplierStatusMax?: number;
+  preffered?: boolean;
+  countryId?: number;
+  supplierServiceTypeId?: number;
+}
+
 export interface GetSupplierServiceTypesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
@@ -583,6 +598,69 @@ export interface RegionUpdateDto {
   statusFlag: number;
   descriptor?: string;
   concurrencyStamp?: string;
+}
+
+export interface SupplierMasterCreateDto {
+  name: string;
+  type?: string;
+  contactName: string;
+  contactEmail?: string;
+  dialCode?: string;
+  contactPhone?: string;
+  supplierStatus: number;
+  preffered: boolean;
+  countryId: number;
+  supplierServiceTypeId: number;
+}
+
+export interface SupplierMasterDto extends FullAuditedEntityDto<number> {
+  name: string;
+  type?: string;
+  contactName: string;
+  contactEmail?: string;
+  dialCode?: string;
+  contactPhone?: string;
+  supplierStatus: number;
+  preffered: boolean;
+  countryId: number;
+  supplierServiceTypeId: number;
+  concurrencyStamp?: string;
+}
+
+export interface SupplierMasterExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  type?: string;
+  contactName?: string;
+  contactEmail?: string;
+  dialCode?: string;
+  contactPhone?: string;
+  supplierStatusMin?: number;
+  supplierStatusMax?: number;
+  preffered?: boolean;
+  countryId?: number;
+  supplierServiceTypeId?: number;
+}
+
+export interface SupplierMasterUpdateDto {
+  name: string;
+  type?: string;
+  contactName: string;
+  contactEmail?: string;
+  dialCode?: string;
+  contactPhone?: string;
+  supplierStatus: number;
+  preffered: boolean;
+  countryId: number;
+  supplierServiceTypeId: number;
+  concurrencyStamp?: string;
+}
+
+export interface SupplierMasterWithNavigationPropertiesDto {
+  supplierMaster: SupplierMasterDto;
+  country: CountryDto;
+  supplierServiceType: SupplierServiceTypeDto;
 }
 
 export interface SupplierServiceTypeCreateDto {

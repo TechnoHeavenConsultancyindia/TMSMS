@@ -288,6 +288,8 @@ public class TMSMSCommonServiceModule : AbpModule
 
             options.AddRepository<SupplierServiceType, CommonServices.EfCoreSupplierServiceTypeRepository>();
 
+            options.AddRepository<SupplierMaster, CommonServices.EfCoreSupplierMasterRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
