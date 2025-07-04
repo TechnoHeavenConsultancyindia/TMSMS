@@ -172,6 +172,13 @@
     "MinUsageDate": "Min Usage Date",
     "MaxUserID": "Max User I D",
     "MaxBookingID": "Max Booking I D",
-    "MaxUsageDate": "Max Usage Date"
+    "MaxUsageDate": "Max Usage Date",
+    "Permission:ServiceTypes": "Service Types",
+    "ServiceTypes": "Service Types",
+    "NewServiceType": "New Service Type",
+    "Menu:ServiceTypes": "Service Types",
+    "Description": "Description",
+    "MinDescription": "Min Description",
+    "MaxDescription": "Max Description"
   }
 }

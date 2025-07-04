@@ -39,5 +39,8 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
         CreateMap<PromoCodeUsageTracking, PromoCodeUsageTrackingExcelDto>();
         CreateMap<PromoCodeUsageTrackingWithNavigationProperties, PromoCodeUsageTrackingWithNavigationPropertiesDto>();
         CreateMap<PromoCodeMaster, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<ServiceType, ServiceTypeDto>();
+        CreateMap<ServiceType, ServiceTypeExcelDto>();
     }
 }

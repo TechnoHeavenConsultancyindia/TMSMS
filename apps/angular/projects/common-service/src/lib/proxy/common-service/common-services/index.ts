@@ -6,4 +6,5 @@ export * from './promo-code-master.service';
 export * from './promo-code-usage-tracking.service';
 export * from './province.service';
 export * from './region.service';
+export * from './service-type.service';
 export * from './week-day.service';

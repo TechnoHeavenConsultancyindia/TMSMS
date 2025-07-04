@@ -44,6 +44,11 @@ public class CommonServicePermissionDefinitionProvider : PermissionDefinitionPro
         promoCodeUsageTrackingPermission.AddChild(CommonServicePermissions.PromoCodeUsageTrackings.Create, L("Permission:Create"));
         promoCodeUsageTrackingPermission.AddChild(CommonServicePermissions.PromoCodeUsageTrackings.Edit, L("Permission:Edit"));
         promoCodeUsageTrackingPermission.AddChild(CommonServicePermissions.PromoCodeUsageTrackings.Delete, L("Permission:Delete"));
+
+        var serviceTypePermission = myGroup.AddPermission(CommonServicePermissions.ServiceTypes.Default, L("Permission:ServiceTypes"));
+        serviceTypePermission.AddChild(CommonServicePermissions.ServiceTypes.Create, L("Permission:Create"));
+        serviceTypePermission.AddChild(CommonServicePermissions.ServiceTypes.Edit, L("Permission:Edit"));
+        serviceTypePermission.AddChild(CommonServicePermissions.ServiceTypes.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

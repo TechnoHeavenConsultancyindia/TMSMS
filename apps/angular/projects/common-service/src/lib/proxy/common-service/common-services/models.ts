@@ -269,6 +269,12 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
   descriptor?: string;
 }
 
+export interface GetServiceTypesInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
 export interface GetWeekDaysInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   name?: string;
@@ -576,6 +582,30 @@ export interface RegionUpdateDto {
   tags?: string;
   statusFlag: number;
   descriptor?: string;
+  concurrencyStamp?: string;
+}
+
+export interface ServiceTypeCreateDto {
+  name?: string;
+  description?: string;
+}
+
+export interface ServiceTypeDto extends FullAuditedEntityDto<number> {
+  name?: string;
+  description?: string;
+  concurrencyStamp?: string;
+}
+
+export interface ServiceTypeExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface ServiceTypeUpdateDto {
+  name?: string;
+  description?: string;
   concurrencyStamp?: string;
 }
 

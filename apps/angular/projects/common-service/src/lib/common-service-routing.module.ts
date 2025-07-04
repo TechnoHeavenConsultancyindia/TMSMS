@@ -8,6 +8,7 @@ import { loadRegionModuleAsChild } from './common-services/region/region.module'
 import { loadWeekDayModuleAsChild } from './common-services/week-day/week-day.module';
 import { loadPromoCodeMasterModuleAsChild } from './common-services/promo-code-master/promo-code-master.module';
 import { loadPromoCodeUsageTrackingModuleAsChild } from './common-services/promo-code-usage-tracking/promo-code-usage-tracking.module';
+import { loadServiceTypeModuleAsChild } from './common-services/service-type/service-type.module';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
     path: 'promo-code-usage-trackings',
     loadChildren: loadPromoCodeUsageTrackingModuleAsChild,
   },
+  { path: 'service-types', loadChildren: loadServiceTypeModuleAsChild },
 ];
 
 @NgModule({

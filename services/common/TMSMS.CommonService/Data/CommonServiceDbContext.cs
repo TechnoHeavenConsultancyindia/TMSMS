@@ -13,6 +13,7 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<ServiceType> ServiceTypes { get; set; } = null!;
     public DbSet<PromoCodeUsageTracking> PromoCodeUsageTrackings { get; set; } = null!;
     public DbSet<PromoCodeMaster> PromoCodeMasters { get; set; } = null!;
     public DbSet<WeekDay> WeekDays { get; set; } = null!;
@@ -200,6 +201,14 @@ public class CommonServiceDbContext :
                     b.Property(x => x.BookingID).HasColumnName(nameof(PromoCodeUsageTracking.BookingID));
                     b.Property(x => x.UsageDate).HasColumnName(nameof(PromoCodeUsageTracking.UsageDate));
                     b.HasOne<PromoCodeMaster>().WithMany().HasForeignKey(x => x.PromoCodeMasterId).OnDelete(DeleteBehavior.SetNull);
+                });
+        builder.Entity<ServiceType>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "ServiceTypes", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(ServiceType.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(ServiceType.Name)).HasMaxLength(ServiceTypeConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(ServiceType.Description));
                 });
     }
 }
