@@ -4,6 +4,8 @@ import { ListService, TrackByService } from '@abp/ng.core';
 
 import { finalize, tap } from 'rxjs/operators';
 
+import { supplierTypeOptions } from '../../../proxy/common-service/supplier-type.enum';
+import { supplierStatusOptions } from '../../../proxy/common-service/supplier-status.enum';
 import type { SupplierMasterWithNavigationPropertiesDto } from '../../../proxy/common-service/common-services/models';
 import { SupplierMasterService } from '../../../proxy/common-service/common-services/supplier-master.service';
 
@@ -18,6 +20,9 @@ export abstract class AbstractSupplierMasterDetailViewService {
 
   public readonly getSupplierServiceTypeLookup =
     this.proxyService.getSupplierServiceTypeLookup;
+
+  supplierTypeOptions = supplierTypeOptions;
+  supplierStatusOptions = supplierStatusOptions;
 
   isBusy = false;
   isVisible = false;
@@ -55,7 +60,7 @@ export abstract class AbstractSupplierMasterDetailViewService {
 
     this.form = this.fb.group({
       name: [name ?? null, [Validators.required, Validators.maxLength(150)]],
-      type: [type ?? null, []],
+      type: [type ?? null, [Validators.required]],
       contactName: [
         contactName ?? null,
         [Validators.required, Validators.maxLength(150)],

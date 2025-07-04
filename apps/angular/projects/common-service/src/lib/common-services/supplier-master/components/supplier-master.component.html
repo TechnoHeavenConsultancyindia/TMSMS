@@ -57,12 +57,22 @@
                   {{ 'CommonService::Type' | abpLocalization }}
                 </label>
 
-                <input
+                <select
                   id="typeFilter"
-                  class="form-control"
+                  class="form-select form-control"
                   [(ngModel)]="filters.type"
                   [ngModelOptions]="{ standalone: true }"
-                />
+                >
+                  <option [ngValue]="null"></option>
+                  <option
+                    *ngFor="let option of supplierTypeOptions; trackBy: track.by('value')"
+                    [ngValue]="option.value"
+                  >
+                    {{
+                      'CommonService::Enum:SupplierType.' + option.value | abpLocalization
+                    }}
+                  </option>
+                </select>
               </div>
             </div>
 
@@ -128,33 +138,30 @@
 
             <div class="col-12 col-sm-auto">
               <div class="mb-3">
-                <label class="form-label" for="minSupplierStatus">
-                  {{ 'CommonService::MinSupplierStatus' | abpLocalization }}
+                <label class="form-label" for="supplierStatusFilter">
+                  {{ 'CommonService::SupplierStatus' | abpLocalization }}
                 </label>
 
-                <input
-                  id="minSupplierStatus"
-                  type="number"
-                  class="form-control"
-                  [(ngModel)]="filters.supplierStatusMin"
+                <select
+                  id="supplierStatusFilter"
+                  class="form-select form-control"
+                  [(ngModel)]="filters.supplierStatus"
                   [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-auto">
-              <div class="mb-3">
-                <label class="form-label" for="maxSupplierStatus">
-                  {{ 'CommonService::MaxSupplierStatus' | abpLocalization }}
-                </label>
-
-                <input
-                  id="maxSupplierStatus"
-                  type="number"
-                  class="form-control"
-                  [(ngModel)]="filters.supplierStatusMax"
-                  [ngModelOptions]="{ standalone: true }"
-                />
+                >
+                  <option [ngValue]="null"></option>
+                  <option
+                    *ngFor="
+                      let option of supplierStatusOptions;
+                      trackBy: track.by('value')
+                    "
+                    [ngValue]="option.value"
+                  >
+                    {{
+                      'CommonService::Enum:SupplierStatus.' + option.value
+                        | abpLocalization
+                    }}
+                  </option>
+                </select>
               </div>
             </div>
 
@@ -377,7 +384,12 @@
           prop="supplierMaster.type"
         >
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.supplierMaster.type }}
+            {{
+              row.supplierMaster.type !== null
+                ? ('CommonService::Enum:SupplierType.' + row.supplierMaster.type
+                  | abpLocalization)
+                : ''
+            }}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column
@@ -417,7 +429,12 @@
           prop="supplierMaster.supplierStatus"
         >
           <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row.supplierMaster.supplierStatus }}
+            {{
+              row.supplierMaster.supplierStatus !== null
+                ? ('CommonService::Enum:SupplierStatus.' +
+                    row.supplierMaster.supplierStatus | abpLocalization)
+                : ''
+            }}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column

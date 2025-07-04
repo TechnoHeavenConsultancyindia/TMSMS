@@ -20,7 +20,7 @@
   "ShouldCreateBackend": true,
   "ShouldExportExcel": true,
   "ShouldAddMigration": true,
-  "ShouldUpdateDatabase": true,
+  "ShouldUpdateDatabase": false,
   "CreateTests": true,
   "Properties": [
     {
@@ -55,11 +55,11 @@
     {
       "Id": "8cdc7802-a55a-4c1e-b51a-1ab818519712",
       "Name": "Type",
-      "Type": "string",
-      "EnumType": "",
-      "EnumNamespace": "",
-      "EnumAngularImport": "shared/enums",
-      "EnumFilePath": null,
+      "Type": "enum",
+      "EnumType": "SupplierType",
+      "EnumNamespace": "TMSMS.CommonService",
+      "EnumAngularImport": "shared/enums/supplier-type",
+      "EnumFilePath": "/TMSMS.CommonService.Contracts/Enums/SupplierType.cs",
       "DefaultValue": null,
       "IsNullable": false,
       "IsRequired": false,
@@ -76,7 +76,11 @@
       "ShowOnCreateModal": true,
       "ShowOnEditModal": true,
       "ReadonlyOnEditModal": false,
-      "EnumValues": null,
+      "EnumValues": {
+        "OTA": 0,
+        "DMC": 1,
+        "Wholesaler": 2
+      },
       "IsSelected": true,
       "MaxFileSize": null,
       "OrdinalIndex": 0
@@ -200,11 +204,11 @@
     {
       "Id": "b22de1e0-ca92-4a83-9999-511c746caec0",
       "Name": "SupplierStatus",
-      "Type": "int",
-      "EnumType": "",
-      "EnumNamespace": "",
-      "EnumAngularImport": "shared/enums",
-      "EnumFilePath": null,
+      "Type": "enum",
+      "EnumType": "SupplierStatus",
+      "EnumNamespace": "TMSMS.CommonService",
+      "EnumAngularImport": "shared/enums/supplier-status",
+      "EnumFilePath": "/TMSMS.CommonService.Contracts/Enums/SupplierStatus.cs",
       "DefaultValue": null,
       "IsNullable": false,
       "IsRequired": false,
@@ -221,7 +225,10 @@
       "ShowOnCreateModal": true,
       "ShowOnEditModal": true,
       "ReadonlyOnEditModal": false,
-      "EnumValues": null,
+      "EnumValues": {
+        "Active": 0,
+        "InActive": 1
+      },
       "IsSelected": true,
       "MaxFileSize": null,
       "OrdinalIndex": 0

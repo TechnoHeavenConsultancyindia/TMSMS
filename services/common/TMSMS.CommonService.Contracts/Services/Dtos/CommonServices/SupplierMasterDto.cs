@@ -1,3 +1,4 @@
+using TMSMS.CommonService;
 using System;
 using System.Collections.Generic;
 
@@ -9,12 +10,12 @@ namespace TMSMS.CommonService.CommonServices
     public abstract class SupplierMasterDtoBase : FullAuditedEntityDto<int>, IHasConcurrencyStamp
     {
         public string Name { get; set; } = null!;
-        public string? Type { get; set; }
+        public SupplierType Type { get; set; }
         public string ContactName { get; set; } = null!;
         public string? ContactEmail { get; set; }
         public string? DialCode { get; set; }
         public string? ContactPhone { get; set; }
-        public int SupplierStatus { get; set; }
+        public SupplierStatus SupplierStatus { get; set; }
         public bool Preffered { get; set; }
         public int CountryId { get; set; }
         public int SupplierServiceTypeId { get; set; }

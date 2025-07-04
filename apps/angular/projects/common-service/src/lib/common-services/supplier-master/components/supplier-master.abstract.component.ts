@@ -2,6 +2,8 @@ import { Directive, OnInit, inject } from '@angular/core';
 
 import { ListService, PermissionService, TrackByService } from '@abp/ng.core';
 
+import { supplierTypeOptions } from '../../../proxy/common-service/supplier-type.enum';
+import { supplierStatusOptions } from '../../../proxy/common-service/supplier-status.enum';
 import type { SupplierMasterWithNavigationPropertiesDto } from '../../../proxy/common-service/common-services/models';
 import { SupplierMasterViewService } from '../services/supplier-master.service';
 import { SupplierMasterDetailViewService } from '../services/supplier-master-detail.service';
@@ -20,6 +22,9 @@ export abstract class AbstractSupplierMasterComponent implements OnInit {
 
   protected title = 'CommonService::SupplierMasters';
   protected isActionButtonVisible: boolean | null = null;
+
+  supplierTypeOptions = supplierTypeOptions;
+  supplierStatusOptions = supplierStatusOptions;
 
   ngOnInit() {
     this.service.hookToQuery();

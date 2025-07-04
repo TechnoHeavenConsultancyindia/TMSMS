@@ -44,8 +44,8 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual async Task<PagedResultDto<SupplierMasterWithNavigationPropertiesDto>> GetListAsync(GetSupplierMastersInput input)
         {
-            var totalCount = await _supplierMasterRepository.GetCountAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatusMin, input.SupplierStatusMax, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
-            var items = await _supplierMasterRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatusMin, input.SupplierStatusMax, input.Preffered, input.CountryId, input.SupplierServiceTypeId, input.Sorting, input.MaxResultCount, input.SkipCount);
+            var totalCount = await _supplierMasterRepository.GetCountAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatus, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
+            var items = await _supplierMasterRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatus, input.Preffered, input.CountryId, input.SupplierServiceTypeId, input.Sorting, input.MaxResultCount, input.SkipCount);
 
             return new PagedResultDto<SupplierMasterWithNavigationPropertiesDto>
             {
@@ -116,7 +116,7 @@ namespace TMSMS.CommonService.CommonServices
             }
 
             var supplierMaster = await _supplierMasterManager.CreateAsync(
-            input.CountryId, input.SupplierServiceTypeId, input.Name, input.ContactName, input.SupplierStatus, input.Preffered, input.Type, input.ContactEmail, input.DialCode, input.ContactPhone
+            input.CountryId, input.SupplierServiceTypeId, input.Name, input.Type, input.ContactName, input.SupplierStatus, input.Preffered, input.ContactEmail, input.DialCode, input.ContactPhone
             );
 
             return ObjectMapper.Map<SupplierMaster, SupplierMasterDto>(supplierMaster);
@@ -136,7 +136,7 @@ namespace TMSMS.CommonService.CommonServices
 
             var supplierMaster = await _supplierMasterManager.UpdateAsync(
             id,
-            input.CountryId, input.SupplierServiceTypeId, input.Name, input.ContactName, input.SupplierStatus, input.Preffered, input.Type, input.ContactEmail, input.DialCode, input.ContactPhone, input.ConcurrencyStamp
+            input.CountryId, input.SupplierServiceTypeId, input.Name, input.Type, input.ContactName, input.SupplierStatus, input.Preffered, input.ContactEmail, input.DialCode, input.ContactPhone, input.ConcurrencyStamp
             );
 
             return ObjectMapper.Map<SupplierMaster, SupplierMasterDto>(supplierMaster);
@@ -151,7 +151,7 @@ namespace TMSMS.CommonService.CommonServices
                 throw new AbpAuthorizationException("Invalid download token: " + input.DownloadToken);
             }
 
-            var supplierMasters = await _supplierMasterRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatusMin, input.SupplierStatusMax, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
+            var supplierMasters = await _supplierMasterRepository.GetListWithNavigationPropertiesAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatus, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
             var items = supplierMasters.Select(item => new
             {
                 Name = item.SupplierMaster.Name,
@@ -184,7 +184,7 @@ namespace TMSMS.CommonService.CommonServices
         [Authorize(CommonServicePermissions.SupplierMasters.Delete)]
         public virtual async Task DeleteAllAsync(GetSupplierMastersInput input)
         {
-            await _supplierMasterRepository.DeleteAllAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatusMin, input.SupplierStatusMax, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
+            await _supplierMasterRepository.DeleteAllAsync(input.FilterText, input.Name, input.Type, input.ContactName, input.ContactEmail, input.DialCode, input.ContactPhone, input.SupplierStatus, input.Preffered, input.CountryId, input.SupplierServiceTypeId);
         }
         public virtual async Task<TMSMS.CommonService.Shared.DownloadTokenResultDto> GetDownloadTokenAsync()
         {

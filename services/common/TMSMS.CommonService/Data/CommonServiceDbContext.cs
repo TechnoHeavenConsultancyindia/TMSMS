@@ -210,6 +210,7 @@ public class CommonServiceDbContext :
                     b.Property(x => x.Name).HasColumnName(nameof(SupplierServiceType.Name)).IsRequired().HasMaxLength(SupplierServiceTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(SupplierServiceType.Description)).HasMaxLength(SupplierServiceTypeConsts.DescriptionMaxLength);
                 });
+
         builder.Entity<SupplierMaster>(b =>
                 {
                     b.ToTable(DbTablePrefix + "SupplierMasters", DbSchema);

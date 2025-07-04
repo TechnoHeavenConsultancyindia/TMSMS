@@ -51,14 +51,27 @@
 
               <div class="mb-3">
                 <label class="form-label" for="supplier-master-type">
-                  {{ 'CommonService::Type' | abpLocalization }}
+                  {{ 'CommonService::Type' | abpLocalization }} *
                 </label>
 
-                <input
+                <select
                   id="supplier-master-type"
                   formControlName="type"
-                  class="form-control"
-                />
+                  class="form-select form-control"
+                >
+                  <option [ngValue]="null"></option>
+                  <option
+                    *ngFor="
+                      let option of service.supplierTypeOptions;
+                      trackBy: service.track.by('key')
+                    "
+                    [ngValue]="option.value"
+                  >
+                    {{
+                      'CommonService::Enum:SupplierType.' + option.value | abpLocalization
+                    }}
+                  </option>
+                </select>
               </div>
 
               <div class="mb-3">
@@ -118,12 +131,25 @@
                   {{ 'CommonService::SupplierStatus' | abpLocalization }} *
                 </label>
 
-                <input
-                  type="number"
+                <select
                   id="supplier-master-supplier-status"
                   formControlName="supplierStatus"
-                  class="form-control"
-                />
+                  class="form-select form-control"
+                >
+                  <option [ngValue]="null"></option>
+                  <option
+                    *ngFor="
+                      let option of service.supplierStatusOptions;
+                      trackBy: service.track.by('key')
+                    "
+                    [ngValue]="option.value"
+                  >
+                    {{
+                      'CommonService::Enum:SupplierStatus.' + option.value
+                        | abpLocalization
+                    }}
+                  </option>
+                </select>
               </div>
 
               <div class="form-check mb-3">
