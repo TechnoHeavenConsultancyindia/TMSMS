@@ -208,18 +208,18 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
   locationId?: string;
   name?: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
+  countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
   polygonType?: string;
   categories?: string;
-  countryCode?: string;
   tags?: string;
   statusFlagMin?: number;
   statusFlagMax?: number;
+  descriptor?: string;
 }
 
 export interface ProvinceCreateDto {
@@ -299,34 +299,34 @@ export interface RegionCreateDto {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
-  categories: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
+  categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
 }
 
 export interface RegionDto extends FullAuditedEntityDto<number> {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
-  categories: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
+  categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
   concurrencyStamp?: string;
 }
 
@@ -336,34 +336,34 @@ export interface RegionExcelDownloadDto {
   locationId?: string;
   name?: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
+  countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
   polygonType?: string;
   categories?: string;
-  countryCode?: string;
   tags?: string;
   statusFlagMin?: number;
   statusFlagMax?: number;
+  descriptor?: string;
 }
 
 export interface RegionUpdateDto {
   locationId?: string;
   name: string;
   fullName?: string;
-  descriptor?: string;
-  iataAirportCode?: string;
-  iataAirportMetroCode?: string;
-  countrySubdivisionCode?: string;
   latitude?: string;
   longitude?: string;
-  polygonType?: string;
-  categories: string;
   countryCode?: string;
+  countrySubdivisionCode?: string;
+  iataAirportCode?: string;
+  iataAirportMetroCode?: string;
+  polygonType?: string;
+  categories?: string;
   tags?: string;
   statusFlag: number;
+  descriptor?: string;
   concurrencyStamp?: string;
 }
