@@ -13,6 +13,8 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<SupplierServiceType> SupplierServiceTypes { get; set; } = null!;
+    public DbSet<PromoCodeUsageTracking> PromoCodeUsageTrackings { get; set; } = null!;
     public DbSet<PromoCodeMaster> PromoCodeMasters { get; set; } = null!;
     public DbSet<WeekDay> WeekDays { get; set; } = null!;
     public DbSet<Region> Regions { get; set; } = null!;
@@ -189,5 +191,23 @@ public class CommonServiceDbContext :
                 x => new { x.PromoCodeMasterId, x.CityId }
         );
     });
+        builder.Entity<PromoCodeUsageTracking>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "PromoCodeUsageTrackings", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(PromoCodeUsageTracking.TenantId));
+                    b.Property(x => x.UserID).HasColumnName(nameof(PromoCodeUsageTracking.UserID));
+                    b.Property(x => x.BookingID).HasColumnName(nameof(PromoCodeUsageTracking.BookingID));
+                    b.Property(x => x.UsageDate).HasColumnName(nameof(PromoCodeUsageTracking.UsageDate));
+                    b.HasOne<PromoCodeMaster>().WithMany().HasForeignKey(x => x.PromoCodeMasterId).OnDelete(DeleteBehavior.SetNull);
+                });
+        builder.Entity<SupplierServiceType>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "SupplierServiceTypes", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(SupplierServiceType.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(SupplierServiceType.Name)).IsRequired().HasMaxLength(SupplierServiceTypeConsts.NameMaxLength);
+                    b.Property(x => x.Description).HasColumnName(nameof(SupplierServiceType.Description)).HasMaxLength(SupplierServiceTypeConsts.DescriptionMaxLength);
+                });
     }
 }
