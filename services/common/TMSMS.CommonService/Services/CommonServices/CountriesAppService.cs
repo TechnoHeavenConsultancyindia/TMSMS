@@ -38,8 +38,8 @@ namespace TMSMS.CommonService.CommonServices
 
         public virtual async Task<PagedResultDto<CountryDto>> GetListAsync(GetCountriesInput input)
         {
-            var totalCount = await _countryRepository.GetCountAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax);
-            var items = await _countryRepository.GetListAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax, input.Sorting, input.MaxResultCount, input.SkipCount);
+            var totalCount = await _countryRepository.GetCountAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax, input.Descriptor);
+            var items = await _countryRepository.GetListAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax, input.Descriptor, input.Sorting, input.MaxResultCount, input.SkipCount);
 
             return new PagedResultDto<CountryDto>
             {
@@ -64,7 +64,7 @@ namespace TMSMS.CommonService.CommonServices
         {
 
             var country = await _countryManager.CreateAsync(
-            input.Name, input.Categories, input.StatusFlag, input.LocationId, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Tags
+            input.Name, input.StatusFlag, input.LocationId, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.Descriptor
             );
 
             return ObjectMapper.Map<Country, CountryDto>(country);
@@ -76,7 +76,7 @@ namespace TMSMS.CommonService.CommonServices
 
             var country = await _countryManager.UpdateAsync(
             id,
-            input.Name, input.Categories, input.StatusFlag, input.LocationId, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Tags, input.ConcurrencyStamp
+            input.Name, input.StatusFlag, input.LocationId, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.Descriptor, input.ConcurrencyStamp
             );
 
             return ObjectMapper.Map<Country, CountryDto>(country);
@@ -91,7 +91,7 @@ namespace TMSMS.CommonService.CommonServices
                 throw new AbpAuthorizationException("Invalid download token: " + input.DownloadToken);
             }
 
-            var items = await _countryRepository.GetListAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax);
+            var items = await _countryRepository.GetListAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax, input.Descriptor);
 
             var memoryStream = new MemoryStream();
             await memoryStream.SaveAsAsync(ObjectMapper.Map<List<Country>, List<CountryExcelDto>>(items));
@@ -109,7 +109,7 @@ namespace TMSMS.CommonService.CommonServices
         [Authorize(CommonServicePermissions.Countries.Delete)]
         public virtual async Task DeleteAllAsync(GetCountriesInput input)
         {
-            await _countryRepository.DeleteAllAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Descriptor, input.IataAirportCode, input.IataAirportMetroCode, input.CountrySubdivisionCode, input.Latitude, input.Longitude, input.PolygonType, input.CountryCode, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax);
+            await _countryRepository.DeleteAllAsync(input.FilterText, input.LocationId, input.Name, input.FullName, input.Latitude, input.Longitude, input.CountryCode, input.CountrySubdivisionCode, input.IataAirportCode, input.IataAirportMetroCode, input.PolygonType, input.Categories, input.Tags, input.StatusFlagMin, input.StatusFlagMax, input.Descriptor);
         }
         public virtual async Task<TMSMS.CommonService.Shared.DownloadTokenResultDto> GetDownloadTokenAsync()
         {
