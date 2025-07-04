@@ -280,6 +280,8 @@ public class TMSMSCommonServiceModule : AbpModule
 
             options.AddRepository<Region, CommonServices.EfCoreRegionRepository>();
 
+            options.AddRepository<WeekDay, CommonServices.EfCoreWeekDayRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>

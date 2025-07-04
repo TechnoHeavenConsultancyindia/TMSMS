@@ -85,6 +85,20 @@
     "Regions": "Regions",
     "NewRegion": "New Region",
     "Region": "Region",
-    "Menu:Regions": "Regions"
+    "Menu:Regions": "Regions",
+    "Permission:WeekDays": "Week Days",
+    "WeekDays": "Week Days",
+    "NewWeekDay": "New Week Day",
+    "WeekDay": "Week Day",
+    "Menu:WeekDays": "Week Days",
+    "DayAbbreviation": "Day Abbreviation",
+    "IsWeekend": "Is Weekend",
+    "DisplayOrder": "Display Order",
+    "MinDayAbbreviation": "Min Day Abbreviation",
+    "MinIsWeekend": "Min Is Weekend",
+    "MinDisplayOrder": "Min Display Order",
+    "MaxDayAbbreviation": "Max Day Abbreviation",
+    "MaxIsWeekend": "Max Is Weekend",
+    "MaxDisplayOrder": "Max Display Order"
   }
 }

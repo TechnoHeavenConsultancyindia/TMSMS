@@ -25,5 +25,8 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<Region, RegionDto>();
         CreateMap<Region, RegionExcelDto>();
+
+        CreateMap<WeekDay, WeekDayDto>();
+        CreateMap<WeekDay, WeekDayExcelDto>();
     }
 }

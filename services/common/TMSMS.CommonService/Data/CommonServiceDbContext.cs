@@ -13,6 +13,7 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
+    public DbSet<WeekDay> WeekDays { get; set; } = null!;
     public DbSet<Region> Regions { get; set; } = null!;
     public DbSet<Province> Provinces { get; set; } = null!;
     public DbSet<City> Cities { get; set; } = null!;
@@ -116,6 +117,16 @@ public class CommonServiceDbContext :
                     b.Property(x => x.Tags).HasColumnName(nameof(Region.Tags));
                     b.Property(x => x.StatusFlag).HasColumnName(nameof(Region.StatusFlag));
                     b.Property(x => x.Descriptor).HasColumnName(nameof(Region.Descriptor));
+                });
+        builder.Entity<WeekDay>(b =>
+                {
+                    b.ToTable(DbTablePrefix + "WeekDays", DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.TenantId).HasColumnName(nameof(WeekDay.TenantId));
+                    b.Property(x => x.Name).HasColumnName(nameof(WeekDay.Name)).IsRequired().HasMaxLength(WeekDayConsts.NameMaxLength);
+                    b.Property(x => x.DayAbbreviation).HasColumnName(nameof(WeekDay.DayAbbreviation)).IsRequired().HasMaxLength(WeekDayConsts.DayAbbreviationMaxLength);
+                    b.Property(x => x.IsWeekend).HasColumnName(nameof(WeekDay.IsWeekend));
+                    b.Property(x => x.DisplayOrder).HasColumnName(nameof(WeekDay.DisplayOrder));
                 });
     }
 }

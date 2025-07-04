@@ -222,6 +222,15 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
   descriptor?: string;
 }
 
+export interface GetWeekDaysInput extends PagedAndSortedResultRequestDto {
+  filterText?: string;
+  name?: string;
+  dayAbbreviation?: string;
+  isWeekend?: boolean;
+  displayOrderMin?: number;
+  displayOrderMax?: number;
+}
+
 export interface ProvinceCreateDto {
   locationId?: string;
   name: string;
@@ -365,5 +374,38 @@ export interface RegionUpdateDto {
   tags?: string;
   statusFlag: number;
   descriptor?: string;
+  concurrencyStamp?: string;
+}
+
+export interface WeekDayCreateDto {
+  name: string;
+  dayAbbreviation: string;
+  isWeekend: boolean;
+  displayOrder: number;
+}
+
+export interface WeekDayDto extends FullAuditedEntityDto<number> {
+  name: string;
+  dayAbbreviation: string;
+  isWeekend: boolean;
+  displayOrder: number;
+  concurrencyStamp?: string;
+}
+
+export interface WeekDayExcelDownloadDto {
+  downloadToken?: string;
+  filterText?: string;
+  name?: string;
+  dayAbbreviation?: string;
+  isWeekend?: boolean;
+  displayOrderMin?: number;
+  displayOrderMax?: number;
+}
+
+export interface WeekDayUpdateDto {
+  name: string;
+  dayAbbreviation: string;
+  isWeekend: boolean;
+  displayOrder: number;
   concurrencyStamp?: string;
 }

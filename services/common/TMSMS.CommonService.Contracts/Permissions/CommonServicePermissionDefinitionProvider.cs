@@ -29,6 +29,11 @@ public class CommonServicePermissionDefinitionProvider : PermissionDefinitionPro
         regionPermission.AddChild(CommonServicePermissions.Regions.Create, L("Permission:Create"));
         regionPermission.AddChild(CommonServicePermissions.Regions.Edit, L("Permission:Edit"));
         regionPermission.AddChild(CommonServicePermissions.Regions.Delete, L("Permission:Delete"));
+
+        var weekDayPermission = myGroup.AddPermission(CommonServicePermissions.WeekDays.Default, L("Permission:WeekDays"));
+        weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Create, L("Permission:Create"));
+        weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Edit, L("Permission:Edit"));
+        weekDayPermission.AddChild(CommonServicePermissions.WeekDays.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)
