@@ -9,7 +9,6 @@ import { loadWeekDayModuleAsChild } from './common-services/week-day/week-day.mo
 import { loadPromoCodeMasterModuleAsChild } from './common-services/promo-code-master/promo-code-master.module';
 import { loadPromoCodeUsageTrackingModuleAsChild } from './common-services/promo-code-usage-tracking/promo-code-usage-tracking.module';
 import { loadSupplierServiceTypeModuleAsChild } from './common-services/supplier-service-type/supplier-service-type.module';
-import { loadSupplierMasterModuleAsChild } from './common-services/supplier-master/supplier-master.module';
 
 const routes: Routes = [
   {
@@ -29,7 +28,6 @@ const routes: Routes = [
     loadChildren: loadPromoCodeUsageTrackingModuleAsChild,
   },
   { path: 'supplier-service-types', loadChildren: loadSupplierServiceTypeModuleAsChild },
-  { path: 'supplier-masters', loadChildren: loadSupplierMasterModuleAsChild },
 ];
 
 @NgModule({

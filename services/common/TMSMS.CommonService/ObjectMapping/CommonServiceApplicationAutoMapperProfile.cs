@@ -42,10 +42,5 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
 
         CreateMap<SupplierServiceType, SupplierServiceTypeDto>();
         CreateMap<SupplierServiceType, SupplierServiceTypeExcelDto>();
-
-        CreateMap<SupplierMaster, SupplierMasterDto>();
-        CreateMap<SupplierMaster, SupplierMasterExcelDto>();
-        CreateMap<SupplierMasterWithNavigationProperties, SupplierMasterWithNavigationPropertiesDto>();
-        CreateMap<SupplierServiceType, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
     }
 }

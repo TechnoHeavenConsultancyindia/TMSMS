@@ -13,7 +13,6 @@ public class CommonServiceDbContext :
     IHasEventInbox,
     IHasEventOutbox
 {
-    public DbSet<SupplierMaster> SupplierMasters { get; set; } = null!;
     public DbSet<SupplierServiceType> SupplierServiceTypes { get; set; } = null!;
     public DbSet<PromoCodeUsageTracking> PromoCodeUsageTrackings { get; set; } = null!;
     public DbSet<PromoCodeMaster> PromoCodeMasters { get; set; } = null!;
@@ -209,22 +208,6 @@ public class CommonServiceDbContext :
                     b.Property(x => x.TenantId).HasColumnName(nameof(SupplierServiceType.TenantId));
                     b.Property(x => x.Name).HasColumnName(nameof(SupplierServiceType.Name)).IsRequired().HasMaxLength(SupplierServiceTypeConsts.NameMaxLength);
                     b.Property(x => x.Description).HasColumnName(nameof(SupplierServiceType.Description)).HasMaxLength(SupplierServiceTypeConsts.DescriptionMaxLength);
-                });
-        builder.Entity<SupplierMaster>(b =>
-                {
-                    b.ToTable(DbTablePrefix + "SupplierMasters", DbSchema);
-                    b.ConfigureByConvention();
-                    b.Property(x => x.TenantId).HasColumnName(nameof(SupplierMaster.TenantId));
-                    b.Property(x => x.Name).HasColumnName(nameof(SupplierMaster.Name)).IsRequired().HasMaxLength(SupplierMasterConsts.NameMaxLength);
-                    b.Property(x => x.Type).HasColumnName(nameof(SupplierMaster.Type));
-                    b.Property(x => x.ContactName).HasColumnName(nameof(SupplierMaster.ContactName)).IsRequired().HasMaxLength(SupplierMasterConsts.ContactNameMaxLength);
-                    b.Property(x => x.ContactEmail).HasColumnName(nameof(SupplierMaster.ContactEmail)).HasMaxLength(SupplierMasterConsts.ContactEmailMaxLength);
-                    b.Property(x => x.DialCode).HasColumnName(nameof(SupplierMaster.DialCode)).HasMaxLength(SupplierMasterConsts.DialCodeMaxLength);
-                    b.Property(x => x.ContactPhone).HasColumnName(nameof(SupplierMaster.ContactPhone)).HasMaxLength(SupplierMasterConsts.ContactPhoneMaxLength);
-                    b.Property(x => x.SupplierStatus).HasColumnName(nameof(SupplierMaster.SupplierStatus));
-                    b.Property(x => x.Preffered).HasColumnName(nameof(SupplierMaster.Preffered));
-                    b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId).OnDelete(DeleteBehavior.NoAction);
-                    b.HasOne<SupplierServiceType>().WithMany().IsRequired().HasForeignKey(x => x.SupplierServiceTypeId).OnDelete(DeleteBehavior.NoAction);
                 });
     }
 }
