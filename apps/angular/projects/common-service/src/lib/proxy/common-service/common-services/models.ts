@@ -220,17 +220,6 @@ export interface GetPromoCodeMastersInput extends PagedAndSortedResultRequestDto
   cityId?: string;
 }
 
-export interface GetPromoCodeUsageTrackingsInput extends PagedAndSortedResultRequestDto {
-  filterText?: string;
-  userIDMin?: number;
-  userIDMax?: number;
-  bookingIDMin?: number;
-  bookingIDMax?: number;
-  usageDateMin?: string;
-  usageDateMax?: string;
-  promoCodeMasterId?: number;
-}
-
 export interface GetProvincesInput extends PagedAndSortedResultRequestDto {
   filterText?: string;
   locationId?: string;
@@ -267,12 +256,6 @@ export interface GetRegionsInput extends PagedAndSortedResultRequestDto {
   statusFlagMin?: number;
   statusFlagMax?: number;
   descriptor?: string;
-}
-
-export interface GetSupplierServiceTypesInput extends PagedAndSortedResultRequestDto {
-  filterText?: string;
-  name?: string;
-  description?: string;
 }
 
 export interface GetWeekDaysInput extends PagedAndSortedResultRequestDto {
@@ -397,46 +380,6 @@ export interface PromoCodeMasterWithNavigationPropertiesDto {
   promoCodeMaster: PromoCodeMasterDto;
   countries: CountryDto[];
   cities: CityDto[];
-}
-
-export interface PromoCodeUsageTrackingCreateDto {
-  userID: number;
-  bookingID: number;
-  usageDate?: string;
-  promoCodeMasterId?: number;
-}
-
-export interface PromoCodeUsageTrackingDto extends FullAuditedEntityDto<number> {
-  userID: number;
-  bookingID: number;
-  usageDate?: string;
-  promoCodeMasterId?: number;
-  concurrencyStamp?: string;
-}
-
-export interface PromoCodeUsageTrackingExcelDownloadDto {
-  downloadToken?: string;
-  filterText?: string;
-  userIDMin?: number;
-  userIDMax?: number;
-  bookingIDMin?: number;
-  bookingIDMax?: number;
-  usageDateMin?: string;
-  usageDateMax?: string;
-  promoCodeMasterId?: number;
-}
-
-export interface PromoCodeUsageTrackingUpdateDto {
-  userID: number;
-  bookingID: number;
-  usageDate?: string;
-  promoCodeMasterId?: number;
-  concurrencyStamp?: string;
-}
-
-export interface PromoCodeUsageTrackingWithNavigationPropertiesDto {
-  promoCodeUsageTracking: PromoCodeUsageTrackingDto;
-  promoCodeMaster: PromoCodeMasterDto;
 }
 
 export interface ProvinceCreateDto {
@@ -582,30 +525,6 @@ export interface RegionUpdateDto {
   tags?: string;
   statusFlag: number;
   descriptor?: string;
-  concurrencyStamp?: string;
-}
-
-export interface SupplierServiceTypeCreateDto {
-  name: string;
-  description?: string;
-}
-
-export interface SupplierServiceTypeDto extends FullAuditedEntityDto<number> {
-  name: string;
-  description?: string;
-  concurrencyStamp?: string;
-}
-
-export interface SupplierServiceTypeExcelDownloadDto {
-  downloadToken?: string;
-  filterText?: string;
-  name?: string;
-  description?: string;
-}
-
-export interface SupplierServiceTypeUpdateDto {
-  name: string;
-  description?: string;
   concurrencyStamp?: string;
 }
 

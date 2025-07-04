@@ -34,13 +34,5 @@ public class CommonServiceApplicationAutoMapperProfile : Profile
         CreateMap<PromoCodeMasterWithNavigationProperties, PromoCodeMasterWithNavigationPropertiesDto>();
         CreateMap<Country, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
         CreateMap<City, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<PromoCodeUsageTracking, PromoCodeUsageTrackingDto>();
-        CreateMap<PromoCodeUsageTracking, PromoCodeUsageTrackingExcelDto>();
-        CreateMap<PromoCodeUsageTrackingWithNavigationProperties, PromoCodeUsageTrackingWithNavigationPropertiesDto>();
-        CreateMap<PromoCodeMaster, LookupDto<int>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
-
-        CreateMap<SupplierServiceType, SupplierServiceTypeDto>();
-        CreateMap<SupplierServiceType, SupplierServiceTypeExcelDto>();
     }
 }

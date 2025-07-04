@@ -3,8 +3,6 @@ export * from './country.service';
 export * from './editor-config.service';
 export * from './models';
 export * from './promo-code-master.service';
-export * from './promo-code-usage-tracking.service';
 export * from './province.service';
 export * from './region.service';
-export * from './supplier-service-type.service';
 export * from './week-day.service';
